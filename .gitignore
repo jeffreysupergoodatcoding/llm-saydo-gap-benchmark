@@ -1,0 +1,11 @@
+data/raw/
+data/processed/
+data/splits/
+.venv/
+__pycache__/
+*.pyc
+cache/llm/
+cache/llm_costs.jsonl
+results/*.npz
+*.log
+.DS_Store
