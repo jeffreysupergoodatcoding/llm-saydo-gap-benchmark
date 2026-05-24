@@ -1,0 +1,36 @@
+{
+  "windows": [
+    "w0_T-90_T-60",
+    "w1_T-60_T-30",
+    "w2_T-30_T"
+  ],
+  "n_customers": 46865,
+  "per_window_rate": {
+    "w0_T-90_T-60": 0.2628400725488104,
+    "w1_T-60_T-30": 0.2622639496425904,
+    "w2_T-30_T": 0.23936839859169956
+  },
+  "pairwise_corr": {
+    "w0_T-90_T-60__vs__w1_T-60_T-30": {
+      "pearson_r": 0.393372614634814,
+      "pearson_p": 0.0,
+      "spearman_rho": 0.393372614634831,
+      "spearman_p": 0.0
+    },
+    "w1_T-60_T-30__vs__w2_T-30_T": {
+      "pearson_r": 0.37959229870664624,
+      "pearson_p": 0.0,
+      "spearman_rho": 0.37959229870662103,
+      "spearman_p": 0.0
+    }
+  },
+  "past_two_predicts_current": {
+    "pearson_r": 0.44832188054097905,
+    "pearson_p": 0.0,
+    "spearman_rho": 0.43373982954525825,
+    "spearman_p": 0.0,
+    "method": "use avg of two preceding 30-day window indicators as the 'human-self stated intent' analog"
+  },
+  "sheeran_2002_meta_r": 0.53,
+  "interpretation": "The within-H&M test-retest correlation (a customer's buying in past 30 days predicting their buying in next 30 days) is the apples-to-apples 'human self predicts human self' benchmark. Sheeran's r \u2248 0.53 is for stated intent vs subsequent behavior across health/voting/exercise domains; the within-domain analog reported here lets us compare the LLM's within-bucket Spearman (0.22-0.28 in \u00a74.3.1) to a same-task numerical comparator."
+}

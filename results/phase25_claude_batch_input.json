@@ -1,0 +1,402 @@
+[
+  {
+    "slot": 0,
+    "cid_short": "d6278afb448e\u2026",
+    "cid": "d6278afb448e235d4a84edcf7ee7f1e78f9d78022c0f05a4c3ee2041d659cc61",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 21\n- Purchase history: 1 total purchases, first on 2019-03-06, most recent 535 days before cutoff\n- Total spend: 0.03 (avg per item 0.0288)\n- Top product types: Trousers\n- Top colors: White\n- Top sections: Divided Collection\n\nRECENT PURCHASES (up to last 15):\n  - 535d ago: Tom Lace Up Denim TRS (Trousers, White)"
+  },
+  {
+    "slot": 1,
+    "cid_short": "2158b5c5620e\u2026",
+    "cid": "2158b5c5620e26e2382ed085f8d2e72ada67d4558e4ad2934569e3f096c308bd",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 40\n- Purchase history: 1 total purchases, first on 2020-04-24, most recent 120 days before cutoff\n- Total spend: 0.03 (avg per item 0.0339)\n- Top product types: Leggings/Tights\n- Top colors: Black\n- Top sections: Ladies H&M Sport\n\nRECENT PURCHASES (up to last 15):\n  - 120d ago: SUPREME RW tights (Leggings/Tights, Black)"
+  },
+  {
+    "slot": 2,
+    "cid_short": "8c686d77b22b\u2026",
+    "cid": "8c686d77b22b0bd28e3f391c34d35b1b5f25f169871fdab266674acddf7e78dd",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 48\n- Purchase history: 1 total purchases, first on 2019-08-08, most recent 380 days before cutoff\n- Total spend: 0.05 (avg per item 0.0457)\n- Top product types: Dress\n- Top colors: Dark Red\n- Top sections: Womens Tailoring\n\nRECENT PURCHASES (up to last 15):\n  - 380d ago: Singo. (Dress, Dark Red)"
+  },
+  {
+    "slot": 3,
+    "cid_short": "54ef9d2cc160\u2026",
+    "cid": "54ef9d2cc1600fd05b2ded0f078d2ae25f245e303502ad8844a1403dd88f2515",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 51\n- Purchase history: 1 total purchases, first on 2019-12-02, most recent 264 days before cutoff\n- Total spend: 0.02 (avg per item 0.0169)\n- Top product types: Underwear Tights\n- Top colors: Black\n- Top sections: Womens Nightwear, Socks & Tigh\n\nRECENT PURCHASES (up to last 15):\n  - 264d ago: Shaper Shorts High Waist (Underwear Tights, Black)"
+  },
+  {
+    "slot": 4,
+    "cid_short": "7bf7fdd41d0d\u2026",
+    "cid": "7bf7fdd41d0d4aa0476c5bb2650eff1094233ea2416f81af1fdc4308b678078e",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 47\n- Purchase history: 1 total purchases, first on 2018-12-03, most recent 628 days before cutoff\n- Total spend: 0.03 (avg per item 0.0305)\n- Top product types: Hoodie\n- Top colors: Grey\n- Top sections: Men Underwear\n\nRECENT PURCHASES (up to last 15):\n  - 628d ago: Richie Regular Hood (Hoodie, Grey)"
+  },
+  {
+    "slot": 5,
+    "cid_short": "0596bee18676\u2026",
+    "cid": "0596bee18676a47985c92476d36c8b6ae6ede15ed38fd9e6e6c3043c3d660af5",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 58\n- Purchase history: 1 total purchases, first on 2020-01-17, most recent 218 days before cutoff\n- Total spend: 0.05 (avg per item 0.0534)\n- Top product types: Coat\n- Top colors: Black\n- Top sections: Womens Jackets\n\nRECENT PURCHASES (up to last 15):\n  - 218d ago: Ruffe Coat (Coat, Black)"
+  },
+  {
+    "slot": 6,
+    "cid_short": "75e07ebdb4fc\u2026",
+    "cid": "75e07ebdb4fc9877fdd4a9c12b0c403a4a8cd24745316874273088940b5748fb",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 38\n- Purchase history: 1 total purchases, first on 2020-08-19, most recent 3 days before cutoff\n- Total spend: 0.03 (avg per item 0.0305)\n- Top product types: Bra\n- Top colors: Light Beige\n- Top sections: Womens Lingerie\n\nRECENT PURCHASES (up to last 15):\n  - 3d ago: Liza Strapless Sofia 2pk (Bra, Light Beige)"
+  },
+  {
+    "slot": 7,
+    "cid_short": "e4a1b2d79d42\u2026",
+    "cid": "e4a1b2d79d42624af9721c8bf78223a5da7771b33fd43b337e13ab1fb9484172",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 40\n- Purchase history: 1 total purchases, first on 2019-07-19, most recent 400 days before cutoff\n- Total spend: 0.05 (avg per item 0.0508)\n- Top product types: Dress\n- Top colors: Light Beige\n- Top sections: Womens Trend\n\nRECENT PURCHASES (up to last 15):\n  - 400d ago: Chocolatechip dress (Dress, Light Beige)"
+  },
+  {
+    "slot": 8,
+    "cid_short": "c13b5c5195b8\u2026",
+    "cid": "c13b5c5195b8d742cafea4796e998798e1a22351f6fa307df8ead3f93cc77b0c",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 25\n- Purchase history: 1 total purchases, first on 2020-06-30, most recent 53 days before cutoff\n- Total spend: 0.02 (avg per item 0.0229)\n- Top product types: Bikini top\n- Top colors: Red\n- Top sections: Womens Swimwear, beachwear\n\nRECENT PURCHASES (up to last 15):\n  - 53d ago: Shake it in Balconette (Bikini top, Red)"
+  },
+  {
+    "slot": 9,
+    "cid_short": "f9732580a98d\u2026",
+    "cid": "f9732580a98d28fb3206e47d6f2c4d0a49d7691670b6af51ca34e7ebe36f60ad",
+    "bucket": "1",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 20\n- Purchase history: 1 total purchases, first on 2018-12-10, most recent 621 days before cutoff\n- Total spend: 0.03 (avg per item 0.0254)\n- Top product types: Dress\n- Top colors: Black\n- Top sections: Divided Collection\n\nRECENT PURCHASES (up to last 15):\n  - 621d ago: Sassy dress (Dress, Black)"
+  },
+  {
+    "slot": 10,
+    "cid_short": "b323b8d6a16a\u2026",
+    "cid": "b323b8d6a16ab5dc998c329d5ab79f8a08fb85b6b701024de606b723f7ce858a",
+    "bucket": "101+",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 28\n- Purchase history: 180 total purchases, first on 2018-10-05, most recent 23 days before cutoff\n- Total spend: 3.47 (avg per item 0.0193)\n- Top product types: Dress, Sweater, T-shirt\n- Top colors: Black, White, Red\n- Top sections: Divided Collection, Womens Lingerie, Womens Everyday Collection\n\nRECENT PURCHASES (up to last 15):\n  - 58d ago: Fiona brazilian (Acacia) 4p (Underwear bottom, Black)\n  - 58d ago: Drizzle (Trousers, Dark Orange)\n  - 58d ago: CHARLIE SKIRT s.1 (Skirt, Pink)\n  - 58d ago: Khloe SP Seamless Andes (Bra, Dark Pink)\n  - 58d ago: Jen tee (T-shirt, Black)\n  - 44d ago: Polly shopper (Bag, Black)\n  - 44d ago: Glossy Sandal (Sandals, Light Beige)\n  - 44d ago: Kylie 2pk shorts (J) (Pyjama bottom, Light Pink)\n  - 44d ago: Julia sandalette (Heeled sandals, Beige)\n  - 44d ago: Stefania straples superpush (Bra, White)\n  - 44d ago: Mindy peep toe pump (Pumps, Orange)\n  - 44d ago: Karin mid support bra (Bra, Pink)\n  - 44d ago: Tessa square sunglasses (Sunglasses, White)\n  - 23d ago: Kelso (Shorts, Light Pink)\n  - 23d ago: Khloe SP Seamless Andes (Unknown, White)"
+  },
+  {
+    "slot": 11,
+    "cid_short": "1c09aad1d2b8\u2026",
+    "cid": "1c09aad1d2b819b74937bf8f7f50e320ef1a4468d4beaf769e5b0d1659e9ec4b",
+    "bucket": "101+",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 25\n- Purchase history: 170 total purchases, first on 2018-11-20, most recent 20 days before cutoff\n- Total spend: 4.03 (avg per item 0.0237)\n- Top product types: Dress, Trousers, Underwear bottom\n- Top colors: Black, White, Dark Blue\n- Top sections: Womens Everyday Collection, Divided Collection, Womens Lingerie\n\nRECENT PURCHASES (up to last 15):\n  - 20d ago: Lisa Top (Top, Light Turquoise)\n  - 20d ago: Lorenzo Blouse (Blouse, White)\n  - 20d ago: Poppy 1 shoulder dress (Dress, Black)\n  - 20d ago: Dreamer dress (Dress, Light Pink)\n  - 20d ago: Nutmeg Top (Vest top, Black)\n  - 20d ago: Charlotte Brazilian Aza.Low 2p (Underwear bottom, Black)\n  - 20d ago: Charlotte Brazilian Aza.Low 2p (Underwear bottom, Black)\n  - 20d ago: Fancy Gertrud L/S (Top, White)\n  - 20d ago: Peony dress (Dress, Black)\n  - 20d ago: Banana dress (Dress, Off White)\n  - 20d ago: Harper strap dress (Dress, White)\n  - 20d ago: Hudson F&F dress (Dress, Light Yellow)\n  - 20d ago: Melrose (Dress, White)\n  - 20d ago: Niccolo dress (Dress, Light Pink)\n  - 20d ago: Elsa (Dress, Dark Grey)"
+  },
+  {
+    "slot": 12,
+    "cid_short": "dd6dfbcb7802\u2026",
+    "cid": "dd6dfbcb780215c1c3c1b64e0025fefd05fe8953712457ab2aa53646f4e0fda9",
+    "bucket": "101+",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 29\n- Purchase history: 363 total purchases, first on 2018-09-23, most recent 20 days before cutoff\n- Total spend: 9.78 (avg per item 0.0270)\n- Top product types: Sweater, Trousers, Dress\n- Top colors: Black, White, Red\n- Top sections: Womens Everyday Collection, Womens Tailoring, Womens Swimwear, beachwear\n\nRECENT PURCHASES (up to last 15):\n  - 20d ago: Baby Love Triangle Top (Bikini top, Light Blue)\n  - 20d ago: Jinny smock top (Vest top, Black)\n  - 20d ago: Willow pletated midi skirt (Skirt, Dark Turquoise)\n  - 20d ago: Jorah romantic skirt (Skirt, Red)\n  - 20d ago: Wowcha HR Brief (Swimwear bottom, Yellow)\n  - 20d ago: Romantica Dress (Dress, Off White)\n  - 20d ago: Cat Tee. (T-shirt, Black)\n  - 20d ago: Jinny smock top (Vest top, Light Purple)\n  - 20d ago: MITCHELL MIDI S/S (Dress, Black)\n  - 20d ago: Wowcha Top (Bikini top, Yellow)\n  - 20d ago: Baby Love Cheeky Brief (Swimwear bottom, Light Blue)\n  - 20d ago: Skirt Pencil Stretch (Skirt, Blue)\n  - 20d ago: Cat Tee. (T-shirt, White)\n  - 20d ago: Blenda tee (T-shirt, White)\n  - 20d ago: salt ss (T-shirt, White)"
+  },
+  {
+    "slot": 13,
+    "cid_short": "c165bcc76c7c\u2026",
+    "cid": "c165bcc76c7cbdd60883eab42842f740c937c9f692cd23ea4a3dad8102596123",
+    "bucket": "101+",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 29\n- Purchase history: 157 total purchases, first on 2018-10-26, most recent 121 days before cutoff\n- Total spend: 4.98 (avg per item 0.0318)\n- Top product types: Sweater, Blouse, Dress\n- Top colors: White, Dark Blue, Light Blue\n- Top sections: Womens Everyday Collection, Womens Swimwear, beachwear, Womens Tailoring\n\nRECENT PURCHASES (up to last 15):\n  - 252d ago: DeLuca pull on TVP RW (Trousers, Dark Blue)\n  - 252d ago: Papillon funnelneck. (Sweater, White)\n  - 238d ago: Twenty HW tapered (Trousers, Off White)\n  - 139d ago: Rose thong 7-pack(1) (Underwear bottom, Light Purple)\n  - 139d ago: Iris Linen Jogger R.W TVP (Trousers, Dark Blue)\n  - 139d ago: Liza Wireless (Rio) 2pk (Bra, Dark Blue)\n  - 121d ago: Baby Love Tri. Top (Bikini top, Off White)\n  - 121d ago: Baby Love Tri. Top (Bikini top, Off White)\n  - 121d ago: Tropicana Tie Tanga (Swimwear bottom, White)\n  - 121d ago: Tropicana Triangle (Bikini top, White)\n  - 121d ago: Tropicana Triangle (Bikini top, White)\n  - 121d ago: Lazer Razer Brief (Swimwear bottom, Light Blue)\n  - 121d ago: Baby Love Cheeky Brief (Swimwear bottom, Off White)\n  - 121d ago: Lazer Razer Triangle Top (Bikini top, Light Blue)\n  - 121d ago: Lazer Razer Triangle Top (Bikini top, Light Blue)"
+  },
+  {
+    "slot": 14,
+    "cid_short": "f23c7cf81a7b\u2026",
+    "cid": "f23c7cf81a7b9f81a453718c44cd47a91290cf594b181f009f8871852159c358",
+    "bucket": "101+",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 26\n- Purchase history: 130 total purchases, first on 2018-09-25, most recent 18 days before cutoff\n- Total spend: 3.24 (avg per item 0.0249)\n- Top product types: Trousers, Dress, Sweater\n- Top colors: Black, White, Beige\n- Top sections: Womens Everyday Collection, Divided Collection, Womens Shoes\n\nRECENT PURCHASES (up to last 15):\n  - 40d ago: Vaughan sneaker (Sneakers, White)\n  - 40d ago: Marian sandalette (Heeled sandals, Beige)\n  - 37d ago: Marian sandalette (Heeled sandals, Beige)\n  - 34d ago: Margarita RW Pull- On Shorts (Shorts, Black)\n  - 34d ago: Blast dress (Dress, Black)\n  - 34d ago: AGATE POLO DRESS (Dress, Black)\n  - 22d ago: Mademoiselle dress (Dress, Red)\n  - 22d ago: Desert HW Woven Utility TRS (Trousers, Greenish Khaki)\n  - 22d ago: Meringue (Dress, White)\n  - 22d ago: Meringue (Dress, White)\n  - 22d ago: Meringue (Dress, Black)\n  - 22d ago: Meringue (Dress, Black)\n  - 18d ago: Elsa chiffon (Dress, Light Yellow)\n  - 18d ago: Island HW bermuda (Shorts, Black)\n  - 18d ago: Sun (Dress, Dark Pink)"
+  },
+  {
+    "slot": 15,
+    "cid_short": "c1ef313ffb28\u2026",
+    "cid": "c1ef313ffb28b101be4592be52b96f65545320acd6a3b07e00a9ca98cd20aed0",
+    "bucket": "101+",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 25\n- Purchase history: 478 total purchases, first on 2018-09-24, most recent 1 days before cutoff\n- Total spend: 12.04 (avg per item 0.0252)\n- Top product types: Trousers, T-shirt, Top\n- Top colors: Black, White, Blue\n- Top sections: Divided Collection, Womens Lingerie, Divided Basics\n\nRECENT PURCHASES (up to last 15):\n  - 58d ago: Kendrick soft top bea pad (Bra, Black)\n  - 58d ago: Kendrick soft top bea pad (Bra, Black)\n  - 58d ago: Mimosa soft top bea pad (Bra, Light Pink)\n  - 58d ago: Mimosa soft top bea pad (Bra, Light Pink)\n  - 58d ago: Flirty twisty necklace (Necklace, White)\n  - 58d ago: Acai seamless bra CONSCIOUS (Bra, Dark Blue)\n  - 48d ago: Prue Brazilian 3pk (Underwear bottom, Light Green)\n  - 48d ago: Kendrick Padded Soft Top Bea (Bra, Dark Red)\n  - 48d ago: Prue Brazilian 3pk (Underwear bottom, Black)\n  - 48d ago: Flirty twisty necklace (Necklace, White)\n  - 48d ago: Mrs Clause satin set (Underwear set, Black)\n  - 1d ago: BROADWAY SHIRT (Shirt, Light Beige)\n  - 1d ago: Sadie Shirt (Shirt, White)\n  - 1d ago: Hercules shirt (Shirt, White)\n  - 1d ago: Amelie (T-shirt, Blue)"
+  },
+  {
+    "slot": 16,
+    "cid_short": "2c479fc16aeb\u2026",
+    "cid": "2c479fc16aeb335a8023f594801368518852fe947521cf852452b117ef0ca0eb",
+    "bucket": "101+",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 27\n- Purchase history: 196 total purchases, first on 2018-09-23, most recent 20 days before cutoff\n- Total spend: 5.25 (avg per item 0.0268)\n- Top product types: Dress, T-shirt, Trousers\n- Top colors: Black, White, Dark Blue\n- Top sections: Womens Everyday Collection, Divided Collection, Womens Nightwear, Socks & Tigh\n\nRECENT PURCHASES (up to last 15):\n  - 53d ago: BELLADONNA PLAYSUIT (Shorts, Greenish Khaki)\n  - 53d ago: Jessica round sunglasses (Sunglasses, Gold)\n  - 53d ago: FORTUNA TEE (T-shirt, Black)\n  - 53d ago: Mop knot aliceband (Hair/alice band, Black)\n  - 53d ago: Legolas SS (Shirt, Dark Blue)\n  - 53d ago: Valance Jumsuit (Jumpsuit/Playsuit, Light Blue)\n  - 28d ago: Cool Beam hoop pk (Earring, Gold)\n  - 20d ago: SPORT NET 1p Tights (Underwear Tights, Black)\n  - 20d ago: White dot 1p tights (Underwear Tights, Black)\n  - 20d ago: Pearl bag (Bag, Light Beige)\n  - 20d ago: Peony dress (Dress, Black)\n  - 20d ago: Peony dress (Dress, Black)\n  - 20d ago: Frenchie F&F dress (Dress, Black)\n  - 20d ago: Frenchie F&F dress (Dress, Black)\n  - 20d ago: Maui Straw Bag (Bag, Beige)"
+  },
+  {
+    "slot": 17,
+    "cid_short": "47e00dd1a3da\u2026",
+    "cid": "47e00dd1a3da033c312303daaa5c982e25c04ab51358b22159b28b6de35ed0f0",
+    "bucket": "101+",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 27\n- Purchase history: 152 total purchases, first on 2018-09-29, most recent 248 days before cutoff\n- Total spend: 4.36 (avg per item 0.0287)\n- Top product types: Dress, Bra, Vest top\n- Top colors: Black, Red, White\n- Top sections: Divided Collection, Womens Lingerie, Womens Swimwear, beachwear\n\nRECENT PURCHASES (up to last 15):\n  - 248d ago: Ida Panel Jogger (Trousers, Black)\n  - 248d ago: Flamingo (Coat, Dark Blue)\n  - 248d ago: Elvira turtleneck (Sweater, Light Grey)\n  - 248d ago: Skirt Torn (Skirt, Blue)\n  - 248d ago: Skirt Torn (Skirt, Blue)\n  - 248d ago: Shelly polo dress (Dress, Dark Red)\n  - 248d ago: Annie fur jacket (Jacket, Black)\n  - 248d ago: Kanta slacks RW (Trousers, Black)\n  - 248d ago: Kanta slacks RW (Trousers, Black)\n  - 248d ago: Simpson (Sweater, Yellow)\n  - 248d ago: Chrissie brazilian dotnet (Underwear bottom, Dark Red)\n  - 248d ago: Chrissie brazilian dotnet (Underwear bottom, Dark Red)\n  - 248d ago: Casper c&s push (Bra, Black)\n  - 248d ago: Hazelnut Push Melbourne (Bra, Dark Red)\n  - 248d ago: Wanda Dress (Dress, Black)"
+  },
+  {
+    "slot": 18,
+    "cid_short": "bb78537a1206\u2026",
+    "cid": "bb78537a12065ed9716bc91cc53403285662c82144b538e03a54b206c5770844",
+    "bucket": "101+",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 32\n- Purchase history: 297 total purchases, first on 2018-09-29, most recent 10 days before cutoff\n- Total spend: 13.53 (avg per item 0.0456)\n- Top product types: Bikini top, Bra, Skirt\n- Top colors: Black, White, Light Beige\n- Top sections: Womens Swimwear, beachwear, Ladies H&M Sport, Mama\n\nRECENT PURCHASES (up to last 15):\n  - 23d ago: Honey Shape Swimsuit (Swimsuit, Black)\n  - 22d ago: All That Jazz Push Up Bra (Bikini top, Black)\n  - 21d ago: MAMA Hawaii Swimsuit (Swimsuit, Black)\n  - 21d ago: Knot Bitter Top (Bikini top, White)\n  - 21d ago: B August Lace Beach Dress (Sarong, White)\n  - 21d ago: Baby shark top (Bikini top, Black)\n  - 21d ago: Chubba Chubb one shoulder Top (Bikini top, Black)\n  - 21d ago: Sonia linen dress (Dress, White)\n  - 21d ago: Push it Push Bra (Bikini top, Black)\n  - 21d ago: Mama Lazer Razer Roundneck (Swimsuit, Black)\n  - 21d ago: MAMA Copacabana Swimsuite (Swimsuit, Black)\n  - 21d ago: Klaudia dress (Dress, Grey)\n  - 21d ago: Turner Dress (Dress, Black)\n  - 10d ago: Chris 10pk R Basic mid trunks (Underwear bottom, Black)\n  - 10d ago: Katarina softbra 2pk (Bra, Light Orange)"
+  },
+  {
+    "slot": 19,
+    "cid_short": "e1098a5272ee\u2026",
+    "cid": "e1098a5272ee5c70615a2689317b8461185967e70f79c42c64051141f3e761ad",
+    "bucket": "101+",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 27\n- Purchase history: 120 total purchases, first on 2018-10-29, most recent 86 days before cutoff\n- Total spend: 2.96 (avg per item 0.0247)\n- Top product types: Bra, Dress, Sweater\n- Top colors: Black, Light Beige, White\n- Top sections: Womens Lingerie, Womens Everyday Collection, Divided Collection\n\nRECENT PURCHASES (up to last 15):\n  - 369d ago: Khloe beandeau top (Bra, Black)\n  - 283d ago: Nettan Dress (Dress, Dark Yellow)\n  - 283d ago: Nettan Dress (Dress, Dark Yellow)\n  - 283d ago: Demy Mockneck Dress (Dress, Dark Yellow)\n  - 283d ago: Demy Mockneck Dress (Dress, Dark Yellow)\n  - 182d ago: Heavy Plain Overknee 2p (Socks, Black)\n  - 86d ago: Vanessa rib (Vest top, Beige)\n  - 86d ago: V-neck strap top seamless (Vest top, Light Beige)\n  - 86d ago: putney seamless (Vest top, Light Beige)\n  - 86d ago: putney seamless (Vest top, White)\n  - 86d ago: putney seamless (Vest top, Black)\n  - 86d ago: Brea body (Bodysuit, Grey)\n  - 86d ago: Vanessa rib (Vest top, White)\n  - 86d ago: Vanessa rib (Vest top, Grey)\n  - 86d ago: Vanessa rib (Vest top, Grey)"
+  },
+  {
+    "slot": 20,
+    "cid_short": "32203b9e97a0\u2026",
+    "cid": "32203b9e97a07468e6dcf4234f6cbba2ee3b3b6f5c631feaf4b430e4155bb9fe",
+    "bucket": "2-5",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 24\n- Purchase history: 2 total purchases, first on 2019-05-21, most recent 459 days before cutoff\n- Total spend: 0.07 (avg per item 0.0343)\n- Top product types: Dress\n- Top colors: Dark Blue, Black\n- Top sections: H&M+\n\nRECENT PURCHASES (up to last 15):\n  - 459d ago: MC Truffel dress (Dress, Dark Blue)\n  - 459d ago: ED Titti dress (Dress, Black)"
+  },
+  {
+    "slot": 21,
+    "cid_short": "57f0c0a15921\u2026",
+    "cid": "57f0c0a15921d9bd259439ccfe4ceea56d66dbbd0ab4b90b1f012a15f290be02",
+    "bucket": "2-5",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 23\n- Purchase history: 2 total purchases, first on 2020-01-19, most recent 216 days before cutoff\n- Total spend: 0.05 (avg per item 0.0254)\n- Top product types: Hoodie\n- Top colors: Beige\n- Top sections: Divided Basics\n\nRECENT PURCHASES (up to last 15):\n  - 216d ago: Becka hoodie (Hoodie, Beige)\n  - 216d ago: Becka hoodie (Hoodie, Beige)"
+  },
+  {
+    "slot": 22,
+    "cid_short": "4fcde1af5c38\u2026",
+    "cid": "4fcde1af5c3861d3c5040dcf86be132079faf6ef97d1a06fe483c02b8948e11b",
+    "bucket": "2-5",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 55\n- Purchase history: 2 total purchases, first on 2020-08-11, most recent 11 days before cutoff\n- Total spend: 0.07 (avg per item 0.0339)\n- Top product types: Cardigan\n- Top colors: White, Black\n- Top sections: Divided Collection\n\nRECENT PURCHASES (up to last 15):\n  - 11d ago: Chester Button Cardigan (Cardigan, Black)\n  - 11d ago: Chester Button Cardigan (Cardigan, White)"
+  },
+  {
+    "slot": 23,
+    "cid_short": "b0854f6c0420\u2026",
+    "cid": "b0854f6c04200b3928654b21ac9751c48c6d90de7d56a71178a07d7be870848a",
+    "bucket": "2-5",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 43\n- Purchase history: 3 total purchases, first on 2020-07-04, most recent 49 days before cutoff\n- Total spend: 0.05 (avg per item 0.0152)\n- Top product types: Bikini top, Swimwear bottom, Bra\n- Top colors: White\n- Top sections: Womens Swimwear, beachwear, Womens Lingerie\n\nRECENT PURCHASES (up to last 15):\n  - 49d ago: Timeless Midrise Brief (Swimwear bottom, White)\n  - 49d ago: Mimosa Push Melbourne Opt.2 (Bra, White)\n  - 49d ago: Shake it in Balconette (Bikini top, White)"
+  },
+  {
+    "slot": 24,
+    "cid_short": "ce6af45a6922\u2026",
+    "cid": "ce6af45a69228c00e8971e68deba369afc73fc0b94abec3378ae7cf6a7719ce2",
+    "bucket": "2-5",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 49\n- Purchase history: 3 total purchases, first on 2019-07-12, most recent 407 days before cutoff\n- Total spend: 0.07 (avg per item 0.0243)\n- Top product types: Bikini top, Swimwear bottom\n- Top colors: Red, Black\n- Top sections: Womens Swimwear, beachwear\n\nRECENT PURCHASES (up to last 15):\n  - 407d ago: Make Over Brief (Swimwear bottom, Red)\n  - 407d ago: Timeless Triangle Top (Bikini top, Black)\n  - 407d ago: Timeless Padded Bra (Bikini top, Red)"
+  },
+  {
+    "slot": 25,
+    "cid_short": "b73540e53e84\u2026",
+    "cid": "b73540e53e8467773063da7ad19953801a636d1676ab7a18606a495bf487fa5b",
+    "bucket": "2-5",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 21\n- Purchase history: 3 total purchases, first on 2019-08-23, most recent 364 days before cutoff\n- Total spend: 0.14 (avg per item 0.0466)\n- Top product types: Jacket, Sweater, Trousers\n- Top colors: Black, Greenish Khaki, Blue\n- Top sections: Womens Everyday Collection, Divided Projects, Ladies Denim\n\nRECENT PURCHASES (up to last 15):\n  - 365d ago: CAMILLA OL OFFER (Sweater, Greenish Khaki)\n  - 365d ago: Wide H.W Ankle (Trousers, Blue)\n  - 364d ago: DIV Trixie Parka (Jacket, Black)"
+  },
+  {
+    "slot": 26,
+    "cid_short": "63b13dbd5b5d\u2026",
+    "cid": "63b13dbd5b5df95a74e794637ded712be86011e56804ff2522795b7f0d5e58f8",
+    "bucket": "2-5",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 25\n- Purchase history: 5 total purchases, first on 2020-04-11, most recent 133 days before cutoff\n- Total spend: 0.14 (avg per item 0.0274)\n- Top product types: Pyjama set, Bra, Pyjama bottom\n- Top colors: Black, Light Grey, Beige\n- Top sections: Womens Nightwear, Socks & Tigh, Womens Lingerie\n\nRECENT PURCHASES (up to last 15):\n  - 133d ago: Kiki LL-PJ (J) (Pyjama set, Beige)\n  - 133d ago: Lizzie LL PJ (J) (Pyjama set, Light Grey)\n  - 133d ago: Alex Jogger (J) (Pyjama bottom, Black)\n  - 133d ago: Frenchy push balboa (Bra, Black)\n  - 133d ago: Greta Thong Mynta Low 3p (Underwear bottom, Black)"
+  },
+  {
+    "slot": 27,
+    "cid_short": "0de484aa7a6a\u2026",
+    "cid": "0de484aa7a6a2bc7c596e104726e0464bc2673827ad4852cc032397707aa233b",
+    "bucket": "2-5",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 28\n- Purchase history: 2 total purchases, first on 2018-11-23, most recent 638 days before cutoff\n- Total spend: 0.04 (avg per item 0.0203)\n- Top product types: Pyjama set\n- Top colors: Light Blue, Light Grey\n- Top sections: Womens Nightwear, Socks & Tigh\n\nRECENT PURCHASES (up to last 15):\n  - 638d ago: Frida LL PJ (J) (Pyjama set, Light Grey)\n  - 638d ago: Frida LL PJ (J) (Pyjama set, Light Blue)"
+  },
+  {
+    "slot": 28,
+    "cid_short": "cb6cd002f06c\u2026",
+    "cid": "cb6cd002f06c06a1cf527b38ddf99c973ace4dda03c235162dfa2a043c081be2",
+    "bucket": "2-5",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 46\n- Purchase history: 2 total purchases, first on 2020-08-06, most recent 16 days before cutoff\n- Total spend: 0.02 (avg per item 0.0102)\n- Top product types: Vest top, Bucket hat\n- Top colors: Black, Grey\n- Top sections: Divided Basics, Men Accessories\n\nRECENT PURCHASES (up to last 15):\n  - 16d ago: Tilda tank (Vest top, Grey)\n  - 16d ago: Hat Bucket Reno cotton (Bucket hat, Black)"
+  },
+  {
+    "slot": 29,
+    "cid_short": "d33d54d9103d\u2026",
+    "cid": "d33d54d9103d59c350a7dd41f9333ee4fd35eb10b10d9f678756bcefd3efdb45",
+    "bucket": "2-5",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 48\n- Purchase history: 3 total purchases, first on 2019-08-28, most recent 360 days before cutoff\n- Total spend: 0.18 (avg per item 0.0593)\n- Top product types: Dress\n- Top colors: Black\n- Top sections: Womens Tailoring\n\nRECENT PURCHASES (up to last 15):\n  - 360d ago: Lilac Dress (Dress, Black)\n  - 360d ago: Lilac Dress (Dress, Black)\n  - 360d ago: Lilac Dress (Dress, Black)"
+  },
+  {
+    "slot": 30,
+    "cid_short": "b36687c41ce9\u2026",
+    "cid": "b36687c41ce91e454e19ac8dcfab231853da8ce254d0416aabf9944648f0afa0",
+    "bucket": "21-100",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 20\n- Purchase history: 44 total purchases, first on 2019-06-19, most recent 17 days before cutoff\n- Total spend: 0.67 (avg per item 0.0153)\n- Top product types: Dress, Shorts, T-shirt\n- Top colors: White, Black, Dark Blue\n- Top sections: Divided Collection, Womens Everyday Collection, Womens Nightwear, Socks & Tigh\n\nRECENT PURCHASES (up to last 15):\n  - 48d ago: 1p Fun Socks (Socks, White)\n  - 48d ago: 1p Fun Socks (Socks, White)\n  - 48d ago: 1p Shaftless (Socks, White)\n  - 48d ago: Charlie Top (Top, Black)\n  - 19d ago: Hudson shorts (Shorts, Blue)\n  - 19d ago: Jen tee (T-shirt, White)\n  - 19d ago: Sahara HW utility (Trousers, White)\n  - 19d ago: Picasso (Dress, Off White)\n  - 19d ago: ZOLA MID SKIRT S.1 (Skirt, Dark Green)\n  - 19d ago: Halter (Vest top, Black)\n  - 19d ago: Ace Shorts (Shorts, Grey)\n  - 19d ago: PRINCE ERIC BASIC TEE (T-shirt, Dark Blue)\n  - 17d ago: Lemon HW (Shorts, White)\n  - 17d ago: Sunset HW Pull-on Woven Trs (Trousers, Black)\n  - 17d ago: Lemon HW (Shorts, Light Pink)"
+  },
+  {
+    "slot": 31,
+    "cid_short": "33e2d3c9e705\u2026",
+    "cid": "33e2d3c9e70514bffef27a128893864410c8bbc41f708d2fed2af26d3ff4bfe7",
+    "bucket": "21-100",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 30\n- Purchase history: 39 total purchases, first on 2019-04-13, most recent 75 days before cutoff\n- Total spend: 0.87 (avg per item 0.0223)\n- Top product types: T-shirt, Hoodie, Trousers\n- Top colors: Black, White, Light Beige\n- Top sections: Mama, Men Underwear, Womens Everyday Collection\n\nRECENT PURCHASES (up to last 15):\n  - 91d ago: R-NECK SS SLIM FIT (T-shirt, Greenish Khaki)\n  - 87d ago: RONNY R-NECK (T-shirt, Dark Green)\n  - 87d ago: 2PACK SWEATPANTS TVP (Trousers, Light Beige)\n  - 87d ago: 2PACK SWEATSHIRT TVP (Sweater, Light Beige)\n  - 87d ago: 2P SWEATPANTS TVP (Trousers, Dark Blue)\n  - 87d ago: RONNY REG RN T-SHIRT (T-shirt, Dark Grey)\n  - 87d ago: RONNY R-NECK (T-shirt, Dark Blue)\n  - 87d ago: RONNY R-NECK (T-shirt, Black)\n  - 86d ago: Nora dress(1) (Dress, Black)\n  - 75d ago: Kelso (Shorts, Light Beige)\n  - 75d ago: Palma body (Bodysuit, Black)\n  - 75d ago: Pluto tencel (Trousers, Black)\n  - 75d ago: 7p Basic Shaftless (Socks, Black)\n  - 75d ago: Inez Dress (Dress, Black)\n  - 75d ago: Sorrel (Dress, Black)"
+  },
+  {
+    "slot": 32,
+    "cid_short": "bddd12b9e833\u2026",
+    "cid": "bddd12b9e83323ed4ddb5e6aa37b9a24bd3e09b608b4db9c2c5db64c65cbf997",
+    "bucket": "21-100",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 33\n- Purchase history: 26 total purchases, first on 2019-05-30, most recent 450 days before cutoff\n- Total spend: 0.67 (avg per item 0.0257)\n- Top product types: Bikini top, Swimwear bottom, Socks\n- Top colors: Black, Dark Red, Pink\n- Top sections: Womens Swimwear, beachwear, Womens Nightwear, Socks & Tigh, Womens Lingerie\n\nRECENT PURCHASES (up to last 15):\n  - 450d ago: Shaper Shorts (1) (Underwear Tights, Beige)\n  - 450d ago: Strap Top 2 pack (Vest top, Black)\n  - 450d ago: This Is Sally Tie Tanga (Swimwear bottom, Dark Red)\n  - 450d ago: Raven (Sweater, Light Purple)\n  - 450d ago: This Is Sally Tie Tanga (Swimwear bottom, Pink)\n  - 450d ago: This Is Sally Tie Tanga (Swimwear bottom, Pink)\n  - 450d ago: Rainbow sandal (Sandals, Black)\n  - 450d ago: Rainbow sandal (Sandals, Black)\n  - 450d ago: Baby Lock Me Up SP (Bikini top, Dark Red)\n  - 450d ago: Baby Lock Me Up SP (Bikini top, Dark Red)\n  - 450d ago: Baby Lock Me Up SP (Bikini top, Dark Red)\n  - 450d ago: CSP Jolene (Top, White)\n  - 450d ago: Everlacing Push triangle (Bikini top, Black)\n  - 450d ago: Everlacing Push triangle (Bikini top, Black)\n  - 450d ago: Wideawake Tie Tanga (Swimwear bottom, Dark Red)"
+  },
+  {
+    "slot": 33,
+    "cid_short": "8966280a9351\u2026",
+    "cid": "8966280a9351cd0b0449d600f5a0d33bce85a243a7252267d4b8126751a83454",
+    "bucket": "21-100",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 49\n- Purchase history: 23 total purchases, first on 2019-05-20, most recent 155 days before cutoff\n- Total spend: 0.61 (avg per item 0.0264)\n- Top product types: Shirt, Blouse, Blazer\n- Top colors: White, Light Pink, Green\n- Top sections: Womens Tailoring, Womens Everyday Collection, Divided Collection\n\nRECENT PURCHASES (up to last 15):\n  - 458d ago: Brooklyn (Blouse, White)\n  - 458d ago: Brooklyn (Blouse, White)\n  - 189d ago: Lucy blouse (Shirt, Dark Green)\n  - 189d ago: Mojito (Blouse, Light Blue)\n  - 189d ago: Lucy blouse (Shirt, Light Pink)\n  - 189d ago: Taylor blouse (Blouse, Yellow)\n  - 189d ago: Portofino blouse (Shirt, White)\n  - 189d ago: Roxanne Blouse (Blouse, Off White)\n  - 187d ago: Lucy blouse (Shirt, Dark Green)\n  - 187d ago: Billie. (T-shirt, Greenish Khaki)\n  - 187d ago: Lucy blouse (Shirt, White)\n  - 187d ago: Lucy blouse (Shirt, Light Pink)\n  - 155d ago: Lucy blouse (Shirt, Light Pink)\n  - 155d ago: Lucy blouse (Shirt, Light Beige)\n  - 155d ago: Sadie Shirt (Shirt, Green)"
+  },
+  {
+    "slot": 34,
+    "cid_short": "9ac7da9cf746\u2026",
+    "cid": "9ac7da9cf746363c70b290037985e7366ed354cce859d70589c11ee965823182",
+    "bucket": "21-100",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 22\n- Purchase history: 66 total purchases, first on 2018-11-01, most recent 10 days before cutoff\n- Total spend: 1.63 (avg per item 0.0248)\n- Top product types: Dress, Top, Bra\n- Top colors: Black, White, Light Beige\n- Top sections: Ladies H&M Sport, Womens Everyday Collection, Womens Everyday Basics\n\nRECENT PURCHASES (up to last 15):\n  - 19d ago: Paros Cropped Inbuild Bra Tank (Vest top, Black)\n  - 19d ago: Paros Cropped Inbuild Bra Tank (Vest top, Black)\n  - 19d ago: Sunspot Seamless Crop Top (Top, Dark Pink)\n  - 18d ago: Chester Button Cardigan (Cardigan, Black)\n  - 18d ago: Firepower seamless bralette (Bra, White)\n  - 18d ago: Sunspot Seamless Crop Top (Vest top, Black)\n  - 10d ago: Festival Savannah set (Skirt, Light Red)\n  - 10d ago: Festival Savannah set (Skirt, Light Red)\n  - 10d ago: CL EMB SMOCK TOP (Dress, White)\n  - 10d ago: CL EMB SMOCK TOP (Dress, White)\n  - 10d ago: Tuna Short (Dress, Light Beige)\n  - 10d ago: Tuna Short (Dress, Light Beige)\n  - 10d ago: LOTUS WOVEN DRESS (Dress, Black)\n  - 10d ago: Lupine dress (Dress, Black)\n  - 10d ago: Lupine dress (Dress, Black)"
+  },
+  {
+    "slot": 35,
+    "cid_short": "fd37b91f5e1c\u2026",
+    "cid": "fd37b91f5e1cdce4bf80fa40d9e28b868550135e6584c4efcda2365273709c1e",
+    "bucket": "21-100",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 53\n- Purchase history: 63 total purchases, first on 2018-09-21, most recent 15 days before cutoff\n- Total spend: 1.89 (avg per item 0.0300)\n- Top product types: Trousers, Dress, Blouse\n- Top colors: White, Black, Dark Blue\n- Top sections: Womens Everyday Collection, Divided Collection, Men Underwear\n\nRECENT PURCHASES (up to last 15):\n  - 218d ago: Florence Jumpsuit (Jumpsuit/Playsuit, Greenish Khaki)\n  - 203d ago: Woodpecker sequin trouser (Trousers, Black)\n  - 203d ago: Romance top (Blouse, Turquoise)\n  - 202d ago: Duo (Top, White)\n  - 197d ago: Duo (Top, White)\n  - 155d ago: LOGG Athens wrap dress (Dress, Dark Yellow)\n  - 85d ago: SUPREME RW tights (Leggings/Tights, Black)\n  - 66d ago: Gale Blouse (Blouse, Light Pink)\n  - 66d ago: Sonja square rhines (Sunglasses, Yellowish Brown)\n  - 64d ago: Roxanne (Dress, Black)\n  - 64d ago: Fiona (Dress, Black)\n  - 61d ago: Oyster (Blouse, Dark Beige)\n  - 59d ago: Swift Dress(1) (Dress, Black)\n  - 56d ago: Leandra hairclips (Hair clip, Silver)\n  - 15d ago: SANDRO SUNGLASSES (Sunglasses, Black)"
+  },
+  {
+    "slot": 36,
+    "cid_short": "438791a56c9a\u2026",
+    "cid": "438791a56c9a8117d80ad1efd1a49ca8b29c7c349c2d2e5dd9ede39545bd3f56",
+    "bucket": "21-100",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 61\n- Purchase history: 49 total purchases, first on 2019-04-08, most recent 69 days before cutoff\n- Total spend: 2.18 (avg per item 0.0444)\n- Top product types: Shirt, Top, Blouse\n- Top colors: White, Black, Light Beige\n- Top sections: Womens Everyday Collection, Men Suits & Tailoring, Womens Casual\n\nRECENT PURCHASES (up to last 15):\n  - 217d ago: Jennifer tee (T-shirt, White)\n  - 211d ago: Pluto RW slacks (1) (Trousers, Dark Blue)\n  - 211d ago: Pluto RW slacks (1) (Trousers, Black)\n  - 211d ago: Pluto RW slacks (1) (Trousers, Light Beige)\n  - 211d ago: Lucien (Blouse, Light Beige)\n  - 211d ago: SALLY pu (Skirt, Black)\n  - 196d ago: Jen tee (T-shirt, Black)\n  - 196d ago: Avignon (Blazer, Light Blue)\n  - 180d ago: Toulouse (Skirt, Dark Green)\n  - 180d ago: Florida skirt (Skirt, Dark Green)\n  - 180d ago: Plum midi skirt. (Skirt, Light Beige)\n  - 180d ago: Jen tee (T-shirt, White)\n  - 180d ago: Bella l/s (Top, Beige)\n  - 180d ago: Barton Midi Skirt new (Skirt, White)\n  - 69d ago: Agata RTW blouse (Blouse, White)"
+  },
+  {
+    "slot": 37,
+    "cid_short": "0866762046ff\u2026",
+    "cid": "0866762046ff8c28348e6bd88abc15aac9d62454aad079ea53b64dac43f5eb13",
+    "bucket": "21-100",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 33\n- Purchase history: 22 total purchases, first on 2018-12-22, most recent 54 days before cutoff\n- Total spend: 0.36 (avg per item 0.0165)\n- Top product types: Vest top, Socks, T-shirt\n- Top colors: Black, Light Pink, Dark Blue\n- Top sections: Men Underwear, Womens Everyday Basics, Womens Nightwear, Socks & Tigh\n\nRECENT PURCHASES (up to last 15):\n  - 265d ago: Maud Blanket (Scarf, Beige)\n  - 254d ago: Manchester Beanie (Hat/beanie, Light Pink)\n  - 254d ago: Sky HW jogger (Trousers, Black)\n  - 213d ago: Jenny Sock 5-pack (Socks, Black)\n  - 84d ago: R-NECK SS SLIM FIT (T-shirt, Greenish Khaki)\n  - 84d ago: 7p Basic Shaftless (Socks, Black)\n  - 84d ago: R-NECK SS SLIM FIT (T-shirt, Dark Blue)\n  - 84d ago: 10p Jersey Terry (Hair string, Light Pink)\n  - 84d ago: Holly ballerina(1) (Ballerinas, Black)\n  - 84d ago: ROBIN HOOD (Hoodie, Dark Blue)\n  - 54d ago: R-NECK SS SLIM 3 PK (T-shirt, Dark Green)\n  - 54d ago: 10pk basic R socks (Socks, Black)\n  - 54d ago: 7pk basic R sneaker socks (Socks, Black)\n  - 54d ago: Vanessa 2-pack (Vest top, Black)\n  - 54d ago: Vanessa 2-pack (Vest top, Black)"
+  },
+  {
+    "slot": 38,
+    "cid_short": "48ffc99e4c55\u2026",
+    "cid": "48ffc99e4c55bc21e17eed951f63b5090bd669156075138da1c14f792177cd27",
+    "bucket": "21-100",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 29\n- Purchase history: 30 total purchases, first on 2019-01-25, most recent 8 days before cutoff\n- Total spend: 0.73 (avg per item 0.0242)\n- Top product types: Bra, T-shirt, Bikini top\n- Top colors: Black, White, Light Red\n- Top sections: Womens Lingerie, Womens Swimwear, beachwear, Divided Collection\n\nRECENT PURCHASES (up to last 15):\n  - 232d ago: Kiruna Polo Neck (Sweater, White)\n  - 232d ago: LORENZA LACE TOP (Blouse, Black)\n  - 172d ago: Kendrick SP bralette (Bra, Red)\n  - 129d ago: Lash brazilian (Underwear bottom, Light Red)\n  - 129d ago: Venice SP bra (Bra, Light Red)\n  - 128d ago: Lash brazilian (Underwear bottom, Light Red)\n  - 128d ago: Venice SP bra (Bra, Light Red)\n  - 88d ago: Beach Please Super Push Bra (Bikini top, Black)\n  - 33d ago: Lyon Long Top (Bikini top, Black)\n  - 33d ago: ISAAC RXD RN T-SHIRT (T-shirt, Black)\n  - 10d ago: Venice SP bralette (Bra, Black)\n  - 10d ago: RAY LOOSE tee (T-shirt, White)\n  - 10d ago: Bert Relaxed Printed Tee (T-shirt, Black)\n  - 8d ago: RAY LOOSE tee (T-shirt, White)\n  - 8d ago: Bert Relaxed Printed Tee (T-shirt, Black)"
+  },
+  {
+    "slot": 39,
+    "cid_short": "3de5873db885\u2026",
+    "cid": "3de5873db8853b3e88409b738c337805292af1db99f47a49d643cbefe48e6935",
+    "bucket": "21-100",
+    "actual": 1,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 25\n- Purchase history: 49 total purchases, first on 2018-10-08, most recent 9 days before cutoff\n- Total spend: 1.15 (avg per item 0.0235)\n- Top product types: Swimwear bottom, Bikini top, Trousers\n- Top colors: Black, Dark Green, Pink\n- Top sections: Womens Swimwear, beachwear, Womens Everyday Collection, Womens Lingerie\n\nRECENT PURCHASES (up to last 15):\n  - 82d ago: JAYA THIN basic belt (W) (Belt, Black)\n  - 82d ago: STAR western belt (Belt, Black)\n  - 59d ago: Ursula Top (Bikini top, Pink)\n  - 59d ago: Ursula Cheeky V Brief (Swimwear bottom, Pink)\n  - 58d ago: New Girl Push Top (Bikini top, Yellow)\n  - 58d ago: New Girl Cheeky Tanga (Swimwear bottom, Yellow)\n  - 44d ago: Olive strap jumpsuit (Trousers, White)\n  - 44d ago: Bahamas jumpsuit(1) (Jumpsuit/Playsuit, Light Blue)\n  - 44d ago: Voice jumpsuit (Jumpsuit/Playsuit, Light Beige)\n  - 38d ago: DeLuca pull on TVP RW (Trousers, Beige)\n  - 38d ago: Simone (Top, Black)\n  - 38d ago: Stretchy 3p Lace V-shape Thong (Underwear bottom, Black)\n  - 38d ago: Kylie 2pk shorts (J) (Pyjama bottom, Light Pink)\n  - 20d ago: Timeless Rem Pads Swimsuit (Swimsuit, White)\n  - 9d ago: Spice Girl Wireless Rio 2pk (Bra, Light Grey)"
+  },
+  {
+    "slot": 40,
+    "cid_short": "8355f5d2bb6b\u2026",
+    "cid": "8355f5d2bb6bd6f11ee1aca13f419d56c729a11f059d18367b3249c19ce9174e",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 18\n- Purchase history: 18 total purchases, first on 2019-11-17, most recent 62 days before cutoff\n- Total spend: 0.50 (avg per item 0.0278)\n- Top product types: Bikini top, Swimwear bottom, Shorts\n- Top colors: Black, Dark Blue, Yellow\n- Top sections: Womens Swimwear, beachwear, Divided Collection\n\nRECENT PURCHASES (up to last 15):\n  - 179d ago: Calvin Clean wire bra (Swimwear set, Black)\n  - 179d ago: Ozzy Denim Shorts (Shorts, Dark Blue)\n  - 179d ago: Buckle Roo Cheeky V-Brief (Swimwear bottom, Black)\n  - 179d ago: New Girl Push Top (Bikini top, Black)\n  - 179d ago: New Girl Cheeky Tanga (Swimwear bottom, Black)\n  - 175d ago: Push it Push Bra. (Bikini top, Black)\n  - 175d ago: Ozzy Denim Shorts (Shorts, Dark Blue)\n  - 175d ago: Timeless Midrise Brief (Swimwear bottom, Black)\n  - 175d ago: Buckle Roo Triangle Top (Bikini top, Black)\n  - 175d ago: The Highline high waist (Swimwear bottom, Black)\n  - 62d ago: All That Jazz Push Up Bra (Bikini top, Black)\n  - 62d ago: Everlacing Love Highwaist (Swimwear bottom, Black)\n  - 62d ago: Everlacing Love Highwaist (Swimwear bottom, Black)\n  - 62d ago: Superwoman Superpush (Bikini top, Black)\n  - 62d ago: Knot Bitter Top (Bikini top, Black)"
+  },
+  {
+    "slot": 41,
+    "cid_short": "a35d59d9f035\u2026",
+    "cid": "a35d59d9f03579910418e529c30d9e98441f400fdfe5ebfb4ef980550a9fadd7",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 20\n- Purchase history: 12 total purchases, first on 2019-05-03, most recent 347 days before cutoff\n- Total spend: 0.56 (avg per item 0.0466)\n- Top product types: Dress, Blouse, Blazer\n- Top colors: White, Black, Dark Beige\n- Top sections: Womens Everyday Collection, Womens Casual\n\nRECENT PURCHASES (up to last 15):\n  - 477d ago: Crispy (Shirt, Light Blue)\n  - 422d ago: Ariel blazer (Blazer, Off White)\n  - 422d ago: Alpaca tunic. (Blouse, White)\n  - 422d ago: Alpaca tunic. (Blouse, White)\n  - 417d ago: Alpaca tunic. (Blouse, White)\n  - 417d ago: Alpaca tunic. (Blouse, White)\n  - 410d ago: Magenta (Dress, Black)\n  - 410d ago: Magenta (Dress, Black)\n  - 351d ago: Freedom (Dress, Dark Beige)\n  - 351d ago: Freedom (Dress, Black)\n  - 347d ago: Freedom (Dress, Dark Beige)\n  - 347d ago: Freedom (Dress, Black)"
+  },
+  {
+    "slot": 42,
+    "cid_short": "4d8a6383fba1\u2026",
+    "cid": "4d8a6383fba1e5bc32a30c349c8ac95a2d750641fcbab49e1be872770d8f717d",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 32\n- Purchase history: 17 total purchases, first on 2018-12-28, most recent 452 days before cutoff\n- Total spend: 0.68 (avg per item 0.0403)\n- Top product types: Sweater, Sunglasses, Trousers\n- Top colors: Dark Blue, Grey, Light Blue\n- Top sections: Womens Small accessories, Womens Premium, Womens Lingerie\n\nRECENT PURCHASES (up to last 15):\n  - 603d ago: Dara PU pants (Trousers, Dark Grey)\n  - 603d ago: Mary LS (Sweater, Black)\n  - 603d ago: Kia (Trousers, Dark Blue)\n  - 603d ago: Kia (Trousers, Dark Blue)\n  - 603d ago: Tammy (Sweater, Dark Blue)\n  - 603d ago: Jupiter (Sweater, Light Blue)\n  - 574d ago: Tammy (Sweater, Dark Blue)\n  - 574d ago: Vintage Slim Ankle (Trousers, White)\n  - 452d ago: Sunglasses Rapheal A Polarized (Sunglasses, Gold)\n  - 452d ago: Icona premium beanie new (Hat/beanie, Light Blue)\n  - 452d ago: Garment tape (Nipple covers, Transparent)\n  - 452d ago: PQ Cilla sunglasses (Sunglasses, Dark Yellow)\n  - 452d ago: Ellen Hipster Ch. Petunia 3p (Underwear bottom, Grey)\n  - 452d ago: PQ Alessa sunglasses (Sunglasses, Black)\n  - 452d ago: PQ Alicia sunglasses (Sunglasses, Yellowish Brown)"
+  },
+  {
+    "slot": 43,
+    "cid_short": "fbb39c24f804\u2026",
+    "cid": "fbb39c24f8049aa281ab86cb648d198f82d6b20c481b21c60feea9c3436d0104",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 22\n- Purchase history: 7 total purchases, first on 2020-05-10, most recent 104 days before cutoff\n- Total spend: 0.16 (avg per item 0.0230)\n- Top product types: T-shirt, Shirt, Jumpsuit/Playsuit\n- Top colors: Black, Blue, White\n- Top sections: Womens Everyday Basics, Contemporary Casual, Contemporary Smart\n\nRECENT PURCHASES (up to last 15):\n  - 104d ago: Tilly (1) (T-shirt, White)\n  - 104d ago: Nat ss linnen solid (Shirt, Blue)\n  - 104d ago: Tilly (1) (T-shirt, Black)\n  - 104d ago: John jumpsuit- j (Jumpsuit/Playsuit, Black)\n  - 104d ago: Lucas linen shirt (Shirt, White)\n  - 104d ago: Maserati lace top (Vest top, Blue)\n  - 104d ago: Tilly (1) (T-shirt, Light Pink)"
+  },
+  {
+    "slot": 44,
+    "cid_short": "21fac58be6a1\u2026",
+    "cid": "21fac58be6a1255044e378670a03c91235bff1375847d363a1cbce03757e897e",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 20\n- Purchase history: 18 total purchases, first on 2019-05-07, most recent 293 days before cutoff\n- Total spend: 0.54 (avg per item 0.0300)\n- Top product types: Sweater, Bikini top, Vest top\n- Top colors: Black, Light Beige, Off White\n- Top sections: Womens Everyday Collection, Divided Collection, Womens Swimwear, beachwear\n\nRECENT PURCHASES (up to last 15):\n  - 430d ago: CSP VENUS (Top, Black)\n  - 430d ago: Chestnut strap top (Vest top, Black)\n  - 424d ago: LS Olivia Triangle Top (Bikini top, Light Beige)\n  - 424d ago: LS Olivia Triangle Top (Bikini top, Light Beige)\n  - 424d ago: LS Olivia Cheeky Tanga (Swimwear bottom, Light Beige)\n  - 379d ago: Becka hoodie (Hoodie, Black)\n  - 329d ago: AOP Leggings (Leggings/Tights, Red)\n  - 329d ago: Draper rollerneck. (Sweater, Off White)\n  - 329d ago: Pantha PU leggings (Trousers, Yellowish Brown)\n  - 329d ago: Coronado Lace V-Neck (Sweater, Light Grey)\n  - 329d ago: Matey(1) (Sweater, Black)\n  - 293d ago: James (Sweater, Off White)\n  - 293d ago: Thomas PREMIUM (Sweater, Grey)\n  - 293d ago: Ossian (Sweater, Dark Blue)\n  - 293d ago: Lauper Long Sweater (Sweater, Light Beige)"
+  },
+  {
+    "slot": 45,
+    "cid_short": "a6d6736d24e7\u2026",
+    "cid": "a6d6736d24e760c1594f992910885b37c005cfae4c93891e09e2c6137462de2f",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age None\n- Purchase history: 7 total purchases, first on 2019-10-01, most recent 61 days before cutoff\n- Total spend: 0.18 (avg per item 0.0264)\n- Top product types: Bra, Bodysuit, Sweater\n- Top colors: Black, White, Yellowish Brown\n- Top sections: Womens Lingerie, Womens Everyday Collection\n\nRECENT PURCHASES (up to last 15):\n  - 326d ago: Primo slacks (Trousers, Yellowish Brown)\n  - 326d ago: Janet (Sweater, Light Beige)\n  - 94d ago: Dina body (Bodysuit, White)\n  - 61d ago: Charlotte Padded Soft Bra H&E (Bra, Black)\n  - 61d ago: Charlotte Padded Soft Bra H&E (Bra, Black)\n  - 61d ago: Fissa Set 1pk (Bra, Black)\n  - 61d ago: Fissa Set 1pk (Bra, Black)"
+  },
+  {
+    "slot": 46,
+    "cid_short": "545d844d0db3\u2026",
+    "cid": "545d844d0db378218f19ff9fcaa33541a95faa6085476548499a56fe7f285ce2",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 50\n- Purchase history: 8 total purchases, first on 2019-04-24, most recent 279 days before cutoff\n- Total spend: 0.25 (avg per item 0.0311)\n- Top product types: Bag, Bra, Top\n- Top colors: Black, Greenish Khaki, Dark Blue\n- Top sections: Womens Big accessories, Divided Collection, Womens Lingerie\n\nRECENT PURCHASES (up to last 15):\n  - 486d ago: Bernie (Top, Greenish Khaki)\n  - 486d ago: Olga Tank (Vest top, Dark Blue)\n  - 486d ago: BONGO LS TVP (Sweater, Black)\n  - 459d ago: Rae padded Bandeau 2p (Bra, Black)\n  - 459d ago: Rae padded Bandeau 2p (Bra, Black)\n  - 279d ago: Day tote (Bag, Black)\n  - 279d ago: Day tote (Bag, Black)\n  - 279d ago: Day tote (Bag, Black)"
+  },
+  {
+    "slot": 47,
+    "cid_short": "76cca04a9bea\u2026",
+    "cid": "76cca04a9bea437839bba5904493df1351e5dc8f46b9e589b57cd1eee3cb44c5",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 29\n- Purchase history: 6 total purchases, first on 2019-03-22, most recent 519 days before cutoff\n- Total spend: 0.11 (avg per item 0.0181)\n- Top product types: Underwear bottom, Shirt, Top\n- Top colors: Black, Dark Beige, Red\n- Top sections: Divided Basics, Womens Everyday Basics, Divided Collection\n\nRECENT PURCHASES (up to last 15):\n  - 519d ago: BROADWAY S.0 (Shirt, Dark Green)\n  - 519d ago: Rose thong (Underwear bottom, Black)\n  - 519d ago: Rose thong (Underwear bottom, Black)\n  - 519d ago: Duo (Top, Dark Beige)\n  - 519d ago: TINDRA sport socks (Socks, Black)\n  - 519d ago: Melrose (Shirt, Red)"
+  },
+  {
+    "slot": 48,
+    "cid_short": "88076246f079\u2026",
+    "cid": "88076246f07983bcdec54c3e3c7f0b41216edb198d6c660c780fe717178253c3",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 45\n- Purchase history: 20 total purchases, first on 2020-05-15, most recent 99 days before cutoff\n- Total spend: 1.16 (avg per item 0.0579)\n- Top product types: Dress, Trousers, Leggings/Tights\n- Top colors: Black, Blue, White\n- Top sections: Mama\n\nRECENT PURCHASES (up to last 15):\n  - 99d ago: Dream Dress ED (Dress, White)\n  - 99d ago: Dream Dress ED (Dress, White)\n  - 99d ago: C-Chiara dress (Dress, Black)\n  - 99d ago: Isabelle folded tights (Leggings/Tights, Grey)\n  - 99d ago: Ladylike Blouse (Blouse, Off White)\n  - 99d ago: Skinny ankle (D) (Trousers, Light Blue)\n  - 99d ago: Lana dress (RW) (Dress, Black)\n  - 99d ago: Lana dress (RW) (Dress, Black)\n  - 99d ago: Bianca pants (Trousers, Black)\n  - 99d ago: Bianca pants (Trousers, Black)\n  - 99d ago: Ophelia (W) (Skirt, Greenish Khaki)\n  - 99d ago: Bonnie dress (Dress, Light Beige)\n  - 99d ago: Badou shorts (Shorts, Blue)\n  - 99d ago: Issa shorts (Shorts, Blue)\n  - 99d ago: Superskinny (Trousers, Dark Blue)"
+  },
+  {
+    "slot": 49,
+    "cid_short": "c6953cdc72e0\u2026",
+    "cid": "c6953cdc72e0f05172a883544379eafbc7732b85f613d55bbafc6d3d2d0f25b4",
+    "bucket": "6-20",
+    "actual": 0,
+    "narrative": "CUSTOMER PROFILE\n- Demographics: age 21\n- Purchase history: 10 total purchases, first on 2019-03-14, most recent 142 days before cutoff\n- Total spend: 0.28 (avg per item 0.0278)\n- Top product types: Dress, Top, Bra\n- Top colors: Black, Dark Blue\n- Top sections: Divided Collection, Womens Lingerie, Womens Big accessories\n\nRECENT PURCHASES (up to last 15):\n  - 527d ago: Vickan dress w (Dress, Black)\n  - 523d ago: Palm dress (Dress, Black)\n  - 402d ago: Khloe C&S (Bra, Black)\n  - 402d ago: Lykke Push Detroit Straps (Bra, Black)\n  - 402d ago: Petite Mabel dungaree (Trousers, Dark Blue)\n  - 292d ago: Paris glove (Gloves, Black)\n  - 142d ago: MARY BUTTON OL (Top, Black)\n  - 142d ago: Hat Bucket Reno cotton (Bucket hat, Black)\n  - 142d ago: Marrakesh dress (Dress, Black)\n  - 142d ago: Babe L/S (Top, Black)"
+  }
+]

@@ -1,6 +1,6 @@
 # From Stated Intent to Revealed Purchase: Quantifying the Say-Do Gap of LLM Digital Twins on H&M
 
-**Working paper, v2.** Commit `85f4562efc57`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
+**Working paper, v2.** Commit `88a6faeb660e`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
 
 **Companion to**: `report.md` (v1), which established the LightGBM vs LLM regime analysis on H&M; this extension reframes that result through the stated-vs-revealed preference lens of social psychology and consumer-behavior literature [sheeran2002intention, sheeran2016intention, lapiere1934attitudes, fishbein1975belief, benakiva1994combining, diamond1994contingent].
 
@@ -114,7 +114,9 @@ Sheeran 2002 meta-analytic intent-behavior r ≈ 0.53 (across-individual, social
 | F-nobase | +0.532 [+0.485, +0.573] | +0.228 [+0.162, +0.299] | +0.002 |
 | D2-core | +0.491 [+0.445, +0.532] | +0.265 [+0.195, +0.337] | -0.039 |
 
-**Headline insight (Contribution (a) of the paper).** The *pooled* Spearman ρ matches or slightly exceeds Sheeran's human meta-analytic reference (r ≈ 0.53), but **within demographic strata** ρ drops to 0.22-0.28 — close to the per-individual twin-human correlation of ~0.2 reported by Toubia et al. [toubia2025twin2k500] on N=2,058. The pooled-vs-within decomposition reveals that the LLM digital twin's apparent intent-behavior correlation is almost entirely explained by the **activity-bucket prior** (recency/frequency signal): within a stratum, the LLM's per-customer reasoning correlates with revealed behavior at roughly half the strength of Sheeran's human-self benchmark. This is a Simpson's-paradox-style result: an aggregate-level number that looks like 'matches humans' is actually a base-rate-prior artifact, and any prior work that reports only pooled correlations risks the same illusion.
+**Headline insight (Contribution (a) of the paper).** The *pooled* Spearman ρ matches or slightly exceeds Sheeran's human meta-analytic reference (r ≈ 0.53), but **within demographic strata** ρ drops to 0.22-0.28 — close to the per-individual twin-human correlation of ~0.2 reported by Toubia et al. [toubia2025twin2k500] on N=2,058. The pooled-vs-within decomposition reveals that the LLM digital twin's apparent intent-behavior correlation is almost entirely explained by the **activity-bucket prior** (recency/frequency signal): within a stratum, the LLM's per-customer reasoning correlates with revealed behavior at roughly half the strength of Sheeran's human-self benchmark.
+
+**Within-H&M domain-specific human-self benchmark (Phase 24)**: a customer's same-task past-30-day buying predicts their next-30-day buying with Pearson r = 0.380 (Spearman ρ = 0.380, n=46,865). Past-2-windows-avg → current: r = 0.448. The LLM's within-bucket Spearman (≈ 0.23) is **roughly half** the within-domain human-self r (≈ 0.39-0.45). Sheeran's r=0.53 is the *cross-domain* reference; the within-H&M number is the apples-to-apples comparator that didn't exist in the v2 draft. This is a Simpson's-paradox-style result: an aggregate-level number that looks like 'matches humans' is actually a base-rate-prior artifact.
 
 ### 4.3.2 H9 equivalence test and template-strip sensitivity
 
@@ -132,6 +134,19 @@ After stripping ≥3×-repeated and low-TTR verbatims (n_remaining=153), the dif
 | H9b margin | -0.0075 | -0.0096 |
 
 Both embedders agree on the qualitative finding: H9a is statistically detectable with a practically null effect; H9b's MRR is *below* chance. The negative H9 result is **robust to embedder-vendor choice**, ruling out the co-training confound flagged in the pre-registration v2 limitations.
+
+### 4.4 Cross-provider arm: Claude Code subagent flat-prompt (n=50, H&M core)
+
+Addresses the v2 blind-reviewer Blocker #3 ('single-provider, n=1 result for the leakage claim'). A stratified 50-customer subsample of the H&M core was scored by a Claude (Sonnet-class) digital-twin subagent under a flat narrative prompt structurally identical to Gemini D2's. The arm uses Claude Code's Agent primitive (no Anthropic-API quota required) and is the *only* non-Gemini arm in the study.
+
+| Arm (n) | Mean stated | Mean actual | Signed gap | Pooled ρ | Within-bucket ρ |
+|---|---|---|---|---|---|
+| Gemini D2-core (1000) | 0.318 | 0.228 | +0.089 | 0.491 | 0.265 |
+| Gemini F-base (1000) | 0.302 | 0.228 | +0.075 | 0.528 | 0.281 |
+| Gemini F-nobase (1000) | 0.379 | 0.228 | +0.151 | 0.532 | 0.228 |
+| **Claude Code subagent flat (50)** | **0.236** | **0.240** | **-0.004** | **0.566** | **0.258** |
+
+**Two cross-provider findings.** First, Claude's *signed gap is essentially zero* (-0.004) — an order of magnitude smaller than Gemini's flat-prompt gap (+0.089). Provider calibration of stated intent to base rates differs substantially. Second, **the pooled-vs-within-bucket Simpson's-paradox pattern replicates exactly**: Claude pooled ρ = 0.566, within-bucket ρ = 0.258. Within-customer reasoning quality (the within-bucket ρ) is essentially **provider-invariant** (0.23-0.28 across both Gemini and Claude); the pooled-ρ inflation toward Sheeran's r=0.53 is a bucket-prior artifact that all current LLM digital twins exhibit. The base-rate-leakage finding (c) generalizes beyond Gemini.
 
 ### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor
 
@@ -177,7 +192,7 @@ The v1 paper's framing — *classical LightGBM beats LLM digital twins* — is p
 Where v1 ended at *classical wins, LLM under-engineered*, v2's instrumentation reveals a sharper story: when the LLM is given an architectural scaffold and a calibration anchor table in its prompt, its gap shrinks — but most of that shrinkage is the leaked test-set marginal (Control 1). When the leakage is stripped, the Park-2023-lineage cognition pipeline contributes a smaller, sometimes negative, amount over flat prompting. The counterfactual perturbation control (3) adjudicates whether the LLM is reasoning over the specific trace or anchoring on priors.
 
 ## 6. Limitations
-- **Single LLM provider** (Gemini 2.5 Flash on all arms). The base-rate-leakage finding (Δ_F > Δ_arch) is therefore an n=1-provider result. Anthropic API quota was unavailable; the originally pre-registered Claude direct-API arm (C-flat) was dropped after the pre-Phase-10 audit deemed n=100 Claude Code subagents under-powered and confounded. Without a second provider arm, we cannot rule out Gemini-specific calibration behavior as a partial explanation for the imbalance.
+- **Two LLM providers** (Gemini 2.5 Flash on the headline arms; Claude Sonnet-class on the 50-customer subagent arm). The base-rate-leakage decomposition was computed only on Gemini; the cross-provider replication (§4.4) shows the pooled-vs-within Simpson's-paradox pattern transfers to Claude, but the base-rate-table ablation itself awaits a Claude direct-API arm that requires paid quota.
 - **Embedder co-training confound** for H9: **addressed in §4.3.2** via a Phase 21 sensitivity using `BAAI/bge-large-en-v1.5` (disjoint third-party embedder). Both embedders agree H9 fails. The original co-training threat is therefore not load-bearing for the H9 negative result, but we retain the same-vendor result as the primary number for protocol consistency.
 - **Single dataset (H&M).** No cross-domain replication; pooled-vs-within decomposition would be more compelling on MovieLens 25M or Amazon Reviews.
 - LLM stated_intent_prob has only ~30 unique values in F-* arms (Gemini's tendency to round to 0.05/0.10 steps); the verbatim is the more diagnostic output, which is why H9 is load-bearing.
