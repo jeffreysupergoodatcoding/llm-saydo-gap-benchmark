@@ -1,0 +1,37 @@
+{
+  "n_paired": 1000,
+  "bootstrap_B": 1000,
+  "F-base_minus_F-nobase": {
+    "diff_of_gaps": -0.07678999999999997,
+    "diff_of_gaps_95CI": [
+      -0.08430124999999992,
+      -0.0693382499999999
+    ],
+    "diff_of_gaps_significant": true,
+    "wilcoxon_paired_abs_err_p_two_sided": 1.965679577632655e-10
+  },
+  "F-nobase_minus_D2-core": {
+    "diff_of_gaps": 0.06205299999999997,
+    "diff_of_gaps_95CI": [
+      0.04863472499999996,
+      0.07560210000000005
+    ],
+    "diff_of_gaps_significant": true,
+    "wilcoxon_paired_abs_err_p_two_sided": 1.2790611369607576e-24
+  },
+  "F-base_minus_D2-core": {
+    "diff_of_gaps": -0.014737,
+    "diff_of_gaps_95CI": [
+      -0.02806207500000003,
+      -0.0012485999999999491
+    ],
+    "diff_of_gaps_significant": true,
+    "wilcoxon_paired_abs_err_p_two_sided": 3.862670986544857e-11
+  },
+  "leakage_dominates_absdiff": {
+    "abs_leakage_contribution": 0.07678999999999997,
+    "abs_arch_contribution": 0.06205299999999997,
+    "leakage_minus_arch": 0.014737,
+    "leakage_dominates": true
+  }
+}

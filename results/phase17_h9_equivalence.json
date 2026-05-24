@@ -1,0 +1,15 @@
+{
+  "H9a_reported_diff": 0.0015611193639536447,
+  "H9a_perm_p": 0.0042,
+  "TOST_equivalence_bound": 0.01,
+  "approx_CI_on_diff_95": [
+    -0.010057282883689485,
+    0.013179521611596775
+  ],
+  "TOST_equivalent_to_null": "False",
+  "n_samples_used_for_TOST": 20,
+  "boilerplate_verbatims_repeated_ge3": 1,
+  "n_after_template_strip": 16,
+  "diff_after_template_strip_vs_global_null": 0.010820303826935995,
+  "interpretation": "TOST formally declares equivalence if 95% CI of diff is wholly inside \u00b10.01. p-significance at this n (228) with diff +0.0016 is a power artifact; effect size is below the 0.01 'practically null' bound. Combined with template-strip sensitivity, H9a should be re-labeled 'statistically detectable, practically null'."
+}

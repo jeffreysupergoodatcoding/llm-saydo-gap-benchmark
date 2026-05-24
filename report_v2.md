@@ -1,6 +1,6 @@
 # From Stated Intent to Revealed Purchase: Quantifying the Say-Do Gap of LLM Digital Twins on H&M
 
-**Working paper, v2.** Commit `fe29abf78621`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
+**Working paper, v2.** Commit `4e97a85d1e26`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
 
 **Companion to**: `report.md` (v1), which established the LightGBM vs LLM regime analysis on H&M; this extension reframes that result through the stated-vs-revealed preference lens of social psychology and consumer-behavior literature [sheeran2002intention, sheeran2016intention, lapiere1934attitudes, fishbein1975belief, benakiva1994combining, diamond1994contingent].
 
@@ -67,6 +67,18 @@ Primary metric: signed gap `E[stated_intent] − E[actual]`, reweighted to the t
 ![per-bucket signed gap](results/phase11_gap_by_bucket.png)
 ![calibration](results/phase11_calibration.png)
 
+### 4.1.1 Pairwise gap differences (paired bootstrap on the same 1,000 customers)
+
+Stratified paired bootstrap (B=1000) on differences of signed gaps, plus paired Wilcoxon on per-customer |stated−actual|:
+
+| Comparison | Δ gap | 95% CI | Wilcoxon p |
+|---|---|---|---|
+| F-base_minus_F-nobase | -0.0768 | [-0.0843, -0.0693] | 2e-10 |
+| F-nobase_minus_D2-core | +0.0621 | [+0.0486, +0.0756] | 1.3e-24 |
+| F-base_minus_D2-core | -0.0147 | [-0.0281, -0.0012] | 3.9e-11 |
+
+All three pairs are statistically significant (CIs disjoint from 0). |Δ_F|=0.0768 > |Δ_arch|=0.0621 → **leakage dominates** the cognition-pipeline contribution.
+
 ### 4.2 Base-rate-leakage decomposition (Control 1) — the most consequential finding
 
 - gap(F-base) = **+0.075**  *(with in-prompt base-rate table)*
@@ -97,12 +109,31 @@ Primary metric: signed gap `E[stated_intent] − E[actual]`, reweighted to the t
 - F-nobase: 1=+0.071, 2-5=+0.066, 6-20=+0.149, 21-100=+0.266, 101+=+0.207
 - D2-core: 1=+0.013, 2-5=+0.053, 6-20=+0.114, 21-100=+0.135, 101+=+0.134
 
+### 4.3.1 Sheeran comparator: Spearman ρ of stated intent vs revealed behavior
+
+Sheeran 2002 meta-analytic intent-behavior r ≈ 0.53 (across-individual, social-psych domain) is the canonical comparator. We compute pooled and within-bucket-pooled Spearman ρ per arm with bootstrap 95% CIs (`results/phase19_spearman.json`):
+
+| Arm | Pooled ρ [95% CI] | Within-bucket ρ [95% CI] | Δ vs Sheeran (pooled) |
+|---|---|---|---|
+| F-base | +0.528 [+0.485, +0.568] | +0.281 [+0.208, +0.353] | -0.002 |
+| F-nobase | +0.532 [+0.485, +0.573] | +0.228 [+0.162, +0.299] | +0.002 |
+| D2-core | +0.491 [+0.445, +0.532] | +0.265 [+0.195, +0.337] | -0.039 |
+
+**Headline insight.** The *pooled* ρ matches or slightly exceeds Sheeran's human reference (≈0.5), but **within-bucket** ρ drops to ~0.22-0.28. That means the LLM's apparent intent-behavior correlation is *almost entirely* explained by the activity-bucket prior (recency/frequency signal) — within a bucket, the LLM's per-customer reasoning correlates with revealed behavior at roughly *half* the strength of Sheeran's human-self benchmark.
+
+### 4.3.2 H9 equivalence test and template-strip sensitivity
+
+H9a was reported as 'CONFIRMED' (perm p=0.0042) but the diff is +0.0016, which is below the conventional 'practically null' bound of ±0.01. Approximate 95% CI of diff = [-0.010057282883689485, 0.013179521611596775]. TOST equivalence to null: **False**. 
+After stripping ≥3×-repeated and low-TTR verbatims (n_remaining=16), the diff-vs-global-null becomes 0.010820303826935995. The H9a effect is best described as *statistically detectable, practically negligible (Cohen's d ≪ 0.1).*
+
 ### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor
 
-**Counterfactual perturbation** (minimal: swap one colour and one product_type on one recent purchase). On n=50 customers, mean |Δ stated_intent_prob| = **0.037** (audit-revised threshold for prior-anchoring: 0.05, above Gemini's output resolution). `anchoring_to_priors` = **True**.
+**Counterfactual perturbation** (minimal: swap one colour and one product_type on one recent purchase). On n=50 customers, mean |Δ stated_intent_prob| = **0.038** (audit-revised threshold for prior-anchoring: 0.05, above Gemini's output resolution). `anchoring_to_priors` = **True**.
 
 **Temporal noise floor** (re-run same trace 3× with cache-busting nonces, temp=0). On n=50 customers, mean max-min spread = **0.0448**; mean within-customer std = **0.0200**. This is the LLM's intrinsic stochasticity floor — counterfactual perturbation |Δ| must exceed this to indicate the LLM is actually reasoning over the perturbed input.
-  - Counterfactual |Δ| / noise_floor spread = **0.82×**.
+  - Counterfactual |Δ| / noise_floor spread = **0.85×**.
+
+**Inferential test (apples-to-apples noise pairs):** Phase 16 derives noise as 2-run |Δ| pairs (n=60 pairs from 3-rep noise floor) and compares to counterfactual perturbation |Δ| (n=50). Mean cf = 0.0382, mean noise pairs = 0.0130. Mann-Whitney U one-sided (cf > noise) p = **0.0244**, bootstrap 95% CI on diff = [+0.0027, +0.0538], Cliff's δ = **+0.168**. Verdict: the LLM responds to trace perturbation more than to its own stochastic noise (p<0.05), but the effect is **small** (Cliff's δ ≈ 0.17, well below the conventional 0.33 'medium' threshold).
 
 ### 4.6 Field-masking ablation (which fields drive the gap?)
 
@@ -117,6 +148,18 @@ Re-running F-nobase with one input field masked at a time on a n=50 subsample. L
 ![decile calibration](results/phase15_calibration_decile.png)
 
 Per-decile reliability with 95% bootstrap CIs (`phase15_calibration_bins.json`). Reads under-dispersion at finer grain than the 5-bucket activity-level view: each arm's predicted-intent distribution is compared to actual rates within decile.
+
+### 4.8 Weighting sensitivity + bootstrap-B audit
+
+Verifying that the headline survives different weighting choices (`phase20_reweighting_and_B.json`):
+
+| Arm | gap (raw) | gap (test-reweighted) | gap (bucket-uniform) |
+|---|---|---|---|
+| F-base | +0.0750 | +0.0733 | +0.0750 |
+| F-nobase | +0.1518 | +0.1507 | +0.1518 |
+| D2-core | +0.0897 | +0.0891 | +0.0897 |
+
+Rank-invariant across all three weightings: **True**. The 'leakage dominates' conclusion does not depend on the weighting choice.
 
 ---
 

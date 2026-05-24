@@ -1,6 +1,6 @@
 {
   "n_perturbed": 50,
-  "mean_abs_delta_intent": 0.0368,
+  "mean_abs_delta_intent": 0.0382,
   "median_abs_delta_intent": 0.0,
   "max_abs_delta_intent": 0.4,
   "anchoring_signal_threshold": 0.05,
@@ -21,7 +21,7 @@
       "pert_intent": 0.55,
       "delta_intent": 0.4,
       "orig_verbatim": "I'm unlikely to buy anything from H&M this month, given how long it's been since my last purchase.",
-      "pert_verbatim": "I'll probably browse H&M this month, but I'm not sure I'll buy anything unless something really new catches my eye."
+      "pert_verbatim": "I will likely browse H&M's new arrivals this month, especially if there are interesting new collections, but I'm not cer"
     },
     {
       "cid": "24abd7f9c239\u2026",
@@ -29,7 +29,7 @@
       "pert_intent": 0.35,
       "delta_intent": 0.09999999999999998,
       "orig_verbatim": "I'm not actively looking to buy anything from H&M this month, but I might if something catches my eye.",
-      "pert_verbatim": "I'll probably browse H&M online this month, but I'm not actively looking to buy anything unless something really catches"
+      "pert_verbatim": "I'll probably browse H&M online this month, but I'm not sure I'll buy anything."
     },
     {
       "cid": "260ebd8c768c\u2026",
@@ -58,10 +58,10 @@
     {
       "cid": "512ca459ef44\u2026",
       "orig_intent": 0.65,
-      "pert_intent": 0.7,
-      "delta_intent": 0.04999999999999993,
+      "pert_intent": 0.55,
+      "delta_intent": -0.09999999999999998,
       "orig_verbatim": "I will likely browse H&M this month and might find something new to buy, especially if there are new arrivals in the Wom",
-      "pert_verbatim": "I will probably make a purchase from H&M this month, especially if I see something new in the Womens Everyday Collection"
+      "pert_verbatim": "I will probably browse H&M online or in-store this month, but I'm not certain I'll make a purchase."
     },
     {
       "cid": "26624052e12a\u2026",
@@ -106,10 +106,10 @@
     {
       "cid": "63f8bebf5943\u2026",
       "orig_intent": 0.15,
-      "pert_intent": 0.25,
-      "delta_intent": 0.1,
+      "pert_intent": 0.35,
+      "delta_intent": 0.19999999999999998,
       "orig_verbatim": "I probably won't be buying anything from H&M this month.",
-      "pert_verbatim": "I might browse online or in-store if something catches my eye, but I'm not actively looking to buy anything this month."
+      "pert_verbatim": "I might browse H&M this month, especially if I see something that catches my eye, but I'm not actively planning a purcha"
     },
     {
       "cid": "8ed69fbaf107\u2026",
@@ -122,10 +122,10 @@
     {
       "cid": "d460af061eb5\u2026",
       "orig_intent": 0.75,
-      "pert_intent": 0.75,
-      "delta_intent": 0.0,
+      "pert_intent": 0.85,
+      "delta_intent": 0.09999999999999998,
       "orig_verbatim": "I'll definitely be browsing H&M this month and will likely make a purchase, especially if I spot something new and excit",
-      "pert_verbatim": "I'll definitely be browsing H&M this month and will likely find something new to add to my wardrobe."
+      "pert_verbatim": "I will definitely be browsing H&M this month and will likely make a purchase."
     },
     {
       "cid": "e1e8772f539a\u2026",
@@ -138,10 +138,10 @@
     {
       "cid": "29a6202f5c77\u2026",
       "orig_intent": 0.08,
-      "pert_intent": 0.08,
-      "delta_intent": 0.0,
+      "pert_intent": 0.1,
+      "delta_intent": 0.020000000000000004,
       "orig_verbatim": "I probably won't buy anything from H&M this month.",
-      "pert_verbatim": "I probably won't buy anything from H&M this month."
+      "pert_verbatim": "I probably won't buy anything from H&M this month, as I haven't for a long time."
     },
     {
       "cid": "6043df92c7af\u2026",
@@ -166,6 +166,246 @@
       "delta_intent": 0.0,
       "orig_verbatim": "I will likely not make a purchase this month, as I haven't felt the need to shop at H&M since my single purchase.",
       "pert_verbatim": "I probably won't buy anything from H&M this month."
+    },
+    {
+      "cid": "81ed50ce505a\u2026",
+      "orig_intent": 0.2,
+      "pert_intent": 0.2,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month, but I'll keep an eye out for something new and interesting.",
+      "pert_verbatim": "I'm not likely to buy anything from H&M this month, as I tend to shop there less frequently."
+    },
+    {
+      "cid": "3e178a4bf04c\u2026",
+      "orig_intent": 0.55,
+      "pert_intent": 0.45,
+      "delta_intent": -0.10000000000000003,
+      "orig_verbatim": "I'll probably browse H&M online this month, but I'm not sure I'll buy anything new.",
+      "pert_verbatim": "I'll probably browse H&M online this month, but I'm not sure I'll make a purchase."
+    },
+    {
+      "cid": "7fea7ec2b346\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.08,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month.",
+      "pert_verbatim": "I probably won't buy anything from H&M this month, as it's been so long since my last purchase."
+    },
+    {
+      "cid": "f68e63404c85\u2026",
+      "orig_intent": 0.75,
+      "pert_intent": 0.75,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I will probably make a purchase this month, especially if I see something new and interesting.",
+      "pert_verbatim": "I will probably make a purchase this month, especially if I see something new and interesting."
+    },
+    {
+      "cid": "06e53db211a1\u2026",
+      "orig_intent": 0.75,
+      "pert_intent": 0.75,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I'm definitely going to browse H&M this month and will likely find something new and exciting to buy.",
+      "pert_verbatim": "I'm definitely going to browse H&M this month and will likely find something new and exciting to buy."
+    },
+    {
+      "cid": "bcf2cb5307d7\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.08,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I am unlikely to make any H&M purchases this month.",
+      "pert_verbatim": "I probably won't buy anything from H&M this month, as it's been a very long time since my last purchase."
+    },
+    {
+      "cid": "42a7e0131fb5\u2026",
+      "orig_intent": 0.7,
+      "pert_intent": 0.7,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I will probably browse H&M online or in-store this month and might pick up something new.",
+      "pert_verbatim": "I will probably browse H&M online or in-store this month and might pick up something new."
+    },
+    {
+      "cid": "18f34afd4e54\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.08,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month.",
+      "pert_verbatim": "I probably won't buy anything from H&M this month, as I haven't for a very long time."
+    },
+    {
+      "cid": "c40257daec9f\u2026",
+      "orig_intent": 0.75,
+      "pert_intent": 0.75,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I will definitely be checking out H&M's new arrivals this month.",
+      "pert_verbatim": "I will definitely be checking out H&M's new arrivals this month."
+    },
+    {
+      "cid": "804fb7a92b85\u2026",
+      "orig_intent": 0.2,
+      "pert_intent": 0.15,
+      "delta_intent": -0.05000000000000002,
+      "orig_verbatim": "I'm unlikely to buy anything from H&M this month, despite my past loyalty.",
+      "pert_verbatim": "I'm unlikely to make a purchase this month, as I've been lapsed for a while."
+    },
+    {
+      "cid": "85bbce25ff78\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.08,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month.",
+      "pert_verbatim": "I will likely not make any H&M purchases this month."
+    },
+    {
+      "cid": "d10137e8e476\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.08,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month, given how long it's been since my last purchase.",
+      "pert_verbatim": "I probably won't be buying anything from H&M this month."
+    },
+    {
+      "cid": "b1e2b676a975\u2026",
+      "orig_intent": 0.8,
+      "pert_intent": 0.8,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I will probably browse the Divided Basics section and make a purchase this month.",
+      "pert_verbatim": "I will probably browse the Divided Basics section and make a purchase this month."
+    },
+    {
+      "cid": "9dc61852b4ec\u2026",
+      "orig_intent": 0.1,
+      "pert_intent": 0.1,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month, as I haven't felt the need since my last purchase.",
+      "pert_verbatim": "I probably won't buy anything from H&M this month, as I haven't felt the need to return since my initial purchase."
+    },
+    {
+      "cid": "1cc8e39b39c3\u2026",
+      "orig_intent": 0.85,
+      "pert_intent": 0.85,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I'm very likely to browse H&M again this month and probably pick up something new.",
+      "pert_verbatim": "I'm definitely going to browse H&M this month and will likely make a purchase."
+    },
+    {
+      "cid": "cdcd3682a5a2\u2026",
+      "orig_intent": 0.15,
+      "pert_intent": 0.15,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month, but I might browse if something new catches my eye.",
+      "pert_verbatim": "I probably won't buy anything from H&M this month unless something really new and exciting catches my eye."
+    },
+    {
+      "cid": "b1828b6593d3\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.08,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month.",
+      "pert_verbatim": "I probably won't buy anything from H&M this month."
+    },
+    {
+      "cid": "b1f8a790cc83\u2026",
+      "orig_intent": 0.45,
+      "pert_intent": 0.25,
+      "delta_intent": -0.2,
+      "orig_verbatim": "I'll probably browse H&M this month, but I'm not sure I'll actually buy anything.",
+      "pert_verbatim": "I'll probably browse H&M this month, but I'm not very likely to make a purchase."
+    },
+    {
+      "cid": "154d672640e9\u2026",
+      "orig_intent": 0.25,
+      "pert_intent": 0.25,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I'll probably browse the Divided Collection again this month, but I'm not sure I'll buy anything.",
+      "pert_verbatim": "I'll probably browse the Divided Collection again this month, but I'm not sure if I'll buy anything."
+    },
+    {
+      "cid": "7bf7fdd41d0d\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.08,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month.",
+      "pert_verbatim": "I probably won't be buying anything from H&M this month."
+    },
+    {
+      "cid": "1cfbedcba55b\u2026",
+      "orig_intent": 0.1,
+      "pert_intent": 0.08,
+      "delta_intent": -0.020000000000000004,
+      "orig_verbatim": "I probably won't buy anything from H&M this month, even if I browse.",
+      "pert_verbatim": "I probably won't buy anything from H&M this month, given how long it's been since my last order."
+    },
+    {
+      "cid": "d74e57fc4dfa\u2026",
+      "orig_intent": 0.15,
+      "pert_intent": 0.15,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month, as I tend to space out my purchases quite a bit.",
+      "pert_verbatim": "I'll probably browse, but I don't anticipate buying anything new from H&M this month."
+    },
+    {
+      "cid": "90082d503167\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.1,
+      "delta_intent": 0.020000000000000004,
+      "orig_verbatim": "I am unlikely to make a purchase this month, given how long it's been since my last order.",
+      "pert_verbatim": "I am unlikely to make a purchase this month, as I haven't bought anything in over a year."
+    },
+    {
+      "cid": "7318378e9900\u2026",
+      "orig_intent": 0.1,
+      "pert_intent": 0.08,
+      "delta_intent": -0.020000000000000004,
+      "orig_verbatim": "I am unlikely to make a purchase this month, given how long it's been since my last H&M order.",
+      "pert_verbatim": "I am unlikely to make a purchase this month, given how long it's been since my last order."
+    },
+    {
+      "cid": "9d1edf295970\u2026",
+      "orig_intent": 0.45,
+      "pert_intent": 0.45,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I'm likely to browse H&M this month, but I'm not sure I'll make a purchase.",
+      "pert_verbatim": "I'm likely to browse H&M this month, but I'm not sure I'll make a purchase."
+    },
+    {
+      "cid": "a1fc00a60e4a\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.08,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month.",
+      "pert_verbatim": "I probably won't buy anything from H&M this month."
+    },
+    {
+      "cid": "8c2d9cb01c3f\u2026",
+      "orig_intent": 0.8,
+      "pert_intent": 0.8,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I will probably browse H&M online or in-store this month and find something new to buy.",
+      "pert_verbatim": "I will probably browse H&M online or in-store this month and find something new to buy."
+    },
+    {
+      "cid": "10c8a13cb9ac\u2026",
+      "orig_intent": 0.07,
+      "pert_intent": 0.08,
+      "delta_intent": 0.009999999999999995,
+      "orig_verbatim": "I am highly unlikely to make any H&M purchase this month.",
+      "pert_verbatim": "I will likely not make any H&M purchases this month unless a very specific need for children's clothing arises."
+    },
+    {
+      "cid": "b225faa17bb4\u2026",
+      "orig_intent": 0.1,
+      "pert_intent": 0.08,
+      "delta_intent": -0.020000000000000004,
+      "orig_verbatim": "I probably won't buy anything from H&M this month unless something specific from the Divided Collection catches my eye.",
+      "pert_verbatim": "I probably won't buy anything from H&M this month unless something specific from the Divided Collection catches my eye."
+    },
+    {
+      "cid": "7641ceab806a\u2026",
+      "orig_intent": 0.08,
+      "pert_intent": 0.08,
+      "delta_intent": 0.0,
+      "orig_verbatim": "I probably won't buy anything from H&M this month, as I haven't bought anything in a long time.",
+      "pert_verbatim": "I probably won't be buying anything from H&M this month."
     }
   ]
 }

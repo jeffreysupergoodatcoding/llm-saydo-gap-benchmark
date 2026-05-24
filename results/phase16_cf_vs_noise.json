@@ -1,0 +1,15 @@
+{
+  "n_cf_pairs": 50,
+  "n_noise_pairs": 60,
+  "mean_cf": 0.0382,
+  "mean_noise_pairs": 0.013000000000000001,
+  "diff_of_means": 0.025199999999999997,
+  "diff_of_means_95CI": [
+    0.0026649999999999977,
+    0.05376916666666666
+  ],
+  "mann_whitney_U": 1751.5,
+  "p_one_sided_cf_gt_noise": 0.024436750917672775,
+  "cliffs_delta": 0.16766666666666666,
+  "anchoring_to_priors_inferential": "False"
+}

@@ -1,0 +1,58 @@
+{
+  "arms": {
+    "F-base": {
+      "gap_raw": 0.07498999999999997,
+      "gap_test_reweighted": 0.07327512962765398,
+      "gap_bucket_uniform": 0.07499000000000003
+    },
+    "F-nobase": {
+      "gap_raw": 0.15177999999999994,
+      "gap_test_reweighted": 0.15071617731782777,
+      "gap_bucket_uniform": 0.15177999999999997
+    },
+    "D2-core": {
+      "gap_raw": 0.08972699999999997,
+      "gap_test_reweighted": 0.08906252683239096,
+      "gap_bucket_uniform": 0.08972700000000004
+    }
+  },
+  "rank_under_gap_raw": [
+    "F-base",
+    "D2-core",
+    "F-nobase"
+  ],
+  "rank_under_gap_test_reweighted": [
+    "F-base",
+    "D2-core",
+    "F-nobase"
+  ],
+  "rank_under_gap_bucket_uniform": [
+    "F-base",
+    "D2-core",
+    "F-nobase"
+  ],
+  "rank_invariant": true,
+  "B_audit": {
+    "phase11_verbatim.py": [],
+    "phase16_counterfactual_vs_noise.py": [
+      "1000"
+    ],
+    "phase12_report.py": [
+      "500",
+      "1000"
+    ],
+    "phase19_spearman.py": [
+      "1000"
+    ],
+    "phase13_noise_floor.py": [],
+    "phase14_field_mask.py": [],
+    "phase15_calibration_bins.py": [],
+    "phase17_h9_equivalence.py": [],
+    "phase11_gap.py": [
+      "500",
+      "1000"
+    ],
+    "phase18_pairwise_gap_diffs.py": [],
+    "phase11_counterfactual.py": []
+  }
+}

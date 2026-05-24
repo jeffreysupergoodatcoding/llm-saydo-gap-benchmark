@@ -120,7 +120,7 @@ def main():
         "anchoring_signal_threshold": 0.05,
         "anchoring_to_priors": bool(abs_deltas.mean() < 0.05),
         "perturbation_type": "minimal: swap color + product_type on one recent purchase",
-        "samples": perturbed[:20],
+        "samples": perturbed,   # save ALL (fix from Iteration 1: was [:20])
     }
     (RESULTS / "phase11_counterfactual.json").write_text(json.dumps(out, indent=2, default=str))
     print(f"\n[11c] mean |Δ intent| = {out['mean_abs_delta_intent']:.4f} "
