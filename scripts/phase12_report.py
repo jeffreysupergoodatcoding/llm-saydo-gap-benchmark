@@ -51,6 +51,7 @@ def main():
     pairwise = _safe(RESULTS / "phase18_pairwise_gap_diffs.json") or {}
     spearman = _safe(RESULTS / "phase19_spearman.json") or {}
     reweight = _safe(RESULTS / "phase20_reweighting_and_B.json") or {}
+    bge = _safe(RESULTS / "phase21_h9_bge_sensitivity.json") or {}
     p1 = _safe(RESULTS / "phase1_summary.json") or {}
 
     lines: list[str] = []
@@ -267,6 +268,23 @@ def main():
           f"the diff-vs-global-null becomes {ttr_str}. The H9a effect is best described as "
           f"*statistically detectable, practically negligible (Cohen's d ≪ 0.1).*")
     L("")
+    if bge:
+        L("**Embedder sensitivity (Phase 21 — addresses blind-reviewer Blocker #2 on Gemini/Gemini co-training).** "
+          "We re-run H9 with a disjoint third-party embedder (`BAAI/bge-large-en-v1.5`) on the SAME verbatim and "
+          "article texts. Results:")
+        L("")
+        L("| Metric | Gemini-embedder (Phase 11b) | BGE-large (Phase 21) |")
+        L("|---|---|---|")
+        L(f"| H9a diff (cos_actual − within-bucket perm null) | +{verbatim.get('H9a_diff', 0):.4f} | {bge.get('H9a_diff_bge', 0):+.4f} |")
+        L(f"| H9a permutation p | {verbatim.get('H9a_permutation_p_one_sided', 1):.4f} | {bge.get('H9a_perm_p_bge', 1):.4f} |")
+        L(f"| H9b MRR | {verbatim.get('H9b_MRR', 0):.4f} | {bge.get('H9b_MRR_bge', 0):.4f} |")
+        L(f"| H9b chance E_uniform | {verbatim.get('H9b_chance_MRR_E_uniform', 0.0515):.4f} | {bge.get('H9b_chance_MRR', 0.0515):.4f} |")
+        L(f"| H9b margin | {verbatim.get('H9b_margin_vs_E_uniform', 0):+.4f} | {bge.get('H9b_margin_bge', 0):+.4f} |")
+        L("")
+        L("Both embedders agree on the qualitative finding: H9a is statistically detectable with a practically null effect; "
+          "H9b's MRR is *below* chance. The negative H9 result is **robust to embedder-vendor choice**, ruling out the "
+          "co-training confound flagged in the pre-registration v2 limitations.")
+    L("")
     L("### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor")
     L("")
     if counter:
@@ -340,7 +358,7 @@ def main():
     L("")
     L("## 6. Limitations")
     L("- **Single LLM provider** (Gemini 2.5 Flash on all arms). The base-rate-leakage finding (Δ_F > Δ_arch) is therefore an n=1-provider result. Anthropic API quota was unavailable; the originally pre-registered Claude direct-API arm (C-flat) was dropped after the pre-Phase-10 audit deemed n=100 Claude Code subagents under-powered and confounded. Without a second provider arm, we cannot rule out Gemini-specific calibration behavior as a partial explanation for the imbalance.")
-    L("- **Embedder co-training confound** for H9. The Gemini-family `gemini-embedding-001` embedder was used to score Gemini-generated verbatim quotes against article-description embeddings. Pre-registration v2 (§Embedding model) called for `bge-large` or `text-embedding-3-small` as a disjoint third-party embedder; we used the same-vendor embedder out of API-quota necessity. A bge-large sensitivity replication is the highest-priority follow-up; the current H9 result cannot be cleanly attributed to a real signal failure vs an embedder artifact.")
+    L("- **Embedder co-training confound** for H9: **addressed in §4.3.2** via a Phase 21 sensitivity using `BAAI/bge-large-en-v1.5` (disjoint third-party embedder). Both embedders agree H9 fails. The original co-training threat is therefore not load-bearing for the H9 negative result, but we retain the same-vendor result as the primary number for protocol consistency.")
     L("- **Single dataset (H&M).** No cross-domain replication; pooled-vs-within decomposition would be more compelling on MovieLens 25M or Amazon Reviews.")
     L("- LLM stated_intent_prob has only ~30 unique values in F-* arms (Gemini's tendency to round to 0.05/0.10 steps); the verbatim is the more diagnostic output, which is why H9 is load-bearing.")
     L("- Cognition pipeline hyperparameters frozen at WIP-beverage defaults; no H&M-specific tuning. A 'tuned' Fragment pipeline might do better; a 'no-pipeline' bare LLM might do worse.")

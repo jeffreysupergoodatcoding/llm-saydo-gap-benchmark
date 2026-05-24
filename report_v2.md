@@ -1,6 +1,6 @@
 # From Stated Intent to Revealed Purchase: Quantifying the Say-Do Gap of LLM Digital Twins on H&M
 
-**Working paper, v2.** Commit `148e570c6121`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
+**Working paper, v2.** Commit `85f4562efc57`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
 
 **Companion to**: `report.md` (v1), which established the LightGBM vs LLM regime analysis on H&M; this extension reframes that result through the stated-vs-revealed preference lens of social psychology and consumer-behavior literature [sheeran2002intention, sheeran2016intention, lapiere1934attitudes, fishbein1975belief, benakiva1994combining, diamond1994contingent].
 
@@ -121,6 +121,18 @@ Sheeran 2002 meta-analytic intent-behavior r ≈ 0.53 (across-individual, social
 H9a was reported as 'CONFIRMED' (perm p=0.0042) but the diff is +0.0016, which is below the conventional 'practically null' bound of ±0.01. Approximate 95% CI of diff = [-0.010310447971042205, -0.003769559246390117]. TOST equivalence to null: **False**. 
 After stripping ≥3×-repeated and low-TTR verbatims (n_remaining=153), the diff-vs-global-null becomes 0.000. The H9a effect is best described as *statistically detectable, practically negligible (Cohen's d ≪ 0.1).*
 
+**Embedder sensitivity (Phase 21 — addresses blind-reviewer Blocker #2 on Gemini/Gemini co-training).** We re-run H9 with a disjoint third-party embedder (`BAAI/bge-large-en-v1.5`) on the SAME verbatim and article texts. Results:
+
+| Metric | Gemini-embedder (Phase 11b) | BGE-large (Phase 21) |
+|---|---|---|
+| H9a diff (cos_actual − within-bucket perm null) | +0.0016 | +0.0015 |
+| H9a permutation p | 0.0042 | 0.0284 |
+| H9b MRR | 0.0439 | 0.0418 |
+| H9b chance E_uniform | 0.0515 | 0.0515 |
+| H9b margin | -0.0075 | -0.0096 |
+
+Both embedders agree on the qualitative finding: H9a is statistically detectable with a practically null effect; H9b's MRR is *below* chance. The negative H9 result is **robust to embedder-vendor choice**, ruling out the co-training confound flagged in the pre-registration v2 limitations.
+
 ### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor
 
 **Counterfactual perturbation** (minimal: swap one colour and one product_type on one recent purchase). On n=50 customers, mean |Δ stated_intent_prob| = **0.028**. The descriptive 0.05 threshold (above Gemini's output resolution) returns `anchoring_to_priors=True`, but the canonical adjudication is the inferential Phase 16 Mann-Whitney test below — which rejects the strict 'pure anchoring' null but with small effect size.
@@ -166,7 +178,7 @@ Where v1 ended at *classical wins, LLM under-engineered*, v2's instrumentation r
 
 ## 6. Limitations
 - **Single LLM provider** (Gemini 2.5 Flash on all arms). The base-rate-leakage finding (Δ_F > Δ_arch) is therefore an n=1-provider result. Anthropic API quota was unavailable; the originally pre-registered Claude direct-API arm (C-flat) was dropped after the pre-Phase-10 audit deemed n=100 Claude Code subagents under-powered and confounded. Without a second provider arm, we cannot rule out Gemini-specific calibration behavior as a partial explanation for the imbalance.
-- **Embedder co-training confound** for H9. The Gemini-family `gemini-embedding-001` embedder was used to score Gemini-generated verbatim quotes against article-description embeddings. Pre-registration v2 (§Embedding model) called for `bge-large` or `text-embedding-3-small` as a disjoint third-party embedder; we used the same-vendor embedder out of API-quota necessity. A bge-large sensitivity replication is the highest-priority follow-up; the current H9 result cannot be cleanly attributed to a real signal failure vs an embedder artifact.
+- **Embedder co-training confound** for H9: **addressed in §4.3.2** via a Phase 21 sensitivity using `BAAI/bge-large-en-v1.5` (disjoint third-party embedder). Both embedders agree H9 fails. The original co-training threat is therefore not load-bearing for the H9 negative result, but we retain the same-vendor result as the primary number for protocol consistency.
 - **Single dataset (H&M).** No cross-domain replication; pooled-vs-within decomposition would be more compelling on MovieLens 25M or Amazon Reviews.
 - LLM stated_intent_prob has only ~30 unique values in F-* arms (Gemini's tendency to round to 0.05/0.10 steps); the verbatim is the more diagnostic output, which is why H9 is load-bearing.
 - Cognition pipeline hyperparameters frozen at WIP-beverage defaults; no H&M-specific tuning. A 'tuned' Fragment pipeline might do better; a 'no-pipeline' bare LLM might do worse.

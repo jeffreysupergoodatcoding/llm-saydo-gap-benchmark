@@ -1,0 +1,18 @@
+{
+  "embedder": "BAAI/bge-large-en-v1.5",
+  "n_eligible": 228,
+  "H9a_mean_cos_actual_bge": 0.4448280334472656,
+  "H9a_mean_cos_perm_null_bge": 0.4433755294102849,
+  "H9a_diff_bge": 0.0014525040369807174,
+  "H9a_perm_p_bge": 0.0284,
+  "paired_diff_cos_actual_minus_dist_bge_mean": -0.01155831292271614,
+  "paired_diff_95CI_bge": [
+    -0.016306284033594073,
+    -0.006810341811838208
+  ],
+  "H9b_MRR_bge": 0.04183216712995588,
+  "H9b_chance_MRR": 0.05145820304691713,
+  "H9b_margin_bge": -0.009626035916961248,
+  "n_perm": 5000,
+  "interpretation": "If the BGE-large (disjoint embedder) result agrees with the Gemini-embedder Phase 11b result (H9a practically null, H9b at or below chance), the negative H9 finding is robust to embedder-vendor co-training."
+}
