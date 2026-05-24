@@ -543,12 +543,103 @@ class S4_Commitment(Method):
         return self._base.step_dp3(state, chosen, trace)
 
 
+# ============================ M8a: RAG WITHOUT outcome labels ============================
+
+class M8a_RAG_NoLabel(M8_RAG):
+    """Identical to M8 except retrieved cases' outcome labels are redacted.
+
+    Reviewer red flag #1: M8's outcome-label visibility is essentially label-aware
+    retrieval. M8a is the matched ablation that retrieves the same neighbours but
+    hides their realized outcomes; any gap between M8 and M8a is attributable to
+    the label visibility itself, not to the retrieval mechanism.
+    """
+    name = "M8a"
+    description = "M8 with the retrieved cases' 30-day outcomes redacted."
+
+    def _block(self, trace):
+        items = self._retrieve(trace)
+        if not items:
+            return ""
+        out = ["RETRIEVED 5 SIMILAR-PROFILE CUSTOMERS (outcomes redacted for this ablation):"]
+        for i, e in enumerate(items):
+            out.append(
+                f"  CASE{i+1}: orders={e['total_orders']}, recency={e['recency_days']}d, "
+                f"top_section={e['top_section']}, 30d_outcome=REDACTED"
+            )
+        return "\n".join(out) + "\n"
+
+
+# ============================ M2: random few-shot ICL (un-cut for reviewer transparency) ============================
+
+class M2_RandomICL(M3_KNN):
+    """5 RANDOMLY-selected val customers prepended as ICL (matched to M3 in structure).
+
+    Reviewer red flag #5: cutting M2 looked like motivated reasoning. Run it. The
+    audit verdict — that random ICL is dominated by k-NN ICL in tabular settings
+    (Liu 2022) — is reported as an empirical comparison rather than a cut.
+    """
+    name = "M2"
+    description = "5 random val customers as ICL (M3 with random retrieval instead of RFM k-NN)."
+
+    def __init__(self, neighbours_random: dict | None = None):
+        # neighbours_random: dict[cid] -> 5 random val customers (NOT k-NN)
+        super().__init__(neighbours=neighbours_random or {})
+
+
+# ============================ M7: hybrid LLM + LightGBM (honest baseline) ============================
+
+class M7_Hybrid(Method):
+    """0.5·LLM_scalar + 0.5·LGBM_pred. Scalar-only method.
+
+    Reviewer red flag #3: cutting M7 as 'trivially wins' looked like motivated
+    removal. Reinstated as honest baseline. We expect it to win on scalar gap
+    via mean-shrinkage toward LGBM's predictions; whether it improves
+    within-bucket ρ over M1 is the test that matters.
+
+    Implementation: reuse the same DP-level pipeline as M1 for sandbox actions
+    (so f̂_LLM is the M1 sandbox outcome), and produce a HYBRID scalar by
+    blending the M1 scalar with a per-customer LightGBM prediction.
+    """
+    name = "M7"
+    description = "Hybrid: M1 sandbox actions + 0.5*LLM_scalar + 0.5*LGBM_pred on scalar arm."
+
+    def __init__(self, lgbm_preds: dict | None = None):
+        self._base = M1_ZeroShot()
+        self._lgbm = lgbm_preds or {}
+
+    def setup(self, state, trace, **kw):
+        return 0
+
+    def step_dp1(self, state, menu, trace, **kw):
+        return self._base.step_dp1(state, menu, trace)
+
+    def step_dp2(self, state, menu, trace, **kw):
+        return self._base.step_dp2(state, menu, trace)
+
+    def step_dp3(self, state, chosen, trace, **kw):
+        return self._base.step_dp3(state, chosen, trace)
+
+    def scalar_prob(self, trace: dict, **kw) -> dict:
+        # M1's scalar
+        base = super().scalar_prob(trace, **kw)
+        cid = trace.get("_cid", "")
+        lgbm = float(self._lgbm.get(cid, 0.21))  # fallback to test rate
+        blended = 0.5 * base.get("scalar_prob", 0.5) + 0.5 * lgbm
+        return {"scalar_prob": float(max(0.0, min(1.0, blended))),
+                "llm_scalar": base.get("scalar_prob"),
+                "lgbm_scalar": lgbm,
+                "reasoning": "M7 hybrid 0.5·LLM + 0.5·LGBM"}
+
+
 # ============================ registry ============================
 
 METHOD_REGISTRY = {
     "M1": M1_ZeroShot,
+    "M2": M2_RandomICL,
     "M3": M3_KNN,
+    "M7": M7_Hybrid,
     "M8": M8_RAG,
+    "M8a": M8a_RAG_NoLabel,
     "M9": M9_ImplementationIntentions,
     "S1": S1_Reflexion,
     "S2": S2_OutcomeConditioned,

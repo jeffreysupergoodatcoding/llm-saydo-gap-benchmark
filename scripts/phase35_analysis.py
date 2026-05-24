@@ -21,21 +21,33 @@ from scipy import stats
 ROOT = Path(__file__).resolve().parents[1]
 SBX_DIR = ROOT / "results" / "phase34_sandbox"
 OUT = ROOT / "results" / "phase35_v3_analysis.json"
-METHODS = ["M1", "M3", "M8", "M9", "S1", "S2", "S3", "S4"]
+METHODS = ["M1", "M2", "M3", "M7", "M8", "M8a", "M9", "S1", "S2", "S3", "S4"]
 BUCKETS = ["1", "2-5", "6-20", "21-100", "101+"]
+# Reviewer red flag #2: H10 is "any-of-K" disjunction → adjust FWER via Holm-Bonferroni
+# across the K methods (k = len(METHODS)).
+H10_ENVELOPE = 0.05
+H11_DELTA_THRESH = 0.03
 
 
 def load_method(mname: str) -> list[dict]:
+    """Load method records, de-duplicating by customer_id (keep first) and dropping
+    records with top-level errors. DP-level error detection is left to the runner;
+    bad-DP records should already have been cleaned by `rewrite_jsonl_dropping_bad`."""
     fn = SBX_DIR / f"{mname}.jsonl"
     if not fn.exists():
         return []
-    recs = []
+    seen: dict[str, dict] = {}
     for line in fn.read_text().splitlines():
         try:
-            recs.append(json.loads(line))
+            r = json.loads(line)
         except Exception:
-            pass
-    return [r for r in recs if "error" not in r]
+            continue
+        if "error" in r:
+            continue
+        cid = r.get("customer_id")
+        if cid and cid not in seen:
+            seen[cid] = r
+    return list(seen.values())
 
 
 def reweight_to_test(records: list[dict], test_bucket_weights: dict[str, float]) -> tuple[float, np.ndarray]:
@@ -275,6 +287,59 @@ def main():
     # H10 aggregate
     result["H10_any_pass"] = any(v.get("H10_pass") for v in result["methods"].values())
     result["H11_any_pass"] = any(v.get("H11_pass") for v in result["pairwise_h11"].values())
+
+    # Reviewer red flag #2: Holm-Bonferroni FWER correction over methods (k=number of methods)
+    # For H10 (per-method CI exclusion), the test is whether the |sandbox_gap| CI clears 0.05.
+    # We approximate each method's per-test p-value as P(|Z|>...) under the bootstrap-normal
+    # approximation that |sandbox_gap| > 0.05.
+    K = len(METHODS)
+    alpha = 0.025  # confirmatory α
+    p_vals_h10 = []
+    for m in METHODS:
+        v = result["methods"].get(m, {})
+        boot = v.get("sandbox_gap_bootstrap")
+        if not boot:
+            continue
+        point = boot.get("point", 0)
+        se = boot.get("se", 0) or 1e-9
+        # Two-tailed: probability that |gap| ≤ 0.05 given point estimate and SE under normal approx
+        z_pos = (H10_ENVELOPE - point) / se  # tail prob in the positive direction
+        z_neg = (-H10_ENVELOPE - point) / se
+        # Probability that |gap| > 0.05 (one-sided H0: |gap| > 0.05; H1: |gap| ≤ 0.05)
+        # We test whether the CI EXCLUDES the envelope, i.e. point is "significantly within".
+        # Approximate two-sided p:
+        from scipy.stats import norm
+        p_within = max(0.0, min(1.0, norm.cdf(z_pos) - norm.cdf(z_neg)))
+        # p-value for H0 "gap is OUTSIDE envelope" is 1 - p_within
+        p_outside = 1 - p_within
+        p_vals_h10.append((m, p_outside))
+    # Sort ascending p, apply Holm-Bonferroni
+    p_vals_h10.sort(key=lambda x: x[1])
+    holm = {}
+    for i, (m, p) in enumerate(p_vals_h10):
+        crit = alpha / (K - i)
+        holm[m] = {"p": p, "holm_crit": crit, "reject_h0": bool(p <= crit)}
+    result["holm_bonferroni_h10"] = holm
+    result["H10_holm_any_pass"] = any(h["reject_h0"] for h in holm.values())
+
+    # MDE for H11 — for the smallest sandbox-native vs M1 paired bootstrap SE
+    h11_ses = [v.get("se", 0) for v in result["pairwise_h11"].values() if v.get("se")]
+    if h11_ses:
+        median_se = sorted(h11_ses)[len(h11_ses) // 2]
+        # 80% power, two-sided alpha = 0.025: required effect = (z_{1-α/2} + z_{β}) * SE
+        from scipy.stats import norm
+        z_a = norm.ppf(1 - alpha / 2)  # ≈ 2.24
+        z_b = norm.ppf(0.80)  # ≈ 0.84
+        result["h11_mde"] = {
+            "median_paired_se": float(median_se),
+            "mde_80_power_alpha_0.025": float((z_a + z_b) * median_se),
+            "preregistered_threshold": H11_DELTA_THRESH,
+            "comment": (
+                "Detectable effect at 80% power, two-sided α=0.025: "
+                f"~{(z_a + z_b) * median_se:.3f}. Pre-registered Δρ ≥ {H11_DELTA_THRESH} is "
+                f"{'achievable' if (z_a + z_b) * median_se <= H11_DELTA_THRESH else 'UNDERPOWERED'}."
+            ),
+        }
 
     OUT.write_text(json.dumps(result, indent=2))
     print(f"Wrote {OUT}")

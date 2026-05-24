@@ -22,7 +22,7 @@ import polars as pl
 from src import T_TEST_CUTOFF
 from src.behavioral_trace import behavioral_trace
 from src.sandbox.runner import run_session
-from src.sandbox.methods import METHOD_REGISTRY, M3_KNN, M8_RAG
+from src.sandbox.methods import METHOD_REGISTRY, M3_KNN, M8_RAG, M2_RandomICL, M7_Hybrid, M8a_RAG_NoLabel
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -75,31 +75,56 @@ def already_done(method_name: str) -> set[str]:
 
 
 def rewrite_jsonl_dropping_bad(method_name: str):
-    """Remove records with DP-level errors so re-runs don't duplicate them."""
+    """Remove records with DP-level errors and de-duplicate by customer_id (keep first)."""
     fn = OUT_DIR / f"{method_name}.jsonl"
     if not fn.exists():
         return 0, 0
-    good = []
+    good_by_cid: dict[str, str] = {}
     bad = 0
+    dupes = 0
     for line in fn.read_text().splitlines():
         try:
             rec = json.loads(line)
             if _record_has_dp_errors(rec):
                 bad += 1
                 continue
-            good.append(line)
+            cid = rec.get("customer_id")
+            if cid is None:
+                bad += 1
+                continue
+            if cid in good_by_cid:
+                dupes += 1
+                continue
+            good_by_cid[cid] = line
         except Exception:
             bad += 1
-    fn.write_text("\n".join(good) + ("\n" if good else ""))
-    return len(good), bad
+    fn.write_text("\n".join(good_by_cid.values()) + ("\n" if good_by_cid else ""))
+    return len(good_by_cid), bad + dupes
+
+
+def _load_optional(p: Path):
+    if p.exists():
+        try:
+            return json.loads(p.read_text())
+        except Exception:
+            return None
+    return None
 
 
 def make_method(method_name: str, neighbours, history_pool):
     cls = METHOD_REGISTRY[method_name]
     if method_name == "M3":
         return M3_KNN(neighbours=neighbours)
+    if method_name == "M2":
+        random_nb = _load_optional(ROOT / "results" / "phase38_neighbours_random.json") or {}
+        return M2_RandomICL(neighbours_random=random_nb)
     if method_name == "M8":
         return M8_RAG(history_pool=history_pool)
+    if method_name == "M8a":
+        return M8a_RAG_NoLabel(history_pool=history_pool)
+    if method_name == "M7":
+        lgbm = _load_optional(ROOT / "results" / "phase38_lgbm_preds.json") or {}
+        return M7_Hybrid(lgbm_preds=lgbm)
     return cls()
 
 

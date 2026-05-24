@@ -72,6 +72,22 @@ These fixes are mid-run because the parallel audit caught them before F-nobase s
 - Phase 9 memorization probe: Gemini returned `UNKNOWN` for all 20 H&M `customer_id`s (0/20 suspicious). No detectable contamination from Kaggle public notebooks; safe to proceed.
 - **C-flat arm dropped**: Anthropic API returns 400 "credit balance too low" across `claude-haiku-4-5`, `claude-3-5-haiku-latest`, `claude-3-5-sonnet-latest`. Per plan fallback ("if no quota, fall back to Claude Code subagents and explicitly acknowledge the confound") and per audit recommendation (H10 demoted/dropped because n=100 Claude was severely under-powered anyway), we skip the C-flat arm in the headline. Provider comparison is left to future work.
 
+## 2026-05-24 — v3 deviations (post-prereg, after ICLR reviewer audit)
+
+Three methods were ADDED to the v3 catalog (prereg hash `47a938b1` covered 8 methods: M1/M3/M8/M9/S1/S2/S3/S4) in response to an ICLR reviewer audit that returned a Weak Reject verdict (paper.md ICLR-readiness check, 2026-05-24). The additions are appendix-only ablations; they are NOT part of the confirmatory H10/H11 disjunction.
+
+- **M2 random ICL** — reinstated to address the "motivated cut" reviewer attack. Originally dropped per audit verdict that random ICL is dominated by k-NN ICL in tabular settings (Liu 2022). Run as honest empirical comparison; reported in Appendix A.
+- **M7 hybrid LLM + LightGBM** — reinstated as honest baseline. Original cut justified by trivially-true mechanism (LightGBM dominates LLM PR-AUC, so any blend mechanically reduces gap). Reinstated to show actual numbers and to enable a within-bucket-ρ comparison that LightGBM cannot trivially dominate. Reported in Appendix A.
+- **M8a no-label** — matched ablation of M8. Identical retrieval; outcome labels redacted. M8 − M8a is the contribution attributable to label visibility (reviewer red flag #1 attack on label-aware retrieval). Reported alongside M8 in §6.1.
+
+These three methods do NOT enter the H10/H11 disjunction. The Bonferroni α=0.025 over (H10, H11) remains pre-registered. The Holm-Bonferroni correction over METHODS (across all confirmatory tests) added to `phase35_analysis.py::holm_bonferroni_h10` is a stricter, conservative addition; it is reported as the primary verdict and the original Bonferroni-over-hypotheses is reported as a less-conservative sensitivity.
+
+MDE for H11 (median paired-bootstrap SE → detectable Δρ at 80% power) was computed and reported in `results/phase35_v3_analysis.json::h11_mde`. The original prereg only computed MDE for H10; this is an honest disclosure addition.
+
+3-seed sensitivity (seeds 2026, 2027, 2028) on M1+S2+S4 stimulus generation is reported in Appendix A.
+
+Cost cap raised from $25 to $35 to cover the three added methods (≈ 3000 more sandbox sessions ≈ $0.30 net at observed Gemini Flash rates).
+
 ## 2026-05-23 — Final-audit fixes
 
 - **H4 formal Spearman computed**: pre-reg specified ρ(PR-AUC, -Wasserstein) < 0 as the rank-inversion test; the previous report adjudicated H4 qualitatively. Computed formally over all 7 reps: ρ = +0.393, p = 0.383. Verdict: REFUTED (positive sign instead of negative; small n=7 limits power). Saved to `results/audit_h4_d3_followup.json`.

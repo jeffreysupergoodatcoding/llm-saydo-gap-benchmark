@@ -1,6 +1,19 @@
-# Closing the LLM Say-Do Gap: A Consequential-Decision Sandbox and a Method Catalog
+# Closing the LLM Say-Do Gap: A Consequential-Decision Sandbox, a Method Catalog, and a Permutation Test for Commitment Shrinkage
 
 **Anonymous submission.**
+
+---
+
+## Contributions
+
+This paper makes four contributions that together distinguish it from prior LLM-twin work [park2024selfreport, peng2025funhouse, toubia2025twin2k500, andric2025walktheirtalk]:
+
+1. **A pre-registered consequential-decision sandbox protocol** with exogenous stochastic stimuli, a depletable attention budget, and persistent state across cycles. The protocol elicits agent decisions under structural commitment pressure that scalar say-do gap measurement cannot represent.
+2. **A method catalog of 11 interventions** (8 confirmatory + 3 appendix ablations) including four sandbox-native methods (Reflexion-in-funnel, outcome-conditioned backward planning, tree-of-thoughts, structural commitment device) that the prior scalar-elicitation setup cannot represent.
+3. **A new descriptive metric — *commitment shrinkage* — with a falsifiable per-bucket permutation null**, separating "structural mean-shrinkage toward the population prior" from "genuine within-customer commitment."
+4. **A Holm-Bonferroni FWER correction over methods** on the H10 disjunction, plus an explicit MDE calculation for the H11 within-bucket Spearman test, addressing reviewer-anticipated multiple-testing and power concerns in advance.
+
+The dataset (H&M Personalized Fashion, n=1,000 paired core sample), the code (`src/sandbox/`, `scripts/phase{31..39}*.py`), the pre-registration (hash `47a938b1`), and the post-commit deviations register (`decisions_log.md`) are released. Each numerical claim in §6 traces to a deterministic JSON output in `results/`.
 
 ---
 
@@ -16,7 +29,7 @@ Using a large language model to simulate a specific person — a "digital twin" 
 
 Earlier benchmarking by the same authors (recapitulated as background in §3) established three facts on a public retail benchmark, H&M Personalized Fashion Recommendations [hm_kaggle]. First, an in-prompt base-rate table that practitioners commonly include for calibration accounts for more of the apparent say-do-gap reduction than the underlying Park-2023-lineage cognition pipeline itself; on H&M, |Δ_F| = 0.077 versus |Δ_arch| = 0.062. Second, when stated-vs-revealed Spearman correlation is decomposed into pooled and within-stratum components, the LLM's pooled ρ reproduces Sheeran's human meta-analytic r ≈ 0.53 while the within-bucket ρ collapses to 0.23–0.28, close to the per-individual twin–human correlation of ≈ 0.2 reported by Toubia et al. (2025). Third, an in-domain human-self test-retest benchmark places a customer's own past-30-day buying as a predictor of their next-30-day buying at Pearson r ≈ 0.39 on H&M, and the LLM's within-bucket ρ is roughly half this domain-specific human-self number. The headline finding from that prior work is *that there is a gap and that most of it is bucket-prior dependence, not within-customer reasoning*. This paper asks: **can it be closed?**
 
-The natural extension is to take published gap-reduction interventions from the broader literature — implementation intentions [gollwitzer1999implementation, verplanken1999goodintentions], retrieval-augmented in-context learning [brown2020fewshot, liu2022makesgood], self-consistency [wang2022selfconsistency], chain-of-thought [wei2022chain], post-hoc calibration [platt1999, niculescu2005predicting], hybrid statistical–LLM ensembles [chen2024fusion] — and run them as static prompting variations against the same benchmark. We initially designed exactly this; the pre-registration draft listed nine such methods. A tri-agent methodology audit (records in `decisions_log.md`, 2026-05-24) returned a single decisive critique: most of those nine methods are scalar-elicitation interventions. They modify the prompt but not the *task structure*. The harder, more honest question is whether closing the gap requires intervening at the *decision-making structure* itself.
+The natural extension is to take published gap-reduction interventions from the broader literature — implementation intentions [gollwitzer1999implementation, verplanken1999goodintentions], retrieval-augmented in-context learning [brown2020fewshot, liu2022makesgood], self-consistency [wang2022selfconsistency], chain-of-thought [wei2022chain], post-hoc calibration [platt1999, niculescu2005predicting], hybrid statistical–LLM ensembles — and run them as static prompting variations against the same benchmark. We initially designed exactly this; the pre-registration draft listed nine such methods. A tri-agent methodology audit (records in `decisions_log.md`, 2026-05-24) returned a single decisive critique: most of those nine methods are scalar-elicitation interventions. They modify the prompt but not the *task structure*. The harder, more honest question is whether closing the gap requires intervening at the *decision-making structure* itself.
 
 We respond by building a sandbox: a 30-day behavioral window with weekly stimulus menus drawn exogenously from H&M's article catalog, a budget the agent must allocate across the four weeks, three sequential decision points each week (DP1 engage/skip, DP2 select-a-candidate or exit, DP3 purchase or abandon), and persistent state in which prior weeks' actions are visible to later weeks. The sandbox is *deterministic-transition* — the agent's action is the state transition — and we are explicit that this makes the sandbox a decision-elicitation protocol under commitment pressure rather than a full world model. The audit verdict in §11 accepts this framing and rejects the framing of the sandbox as a "world model" or "environment with consequences." But three properties the original prompt-only setup lacks are now present: (i) exogenous stimuli the agent did not invent, (ii) a depletable resource that makes early-week engagement consequential to late-week options, and (iii) action history that constrains and informs later decisions within a single window.
 
@@ -156,9 +169,13 @@ commitment_shrinkage(M) = scalar_signed_gap(M) − sandbox_signed_gap(M).
 
 The intuition is that the sandbox forces the agent to commit at each DP, so the binary sandbox outcome may differ from a scalar elicitation of the same underlying probability. A naive interpretation is that committing reveals the agent's more honest preference. We do not adopt that interpretation. Instead we pre-register a permutation null: within each activity bucket, shuffle the customers' `f̂_LLM` labels uniformly and recompute `sandbox_signed_gap` and therefore `commitment_shrinkage`. The shuffle is *within* bucket so that population marginal is preserved. The null distribution after B = 1,000 shuffles gives a per-method `permutation_p`. A method's commitment shrinkage beats the null only if it carries within-bucket structure that the marginal alone cannot reproduce; otherwise the shrinkage is hard-thresholding noise around the scalar mean.
 
-### 4.6 Sample, splits, and pre-registration
+### 4.6 Sample, splits, multiple-testing correction, and pre-registration
 
 The core-1000 v3 sample is drawn deterministically with `seed = 2026` as 200 customers per activity bucket, stratified, customer-disjoint from the v2 core-1000. We confirmed disjointness by intersecting against `phase10_F-base_scores.npz`'s `customer_id` list; the v3 sample uses the remaining 45,865 test-pool customers as candidates. The overall label rate is 0.21, matching the v2 sample's 0.214. The pre-registration document `preregistration_v3.md` (file hash `47a938b1383c2ef9ac1b092133de99e4cfda92bca4dce14b166e94b26bee0103`) was committed before any v3 LLM call.
+
+**Multiple-testing discipline.** H10 is structurally a disjunction over methods ("any of K methods passes"), which inflates the family-wise error rate if reported as a single α-level test. We apply two corrections: (i) the pre-registered Bonferroni α=0.025 split across the two confirmatory hypotheses H10 and H11; (ii) a post-commit Holm-Bonferroni correction across the K=8 confirmatory methods on H10, reported as the primary verdict in §6.1 with the Bonferroni-only verdict as a less-conservative sensitivity. Three additional methods (M2, M7, M8a) introduced after the pre-registration are appendix ablations and do *not* enter the H10/H11 disjunction; the Holm-Bonferroni correction is over the K=8 pre-registered methods only.
+
+**Minimum detectable effect (MDE) for H11.** The pre-registration computed MDE for H10 (n=1,000 stratified, paired SE≈0.011 → ±0.05 envelope detectable at >99% power). The MDE for H11 (Δρ ≥ 0.03) is computed post-experiment from the median paired-bootstrap SE across the four S vs M1 comparisons; the value is reported in `results/phase35_v3_analysis.json::h11_mde` and in §6.2. The pre-registered Δρ ≥ 0.03 threshold is achievable iff the median paired SE is ≤ 0.012 at α=0.025, two-sided, 80% power.
 
 ### 4.7 Cost discipline
 
@@ -246,6 +263,18 @@ The MRR > random null (where random MRR ≈ 0.052 with H_101 normalization) is t
 
 We re-run M1 and the strongest performing sandbox-native method on three alternate seeds (`{2027, 2028, 2029}`) to verify that the headline results are not seed-specific. {{SEED_SENSITIVITY_NARRATIVE}}.
 
+### 6.6b Appendix ablations: M2 random ICL, M7 hybrid, M8a no-label
+
+Three additional methods, added post-pre-registration in response to ICLR reviewer audit, are reported as Appendix A ablations and do NOT enter the H10/H11 confirmatory disjunction. They address specific reviewer-anticipated attacks.
+
+- **M2 (random ICL)**: matched ablation of M3 with random val-customer retrieval instead of RFM-nearest. If M2 ≈ M3, the audit verdict that "example selection dominates example count" (Liu 2022) is falsified for this dataset; if M3 > M2 meaningfully, the verdict is supported. {{M2_RESULT_NARRATIVE}}
+- **M7 (hybrid LLM + LightGBM)**: 0.5·M1_scalar + 0.5·LGBM_pred. Mean-shrinkage closure is expected; the test that matters is whether within-bucket ρ improves over M1. If `ρ(M7) > ρ(M1)`, the LLM contributes signal beyond the LightGBM ranking; if not, M7 simply inherits LightGBM's gap. {{M7_RESULT_NARRATIVE}}
+- **M8a (RAG without outcome labels)**: matched ablation of M8 with retrieved cases' 30-day outcomes redacted. The difference M8 − M8a is the contribution of label visibility. {{M8a_RESULT_NARRATIVE}}
+
+### 6.6c Stimulus-seed sensitivity (M1, S2, S4 on seeds {2026, 2027, 2028})
+
+To address reviewer red flag #4 (single seed for stimulus generation), we re-ran M1, S2, S4 on a 200-customer stratified subsample at seeds 2027 and 2028 in addition to the headline seed 2026. {{SEED_SENSITIVITY_TABLE_PLACEHOLDER}}
+
 ### 6.7 Cost and timing
 
 The full 8-method × 1,000-customer run completed in {{TOTAL_RUNTIME_PLACEHOLDER}} on Gemini Flash 2.5 with 32 parallel workers, at total cost {{TOTAL_COST_PLACEHOLDER}}.
@@ -281,7 +310,7 @@ We discuss each method's mechanism in relation to its empirical behavior.
 
 ### 7.4 Counter-claims and responses
 
-Four counter-claims that a reviewer would raise, with responses:
+Seven counter-claims that a reviewer would raise, with responses (four anticipated pre-experiment in the pre-registration; three added post-ICLR reviewer audit):
 
 - **"Your sandbox is just a structured prompt; it has no environment dynamics."** Partially accepted. The deterministic transitions mean the sandbox is, formally, a decision-elicitation protocol rather than a world model. We added exogenous stimuli (§4.2) and a depletable budget (§4.3) to ensure that DP1 is consequential (skipping now preserves attention for later weeks). We do not claim the sandbox measures behavior in a learned environment; we claim it measures *decision-making under commitment pressure*, a strictly larger construct than scalar elicitation. Whether sandbox-native methods carry within-bucket signal beyond what scalar elicitation provides is the H11 question, and the answer is reported empirically in §6.2 rather than asserted.
 
@@ -289,7 +318,13 @@ Four counter-claims that a reviewer would raise, with responses:
 
 - **"You can't claim third-party LLMs cannot do it when you only ran one (Gemini Flash)."** Accepted in scope. The Claude Sonnet-class subagent arm in the prior benchmark used the same scalar elicitation on 50 H&M customers and produced a within-bucket ρ of 0.26, statistically indistinguishable from Gemini's 0.23. The provider-invariance result is at scalar grain; we did not run the sandbox on Claude in v3 because the Claude Code subagent's multi-step planning is itself a confound for an agent-policy comparison. The provider-invariance generalization therefore is reported in §3 but is not extended to the sandbox in v3.
 
-- **"The 8-method comparison is multiple-testing inflation."** We apply Bonferroni α = 0.025 over the two confirmatory hypotheses (H10, H11), exactly as pre-registered. Per-method scalar gaps in Table 1 are reported descriptively without significance asterisks.
+- **"The 8-method comparison is multiple-testing inflation."** We apply two corrections: pre-registered Bonferroni α = 0.025 over (H10, H11) plus post-commit Holm-Bonferroni over the K=8 confirmatory methods on H10. The Holm-Bonferroni verdict is reported as primary; the Bonferroni-only is reported as a less-conservative sensitivity. The three appendix-only methods (M2, M7, M8a) do NOT enter the disjunction. §4.6.
+
+- **"M8 wins by training-set contamination — retrieved neighbours' realized 30-day outcomes are visible to the agent."** Real concern. We address it with M8a (Appendix A): identical retrieval, outcomes redacted. The M8 − M8a delta is the contribution of label visibility. {{M8_VS_M8A_VERDICT}}
+
+- **"Cutting five methods after the audit (M2, M4, M5, M6, M7) is motivated removal."** M2 and M7 are reinstated in Appendix A as honest baselines, not for confirmatory testing. M4 (self-consistency), M5 (chain-of-thought), and M6 (isotonic calibration) remain cut for the reasons in Appendix A; each cut is documented with its specific audit-identified mechanism failure. We did not cut anything that could plausibly have closed within-bucket ρ; the cuts are all on methods whose published mechanism reduces variance or shifts the mean, not on methods that improve individual conditioning.
+
+- **"Single stimulus seed in §4.2."** Addressed with §6.6c: M1, S2, S4 re-run on seeds 2027 and 2028 with a 200-customer stratified subsample. {{SEED_VARIANCE_VERDICT}}
 
 ### 7.5 What this implies for practice
 
