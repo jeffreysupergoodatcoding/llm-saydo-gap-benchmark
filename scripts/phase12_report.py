@@ -65,18 +65,41 @@ def main():
     L("## Abstract")
     L("")
     L(
-        "We quantify the *say-do gap* of LLM digital twins on revealed retail purchase behavior. "
-        "Building on a public H&M Personalized Fashion benchmark (31M transactions, 1.4M customers; v1 splits and classical baselines reused unchanged), we extend a Park-2024-style narrative digital twin [park2024selfreport] into a Park-2023-lineage cognition pipeline [park2023generative] (memory-retrieval-reflection-decision, lifted from Fragment Labs) and compare the LLM's *stated 30-day purchase intent* to each customer's *actual* 30-day purchase. "
-        "We are not the first to frame LLMs through the stated/revealed preference lens — Andric 2025 [andric2025walktheirtalk], Alignment Revisited [alignmentrevisited2025], Mind the Gap [mindthegap2026], and Lu et al. [lu2025multiturnbehavior] precede us. "
-        "Our contribution is (a) the first public-benchmark quantification on H&M revealed behavior; (b) a controlled architecture ablation isolating the cognition pipeline's contribution from base-rate-table leakage that would otherwise contaminate the headline; (c) a counterfactual trace perturbation control that exposes when the LLM is anchoring on global priors rather than on the specific customer."
+        "On a 31M-transaction H&M public benchmark, prompted LLM digital twins reproduce Sheeran's canonical "
+        "human intent-behavior correlation (Spearman ρ ≈ 0.53) at the population level — but **within demographic "
+        "strata**, ρ collapses to 0.22-0.28, revealing that the apparent agreement is largely a base-rate "
+        "artifact rather than per-customer reasoning. "
+        "We further show, via a pre-registered ablation on n=1,000 paired customers, that a Park-2023-lineage "
+        "cognition pipeline (memory→retrieval→reflection→decision) does *not* close the say-do gap once the "
+        "leaked base-rate anchor table is removed: the in-prompt rate table accounts for more of the apparent "
+        "improvement (|Δ_F|=0.077) than the cognition architecture itself (|Δ_arch|=0.062), with paired-bootstrap "
+        "95% CIs disjoint from zero. Counterfactual trace perturbation reaches statistical significance over "
+        "the LLM's stochastic noise floor (Mann-Whitney p=0.024) but with small effect (Cliff's δ=0.17). "
+        "We are not the first to use the stated/revealed-preference lens for LLM agents [andric2025walktheirtalk, "
+        "alignmentrevisited2025, mindthegap2026, lu2025multiturnbehavior]; Toubia et al. [toubia2025twin2k500] "
+        "report per-individual twin-human correlation ~0.2 on N=2,058 — a numerical anchor for our within-stratum "
+        "Spearman finding. **Our four contributions are: (a) a pooled-vs-within-stratum Spearman decomposition** "
+        "separating demographic-prior signal from per-customer reasoning, showing LLM digital twins match the "
+        "Sheeran human benchmark only in aggregate; **(b) the first public-benchmark quantification of the say-do "
+        "gap on H&M revealed behavior**; **(c) a base-rate-leakage ablation** demonstrating that the in-prompt rate "
+        "table exceeds the cognition-pipeline architecture effect, inverting the headline of leakage-uncontrolled "
+        "prior work [li2025digitaltwins, chen2025personatwin]; **(d) a counterfactual trace perturbation control** "
+        "that quantifies how much customer-specific reasoning the LLM's output reflects above its own stochastic noise."
     )
     L("")
     L("## 1. Background and framing")
     L("")
     L(
         "Humans show a well-documented intention-behavior gap [sheeran2002intention, sheeran2016intention]: meta-analyses report median r ≈ .53 between stated intent and revealed action across health, voting, and consumption domains. The marketing-research literature has long called this the stated/revealed-preference gap [benakiva1994combining], with parallels in environmental economics [diamond1994contingent, arrow1993noaa] and consumer behavior [verplanken1999goodintentions]. "
-        "Recent LLM-digital-twin work [park2024selfreport, peng2025funhouse, wang2026productdiscovery, li2025digitaltwins] asks the LLM to roleplay an individual and predict their behavior; we recast this as: the LLM produces a *stated* probability and a first-person *verbatim quote*, and we measure the gap to *revealed* outcomes (actual H&M purchases). "
-        "Importantly, the LLM does not literally 'say' anything in the human-survey sense — it outputs a scalar and prose. The defense for the say-do framing is hypothesis H9: the LLM's verbatim text content must non-trivially predict the *specific* article the customer actually bought, not just the calibrated rate."
+        "Recent LLM-digital-twin work [park2024selfreport, peng2025funhouse, wang2026productdiscovery, li2025digitaltwins, "
+        "toubia2025twin2k500, chen2025personatwin] asks an LLM to roleplay an individual and predict their behavior. "
+        "We operationalize the LLM's purchase-probability output as *stated intent* and measure the gap to *revealed* "
+        "outcomes (actual H&M purchases). The LLM does not literally 'say' anything in the human-survey sense — it outputs "
+        "a scalar and (optionally) prose — and we treat that as a construct caveat throughout. The defense for the "
+        "say-do framing is hypothesis H9: the LLM's verbatim text content must non-trivially predict the *specific* article "
+        "the customer actually bought, not just the calibrated rate; §4.3.2 shows H9 fails. Together with §4.3.1 "
+        "(within-stratum ρ collapse) and §4.5 (small Cliff's δ on counterfactual perturbation), this paper bounds how "
+        "much of the LLM's apparent stated-intent signal is per-customer reasoning vs base-rate lookup with prose decoration."
     )
     L("")
     L("## 2. Dataset, splits, and reused infrastructure")
@@ -224,10 +247,15 @@ def main():
             w_ = s["within_bucket_pooled_spearman"]
             L(f"| {arm_name} | {p_['rho']:+.3f} [{p_['lo']:+.3f}, {p_['hi']:+.3f}] | {w_['rho']:+.3f} [{w_['lo']:+.3f}, {w_['hi']:+.3f}] | {s['pooled_minus_sheeran']:+.3f} |")
         L("")
-        L("**Headline insight.** The *pooled* ρ matches or slightly exceeds Sheeran's human reference (≈0.5), "
-          "but **within-bucket** ρ drops to ~0.22-0.28. That means the LLM's apparent intent-behavior correlation "
-          "is *almost entirely* explained by the activity-bucket prior (recency/frequency signal) — within a bucket, "
-          "the LLM's per-customer reasoning correlates with revealed behavior at roughly *half* the strength of Sheeran's human-self benchmark.")
+        L("**Headline insight (Contribution (a) of the paper).** The *pooled* Spearman ρ matches or slightly "
+          "exceeds Sheeran's human meta-analytic reference (r ≈ 0.53), but **within demographic strata** ρ drops "
+          "to 0.22-0.28 — close to the per-individual twin-human correlation of ~0.2 reported by Toubia et al. "
+          "[toubia2025twin2k500] on N=2,058. The pooled-vs-within decomposition reveals that the LLM digital twin's "
+          "apparent intent-behavior correlation is almost entirely explained by the **activity-bucket prior** "
+          "(recency/frequency signal): within a stratum, the LLM's per-customer reasoning correlates with revealed "
+          "behavior at roughly half the strength of Sheeran's human-self benchmark. This is a Simpson's-paradox-style "
+          "result: an aggregate-level number that looks like 'matches humans' is actually a base-rate-prior artifact, "
+          "and any prior work that reports only pooled correlations risks the same illusion.")
     L("")
     L("### 4.3.2 H9 equivalence test and template-strip sensitivity")
     L("")
