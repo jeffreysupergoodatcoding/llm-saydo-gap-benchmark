@@ -164,12 +164,15 @@ def main():
           f"diff = {h7['mean_diff_F_nb_minus_D2']:+.3f}; p = {h7['wilcoxon_alt_less_p']:.3g} → **{h7['verdict']}**.")
     if verbatim:
         L("")
-        L(f"**H9a — Verbatim cosine to actual next-article exceeds shuffled baseline**: "
-          f"mean cos = {verbatim['H9a_mean_cos_actual']:.3f} vs shuffled {verbatim['H9a_mean_cos_shuffled']:.3f}; "
-          f"diff = {verbatim['H9a_diff']:+.3f}; perm p = {verbatim['H9a_permutation_p_one_sided']:.3g} → **{verbatim['H9a_verdict']}**.")
+        cos_shuf = verbatim.get('H9a_mean_cos_shuffled_within_bucket_null', verbatim.get('H9a_mean_cos_shuffled', 0.0))
+        chance_mrr = verbatim.get('H9b_chance_MRR_E_uniform', verbatim.get('H9b_chance_MRR', 0.01))
+        margin = verbatim.get('H9b_margin_vs_E_uniform', verbatim.get('H9b_margin', 0.0))
+        L(f"**H9a — Verbatim cosine to actual next-article exceeds within-bucket shuffled baseline**: "
+          f"mean cos = {verbatim['H9a_mean_cos_actual']:.4f} vs shuffled {cos_shuf:.4f}; "
+          f"diff = {verbatim['H9a_diff']:+.4f}; perm p = {verbatim['H9a_permutation_p_one_sided']:.3g} → **{verbatim['H9a_verdict']}**.")
         L(f"**H9b — MRR over 100 distractors > chance + 0.05**: "
-          f"MRR = {verbatim['H9b_MRR']:.3f} (chance {verbatim['H9b_chance_MRR']:.3f}); "
-          f"margin = {verbatim['H9b_margin']:+.3f} → **{verbatim['H9b_verdict']}**.")
+          f"MRR = {verbatim['H9b_MRR']:.4f} (chance E_uniform = {chance_mrr:.4f}); "
+          f"margin = {margin:+.4f} → **{verbatim['H9b_verdict']}**.")
         L(f"**H9 overall**: {verbatim['H9_overall_verdict']}.")
         spec = verbatim.get("quote_specificity", {})
         if spec:

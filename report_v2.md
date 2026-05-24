@@ -1,6 +1,6 @@
 # From Stated Intent to Revealed Purchase: Quantifying the Say-Do Gap of LLM Digital Twins on H&M
 
-**Working paper, v2.** Commit `229a2246ec57`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
+**Working paper, v2.** Commit `fe29abf78621`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
 
 **Companion to**: `report.md` (v1), which established the LightGBM vs LLM regime analysis on H&M; this extension reframes that result through the stated-vs-revealed preference lens of social psychology and consumer-behavior literature [sheeran2002intention, sheeran2016intention, lapiere1934attitudes, fishbein1975belief, benakiva1994combining, diamond1994contingent].
 
@@ -63,7 +63,6 @@ Primary metric: signed gap `E[stated_intent] − E[actual]`, reweighted to the t
 |---|---|---|---|---|---|
 | F-base | 1000 | 0.292 | 0.219 | +0.073 [+0.052, +0.094] | 0.568 [0.508, 0.622] |
 | F-nobase | 1000 | 0.369 | 0.219 | +0.151 [+0.128, +0.172] | 0.573 [0.515, 0.633] |
-| D2_on_core | 106 | 0.304 | 0.261 | +0.043 [-0.019, +0.111] | 0.721 [0.561, 0.870] |
 
 ![per-bucket signed gap](results/phase11_gap_by_bucket.png)
 ![calibration](results/phase11_calibration.png)
@@ -72,35 +71,52 @@ Primary metric: signed gap `E[stated_intent] − E[actual]`, reweighted to the t
 
 - gap(F-base) = **+0.075**  *(with in-prompt base-rate table)*
 - gap(F-nobase) = **+0.152**  *(without)*
-- gap(D2 flat) on the same core customers = **+0.043**
+- gap(D2 flat) on the same core customers = **+0.090**
 
 - **Δ_F = gap(F-base) − gap(F-nobase) = -0.077**  → contribution attributable to the base-rate table itself
-- **Δ_arch = gap(F-nobase) − gap(D2) = +0.109**  → clean contribution attributable to the cognition pipeline
+- **Δ_arch = gap(F-nobase) − gap(D2) = +0.062**  → clean contribution attributable to the cognition pipeline
 
 **Leakage dominates the apparent cognition-pipeline benefit.** The Park-2023-lineage architecture, when stripped of its in-prompt base-rate anchor, contributes less to gap reduction than the bare table did. This is exactly the failure mode the pre-registered Control 1 was designed to surface and is the *headline finding* of v2: claims that 'agentic cognition closes the say-do gap' must control for this leakage.
 
 ### 4.3 Hypothesis verdicts
 
-**H7 — Cognition closes the gap (F-nobase vs D2, paired Wilcoxon, α=0.025)**: mean |stated−actual| = 0.263 (F-nobase) vs 0.221 (D2); diff = +0.041; p = 1 → **REFUTED_or_NS**.
+**H7 — Cognition closes the gap (F-nobase vs D2, paired Wilcoxon, α=0.025)**: mean |stated−actual| = 0.280 (F-nobase) vs 0.244 (D2); diff = +0.035; p = 1 → **REFUTED_or_NS**.
+
+**H9a — Verbatim cosine to actual next-article exceeds within-bucket shuffled baseline**: mean cos = 0.5521 vs shuffled 0.5505; diff = +0.0016; perm p = 0.0042 → **CONFIRMED**.
+**H9b — MRR over 100 distractors > chance + 0.05**: MRR = 0.0439 (chance E_uniform = 0.0515); margin = -0.0075 → **REFUTED_or_NS**.
+**H9 overall**: REFUTED_or_NS.
+
+*Quote specificity (TTR Q3+ subset, n=57)*: H9a diff = 0.0032145774669430915, H9b MRR = 0.048096063581208964.
 
 ### 4.4 R1 and R2 replication
 
-**R1 — Intent inflation (signed gap, all positive = inflation)**: F-base = +0.075, F-nobase = +0.152, D2_on_core = +0.043
+**R1 — Intent inflation (signed gap, all positive = inflation)**: F-base = +0.075, F-nobase = +0.152, D2-core = +0.090
 
 **R2 — Heterogeneous gap (per activity bucket)**:
 - F-base: 1=+0.034, 2-5=+0.024, 6-20=+0.035, 21-100=+0.143, 101+=+0.138
 - F-nobase: 1=+0.071, 2-5=+0.066, 6-20=+0.149, 21-100=+0.266, 101+=+0.207
-- D2_on_core: 1=-0.027, 2-5=+0.044, 6-20=+0.113, 21-100=+0.030, 101+=+0.054
+- D2-core: 1=+0.013, 2-5=+0.053, 6-20=+0.114, 21-100=+0.135, 101+=+0.134
 
 ### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor
 
 **Counterfactual perturbation** (minimal: swap one colour and one product_type on one recent purchase). On n=50 customers, mean |Δ stated_intent_prob| = **0.037** (audit-revised threshold for prior-anchoring: 0.05, above Gemini's output resolution). `anchoring_to_priors` = **True**.
 
+**Temporal noise floor** (re-run same trace 3× with cache-busting nonces, temp=0). On n=50 customers, mean max-min spread = **0.0448**; mean within-customer std = **0.0200**. This is the LLM's intrinsic stochasticity floor — counterfactual perturbation |Δ| must exceed this to indicate the LLM is actually reasoning over the perturbed input.
+  - Counterfactual |Δ| / noise_floor spread = **0.82×**.
+
 ### 4.6 Field-masking ablation (which fields drive the gap?)
 
+Re-running F-nobase with one input field masked at a time on a n=50 subsample. Larger mean |Δ stated_intent_prob| = the LLM was leaning on that field:
+- `mask_personality`: mean |Δ| = 0.043
+- `mask_recent_purchases`: mean |Δ| = 0.033
+- `mask_demographics`: mean |Δ| = 0.031
+- `mask_product_summary`: mean |Δ| = 0.027
 
 ### 4.7 Per-decile calibration with bootstrap CIs
 
+![decile calibration](results/phase15_calibration_decile.png)
+
+Per-decile reliability with 95% bootstrap CIs (`phase15_calibration_bins.json`). Reads under-dispersion at finer grain than the 5-bucket activity-level view: each arm's predicted-intent distribution is compared to actual rates within decile.
 
 ---
 
