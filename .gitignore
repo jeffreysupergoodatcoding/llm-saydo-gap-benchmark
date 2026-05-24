@@ -9,3 +9,4 @@ cache/llm_costs.jsonl
 results/*.npz
 *.log
 .DS_Store
+.env
