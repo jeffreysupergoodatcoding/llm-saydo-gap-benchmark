@@ -1,0 +1,48 @@
+{
+  "rows": [
+    {
+      "domain": "H&M",
+      "arm": "F-base",
+      "pooled_\u03c1": 0.528493848239049,
+      "within_\u03c1": 0.2808432393803065
+    },
+    {
+      "domain": "H&M",
+      "arm": "F-nobase",
+      "pooled_\u03c1": 0.5317156074297205,
+      "within_\u03c1": 0.22767631417869805
+    },
+    {
+      "domain": "H&M",
+      "arm": "D2-core",
+      "pooled_\u03c1": 0.49098809230494334,
+      "within_\u03c1": 0.26481911992742646
+    },
+    {
+      "domain": "MovieLens",
+      "arm": "F-base",
+      "pooled_\u03c1": 0.37288881929012785,
+      "within_\u03c1": 0.44559295653546377
+    },
+    {
+      "domain": "MovieLens",
+      "arm": "F-nobase",
+      "pooled_\u03c1": 0.24258961509399968,
+      "within_\u03c1": 0.428491927363527
+    }
+  ],
+  "hm_human_self_r": 0.37959229870664624,
+  "ml_human_self_r": 0.19784318658853592,
+  "sheeran_cross_domain": 0.53,
+  "leakage_H&M": {
+    "abs_Delta_F": 0.07678999999999997,
+    "abs_Delta_arch": 0.06205299999999997
+  },
+  "leakage_ML": {
+    "gap_Fbase_minus_gap_Fnobase": -0.01951178451178451,
+    "95CI": [
+      -0.029091750841750835,
+      -0.011006734006734008
+    ]
+  }
+}
