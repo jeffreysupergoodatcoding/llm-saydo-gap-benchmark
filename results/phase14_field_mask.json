@@ -1,0 +1,184 @@
+{
+  "n_customers": 50,
+  "conditions": [
+    "full",
+    "mask_demographics",
+    "mask_recent_purchases",
+    "mask_personality",
+    "mask_product_summary"
+  ],
+  "mean_abs_delta_vs_full": {
+    "mask_demographics": 0.030999999999999996,
+    "mask_recent_purchases": 0.0332,
+    "mask_personality": 0.043,
+    "mask_product_summary": 0.026999999999999993
+  },
+  "median_abs_delta_vs_full": {
+    "mask_demographics": 0.0,
+    "mask_recent_purchases": 0.0,
+    "mask_personality": 0.0,
+    "mask_product_summary": 0.0
+  },
+  "samples": [
+    {
+      "cid": "b1cb6cd8e544\u2026",
+      "full": 0.08,
+      "mask_demographics": 0.08,
+      "mask_recent_purchases": 0.25,
+      "mask_personality": 0.15,
+      "mask_product_summary": 0.1
+    },
+    {
+      "cid": "3c58927176f3\u2026",
+      "full": 0.75,
+      "mask_demographics": 0.75,
+      "mask_recent_purchases": 0.75,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.75
+    },
+    {
+      "cid": "aaa6b2507b07\u2026",
+      "full": 0.8,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.8
+    },
+    {
+      "cid": "e1e3c9578565\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.85
+    },
+    {
+      "cid": "1b6385b6f891\u2026",
+      "full": 0.75,
+      "mask_demographics": 0.75,
+      "mask_recent_purchases": 0.75,
+      "mask_personality": 0.55,
+      "mask_product_summary": 0.75
+    },
+    {
+      "cid": "3bdcac95887e\u2026",
+      "full": 0.25,
+      "mask_demographics": 0.25,
+      "mask_recent_purchases": 0.25,
+      "mask_personality": 0.15,
+      "mask_product_summary": 0.1
+    },
+    {
+      "cid": "c36dac9ff75e\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.85
+    },
+    {
+      "cid": "849b7029d050\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.85
+    },
+    {
+      "cid": "79e81a205548\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.85
+    },
+    {
+      "cid": "e0ac8c0ec921\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.85
+    },
+    {
+      "cid": "71986b564f1a\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.85
+    },
+    {
+      "cid": "714d1c723383\u2026",
+      "full": 0.1,
+      "mask_demographics": 0.1,
+      "mask_recent_purchases": 0.08,
+      "mask_personality": 0.1,
+      "mask_product_summary": 0.15
+    },
+    {
+      "cid": "5a09777b5ecf\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.85
+    },
+    {
+      "cid": "262db79615c7\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.85
+    },
+    {
+      "cid": "dfbb4da6fe05\u2026",
+      "full": 0.6,
+      "mask_demographics": 0.75,
+      "mask_recent_purchases": 0.75,
+      "mask_personality": 0.7,
+      "mask_product_summary": 0.6
+    },
+    {
+      "cid": "829e639c894b\u2026",
+      "full": 0.45,
+      "mask_demographics": 0.75,
+      "mask_recent_purchases": 0.75,
+      "mask_personality": 0.75,
+      "mask_product_summary": 0.75
+    },
+    {
+      "cid": "dd6dfbcb7802\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.85,
+      "mask_recent_purchases": 0.85,
+      "mask_personality": 0.85,
+      "mask_product_summary": 0.85
+    },
+    {
+      "cid": "3bb827918c50\u2026",
+      "full": 0.08,
+      "mask_demographics": 0.08,
+      "mask_recent_purchases": 0.08,
+      "mask_personality": 0.08,
+      "mask_product_summary": 0.08
+    },
+    {
+      "cid": "88cc68f38909\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.75,
+      "mask_recent_purchases": 0.75,
+      "mask_personality": 0.8,
+      "mask_product_summary": 0.8
+    },
+    {
+      "cid": "c2349125e897\u2026",
+      "full": 0.85,
+      "mask_demographics": 0.8,
+      "mask_recent_purchases": 0.8,
+      "mask_personality": 0.8,
+      "mask_product_summary": 0.85
+    }
+  ]
+}

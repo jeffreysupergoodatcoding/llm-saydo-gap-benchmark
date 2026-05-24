@@ -1,0 +1,205 @@
+{
+  "n_eligible": 228,
+  "n_distractors": 100,
+  "H9a_mean_cos_actual": 0.5521062858272017,
+  "H9a_mean_cos_shuffled_within_bucket_null": 0.550545166463248,
+  "H9a_diff": 0.0015611193639536447,
+  "H9a_permutation_p_one_sided": 0.0042,
+  "H9a_null_distribution_method": "within-bucket-permuted (n_perm=10000)",
+  "H9a_bonferroni_threshold": 0.0125,
+  "H9a_verdict": "CONFIRMED",
+  "H9b_MRR": 0.043924292759473675,
+  "H9b_chance_MRR_E_uniform": 0.05145820304691713,
+  "H9b_chance_MRR_one_over_n": 0.009900990099009901,
+  "H9b_margin_vs_E_uniform": -0.007533910287443456,
+  "H9b_verdict": "REFUTED_or_NS",
+  "H9_overall_verdict": "REFUTED_or_NS",
+  "quote_specificity": {
+    "mean_TTR": 0.9848891155367243,
+    "Q3_TTR": 1.0,
+    "high_TTR_H9a_diff": 0.0032145774669430915,
+    "high_TTR_H9b_MRR": 0.048096063581208964
+  },
+  "per_customer_sample": [
+    {
+      "cid": "b5037e7afe4c\u2026",
+      "bucket": "1",
+      "verbatim": "I probably won't buy anything from H&M this month.",
+      "cos_actual": 0.602596640586853,
+      "mean_cos_distractor": 0.5542549121379853,
+      "rank_among_distractors_plus_actual": 7,
+      "ttr": 1.0
+    },
+    {
+      "cid": "f3ed7544935d\u2026",
+      "bucket": "1",
+      "verbatim": "I probably won't buy anything from H&M this month, as I haven't for a long time.",
+      "cos_actual": 0.5434091687202454,
+      "mean_cos_distractor": 0.5579717674851418,
+      "rank_among_distractors_plus_actual": 70,
+      "ttr": 0.9090909090909091
+    },
+    {
+      "cid": "e6e72f678148\u2026",
+      "bucket": "1",
+      "verbatim": "I probably won't buy anything from H&M this month.",
+      "cos_actual": 0.5275129675865173,
+      "mean_cos_distractor": 0.5542549121379853,
+      "rank_among_distractors_plus_actual": 89,
+      "ttr": 1.0
+    },
+    {
+      "cid": "5285107b9956\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be making another H&M purchase this month.",
+      "cos_actual": 0.5255265831947327,
+      "mean_cos_distractor": 0.5642593839764595,
+      "rank_among_distractors_plus_actual": 97,
+      "ttr": 1.0
+    },
+    {
+      "cid": "7c4fd2577718\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be making another H&M purchase this month.",
+      "cos_actual": 0.5275457501411438,
+      "mean_cos_distractor": 0.5642593839764595,
+      "rank_among_distractors_plus_actual": 97,
+      "ttr": 1.0
+    },
+    {
+      "cid": "045087e0c7af\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be browsing H&M this month and likely making a purchase.",
+      "cos_actual": 0.5420675873756409,
+      "mean_cos_distractor": 0.5630043250322342,
+      "rank_among_distractors_plus_actual": 86,
+      "ttr": 1.0
+    },
+    {
+      "cid": "06643023c7af\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be browsing H&M online this month and am highly likely to make a purchase.",
+      "cos_actual": 0.5374008417129517,
+      "mean_cos_distractor": 0.5643210053443909,
+      "rank_among_distractors_plus_actual": 93,
+      "ttr": 1.0
+    },
+    {
+      "cid": "9a3d8798ac4f\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be making another H&M purchase this month, probably within the next week or two.",
+      "cos_actual": 0.5915635228157043,
+      "mean_cos_distractor": 0.5644283771514893,
+      "rank_among_distractors_plus_actual": 14,
+      "ttr": 1.0
+    },
+    {
+      "cid": "3dc948ff4295\u2026",
+      "bucket": "101+",
+      "verbatim": "I will likely browse H&M online for new denim trousers this month, especially if there are new arrivals in light blue.",
+      "cos_actual": 0.6042234301567078,
+      "mean_cos_distractor": 0.5701677525043487,
+      "rank_among_distractors_plus_actual": 18,
+      "ttr": 0.9444444444444444
+    },
+    {
+      "cid": "f291c559d3dd\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be making another H&M purchase this month, probably something I haven't tried before.",
+      "cos_actual": 0.5240259170532227,
+      "mean_cos_distractor": 0.5590002018213273,
+      "rank_among_distractors_plus_actual": 95,
+      "ttr": 0.9166666666666666
+    },
+    {
+      "cid": "849b7029d050\u2026",
+      "bucket": "101+",
+      "verbatim": "I will almost certainly make another H&M purchase this month, as I shop there very frequently.",
+      "cos_actual": 0.5382890105247498,
+      "mean_cos_distractor": 0.5636682748794556,
+      "rank_among_distractors_plus_actual": 90,
+      "ttr": 0.9230769230769231
+    },
+    {
+      "cid": "df11288155ec\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be making another H&M purchase this month.",
+      "cos_actual": 0.5594261288642883,
+      "mean_cos_distractor": 0.5642593839764595,
+      "rank_among_distractors_plus_actual": 53,
+      "ttr": 1.0
+    },
+    {
+      "cid": "bb78537a1206\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be making another H&M purchase this month, probably for more swimwear or everyday wear.",
+      "cos_actual": 0.5952926874160767,
+      "mean_cos_distractor": 0.5647580730915069,
+      "rank_among_distractors_plus_actual": 12,
+      "ttr": 1.0
+    },
+    {
+      "cid": "e9ce8752ff97\u2026",
+      "bucket": "101+",
+      "verbatim": "Despite my past frequent shopping, I haven't bought anything from H&M in a while, so I'm not sure I'll make a purchase t",
+      "cos_actual": 0.5729175209999084,
+      "mean_cos_distractor": 0.5363192671537399,
+      "rank_among_distractors_plus_actual": 7,
+      "ttr": 0.9411764705882353
+    },
+    {
+      "cid": "5a09777b5ecf\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be making another H&M purchase this month.",
+      "cos_actual": 0.5373703837394714,
+      "mean_cos_distractor": 0.5642593839764595,
+      "rank_among_distractors_plus_actual": 89,
+      "ttr": 1.0
+    },
+    {
+      "cid": "16abaacba62c\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be making a new H&M purchase this month.",
+      "cos_actual": 0.539972722530365,
+      "mean_cos_distractor": 0.563663672208786,
+      "rank_among_distractors_plus_actual": 86,
+      "ttr": 1.0
+    },
+    {
+      "cid": "5a72d452c3ef\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be making another H&M purchase this month, probably for some new lingerie or nightwear.",
+      "cos_actual": 0.5667268633842468,
+      "mean_cos_distractor": 0.5697455018758774,
+      "rank_among_distractors_plus_actual": 44,
+      "ttr": 1.0
+    },
+    {
+      "cid": "a406ca292bcd\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be browsing H&M and likely making a purchase this month.",
+      "cos_actual": 0.5668879747390747,
+      "mean_cos_distractor": 0.5639336460828781,
+      "rank_among_distractors_plus_actual": 42,
+      "ttr": 1.0
+    },
+    {
+      "cid": "93cc8fa68202\u2026",
+      "bucket": "101+",
+      "verbatim": "I will likely browse H&M online this month and make a purchase, probably for some new trousers or a blouse.",
+      "cos_actual": 0.5742346048355103,
+      "mean_cos_distractor": 0.5862669730186463,
+      "rank_among_distractors_plus_actual": 65,
+      "ttr": 0.9411764705882353
+    },
+    {
+      "cid": "39fd442957bd\u2026",
+      "bucket": "101+",
+      "verbatim": "I will definitely be browsing H&M this month and expect to make a purchase.",
+      "cos_actual": 0.5547260642051697,
+      "mean_cos_distractor": 0.5619564282894135,
+      "rank_among_distractors_plus_actual": 61,
+      "ttr": 1.0
+    }
+  ]
+}

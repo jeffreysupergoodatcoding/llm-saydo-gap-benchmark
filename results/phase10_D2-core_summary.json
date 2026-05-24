@@ -1,0 +1,62 @@
+{
+  "arm": "D2-core",
+  "model": "gemini-2.5-flash",
+  "n": 1000,
+  "elapsed_s": 628.7097759246826,
+  "mean_stated_intent_prob": 0.317727,
+  "mean_actual_label": 0.228,
+  "signed_gap_E_stated_minus_E_actual": 0.08972699999999997,
+  "pr_auc": {
+    "point": 0.5416289817076251,
+    "lo": 0.47683881810353074,
+    "hi": 0.600145474265709,
+    "se": 0.0325180067791331
+  },
+  "brier": {
+    "point": 0.165394527,
+    "lo": 0.14923292305,
+    "hi": 0.18318240084999998,
+    "se": 0.009361279835395845
+  },
+  "ece": 0.12673299999999998,
+  "wasserstein_decile": 0.12960699999999997,
+  "under_dispersion": {
+    "var_pred": 0.13780408047099998,
+    "var_obs": 0.176016,
+    "ratio": 0.7829065566255339,
+    "levene_stat": 14.169726287524481,
+    "levene_p": 0.00017185857669484985
+  },
+  "per_bucket_gap": {
+    "1": {
+      "n": 200,
+      "mean_stated": 0.027735,
+      "mean_actual": 0.015,
+      "signed_gap": 0.012735
+    },
+    "101+": {
+      "n": 200,
+      "mean_stated": 0.7142000000000002,
+      "mean_actual": 0.58,
+      "signed_gap": 0.1342000000000002
+    },
+    "2-5": {
+      "n": 200,
+      "mean_stated": 0.10785,
+      "mean_actual": 0.055,
+      "signed_gap": 0.05285
+    },
+    "21-100": {
+      "n": 200,
+      "mean_stated": 0.5001,
+      "mean_actual": 0.365,
+      "signed_gap": 0.1351
+    },
+    "6-20": {
+      "n": 200,
+      "mean_stated": 0.23875,
+      "mean_actual": 0.125,
+      "signed_gap": 0.11374999999999999
+    }
+  }
+}

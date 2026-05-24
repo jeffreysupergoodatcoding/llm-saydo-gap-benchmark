@@ -1,0 +1,238 @@
+{
+  "arms": {
+    "F-base": {
+      "name": "F-base",
+      "n": 1000,
+      "deciles": [
+        {
+          "bin": 0,
+          "n": 8,
+          "mean_pred": 0.021249999999999998,
+          "actual_rate": 0.0,
+          "actual_rate_CI_lo": 0.0,
+          "actual_rate_CI_hi": 0.0,
+          "signed_gap": 0.021249999999999998
+        },
+        {
+          "bin": 2,
+          "n": 202,
+          "mean_pred": 0.0500990099009901,
+          "actual_rate": 0.01485148514851485,
+          "actual_rate_CI_lo": 0.0,
+          "actual_rate_CI_hi": 0.029826732673267214,
+          "signed_gap": 0.03524752475247525
+        },
+        {
+          "bin": 3,
+          "n": 99,
+          "mean_pred": 0.07000000000000003,
+          "actual_rate": 0.020202020202020204,
+          "actual_rate_CI_lo": 0.0,
+          "actual_rate_CI_hi": 0.050505050505050504,
+          "signed_gap": 0.04979797979797983
+        },
+        {
+          "bin": 4,
+          "n": 173,
+          "mean_pred": 0.08554913294797686,
+          "actual_rate": 0.06358381502890173,
+          "actual_rate_CI_lo": 0.028901734104046242,
+          "actual_rate_CI_hi": 0.10404624277456648,
+          "signed_gap": 0.021965317919075134
+        },
+        {
+          "bin": 5,
+          "n": 114,
+          "mean_pred": 0.16307017543859645,
+          "actual_rate": 0.14035087719298245,
+          "actual_rate_CI_lo": 0.07894736842105263,
+          "actual_rate_CI_hi": 0.2019736842105261,
+          "signed_gap": 0.022719298245614
+        },
+        {
+          "bin": 6,
+          "n": 64,
+          "mean_pred": 0.3140625,
+          "actual_rate": 0.234375,
+          "actual_rate_CI_lo": 0.125,
+          "actual_rate_CI_hi": 0.34375,
+          "signed_gap": 0.07968750000000002
+        },
+        {
+          "bin": 7,
+          "n": 110,
+          "mean_pred": 0.5380000000000001,
+          "actual_rate": 0.35454545454545455,
+          "actual_rate_CI_lo": 0.2636363636363636,
+          "actual_rate_CI_hi": 0.44545454545454544,
+          "signed_gap": 0.1834545454545456
+        },
+        {
+          "bin": 9,
+          "n": 230,
+          "mean_pred": 0.752608695652174,
+          "actual_rate": 0.6173913043478261,
+          "actual_rate_CI_lo": 0.5521739130434783,
+          "actual_rate_CI_hi": 0.6782608695652174,
+          "signed_gap": 0.13521739130434796
+        }
+      ]
+    },
+    "F-nobase": {
+      "name": "F-nobase",
+      "n": 1000,
+      "deciles": [
+        {
+          "bin": 0,
+          "n": 3,
+          "mean_pred": 0.06333333333333334,
+          "actual_rate": 0.0,
+          "actual_rate_CI_lo": 0.0,
+          "actual_rate_CI_hi": 0.0,
+          "signed_gap": 0.06333333333333334
+        },
+        {
+          "bin": 3,
+          "n": 335,
+          "mean_pred": 0.07999999999999999,
+          "actual_rate": 0.029850746268656716,
+          "actual_rate_CI_lo": 0.011940298507462687,
+          "actual_rate_CI_hi": 0.050746268656716415,
+          "signed_gap": 0.05014925373134327
+        },
+        {
+          "bin": 4,
+          "n": 116,
+          "mean_pred": 0.1003448275862069,
+          "actual_rate": 0.034482758620689655,
+          "actual_rate_CI_lo": 0.008620689655172414,
+          "actual_rate_CI_hi": 0.06896551724137931,
+          "signed_gap": 0.06586206896551725
+        },
+        {
+          "bin": 5,
+          "n": 142,
+          "mean_pred": 0.21161971830985912,
+          "actual_rate": 0.09859154929577464,
+          "actual_rate_CI_lo": 0.04929577464788732,
+          "actual_rate_CI_hi": 0.15492957746478872,
+          "signed_gap": 0.11302816901408448
+        },
+        {
+          "bin": 6,
+          "n": 91,
+          "mean_pred": 0.6060439560439561,
+          "actual_rate": 0.3076923076923077,
+          "actual_rate_CI_lo": 0.2087912087912088,
+          "actual_rate_CI_hi": 0.4065934065934066,
+          "signed_gap": 0.2983516483516484
+        },
+        {
+          "bin": 7,
+          "n": 109,
+          "mean_pred": 0.7545871559633027,
+          "actual_rate": 0.3853211009174312,
+          "actual_rate_CI_lo": 0.29357798165137616,
+          "actual_rate_CI_hi": 0.47706422018348627,
+          "signed_gap": 0.3692660550458715
+        },
+        {
+          "bin": 9,
+          "n": 204,
+          "mean_pred": 0.8514705882352938,
+          "actual_rate": 0.6372549019607843,
+          "actual_rate_CI_lo": 0.5735294117647058,
+          "actual_rate_CI_hi": 0.7009803921568627,
+          "signed_gap": 0.2142156862745095
+        }
+      ]
+    },
+    "D2": {
+      "name": "D2",
+      "n": 5000,
+      "deciles": [
+        {
+          "bin": 0,
+          "n": 91,
+          "mean_pred": 0.004999999999999999,
+          "actual_rate": 0.02197802197802198,
+          "actual_rate_CI_lo": 0.0,
+          "actual_rate_CI_hi": 0.054945054945054944,
+          "signed_gap": -0.01697802197802198
+        },
+        {
+          "bin": 2,
+          "n": 957,
+          "mean_pred": 0.01,
+          "actual_rate": 0.017763845350052248,
+          "actual_rate_CI_lo": 0.01044932079414838,
+          "actual_rate_CI_hi": 0.027168234064785787,
+          "signed_gap": -0.007763845350052248
+        },
+        {
+          "bin": 3,
+          "n": 785,
+          "mean_pred": 0.019999999999999997,
+          "actual_rate": 0.049681528662420385,
+          "actual_rate_CI_lo": 0.035668789808917196,
+          "actual_rate_CI_hi": 0.06496815286624204,
+          "signed_gap": -0.029681528662420388
+        },
+        {
+          "bin": 4,
+          "n": 283,
+          "mean_pred": 0.03756183745583039,
+          "actual_rate": 0.05653710247349823,
+          "actual_rate_CI_lo": 0.03180212014134275,
+          "actual_rate_CI_hi": 0.08480565371024736,
+          "signed_gap": -0.018975265017667844
+        },
+        {
+          "bin": 5,
+          "n": 464,
+          "mean_pred": 0.07999999999999999,
+          "actual_rate": 0.1271551724137931,
+          "actual_rate_CI_lo": 0.09913793103448276,
+          "actual_rate_CI_hi": 0.15732758620689655,
+          "signed_gap": -0.047155172413793106
+        },
+        {
+          "bin": 6,
+          "n": 836,
+          "mean_pred": 0.1827272727272727,
+          "actual_rate": 0.25239234449760767,
+          "actual_rate_CI_lo": 0.22488038277511962,
+          "actual_rate_CI_hi": 0.2799342105263158,
+          "signed_gap": -0.06966507177033496
+        },
+        {
+          "bin": 7,
+          "n": 569,
+          "mean_pred": 0.7038664323374342,
+          "actual_rate": 0.335676625659051,
+          "actual_rate_CI_lo": 0.30048330404217927,
+          "actual_rate_CI_hi": 0.37609841827768015,
+          "signed_gap": 0.3681898066783832
+        },
+        {
+          "bin": 8,
+          "n": 429,
+          "mean_pred": 0.8502097902097899,
+          "actual_rate": 0.5244755244755245,
+          "actual_rate_CI_lo": 0.47785547785547783,
+          "actual_rate_CI_hi": 0.5734265734265734,
+          "signed_gap": 0.32573426573426545
+        },
+        {
+          "bin": 9,
+          "n": 586,
+          "mean_pred": 0.9324402730375426,
+          "actual_rate": 0.6399317406143344,
+          "actual_rate_CI_lo": 0.6005972696245734,
+          "actual_rate_CI_hi": 0.6825938566552902,
+          "signed_gap": 0.2925085324232082
+        }
+      ]
+    }
+  }
+}

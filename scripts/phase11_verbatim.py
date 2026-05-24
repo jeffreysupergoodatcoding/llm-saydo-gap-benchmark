@@ -5,7 +5,7 @@ H9a: For each F-arm customer, cos(verbatim, actual_next_purchased_article_desc)
 H9b: MRR of the actual next article among 100 in-bucket-within-week distractor
      articles is > 0.01 by margin ≥ 0.05.
 
-Embedding model: Gemini text-embedding-004 (not orthogonal to the LLM, but the
+Embedding model: Gemini gemini-embedding-001 (not orthogonal to the LLM, but the
 only quota-bearing embedder available; documented as a confound). Future work
 should re-run with bge-large.
 
@@ -29,7 +29,7 @@ RESULTS = ROOT / "results"
 
 
 def _embed_texts(texts: list[str], batch_size: int = 50) -> np.ndarray:
-    """Embed using Gemini text-embedding-004 via the existing google-genai client."""
+    """Embed using Gemini gemini-embedding-001 via the existing google-genai client."""
     from google import genai
     import os
     client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
@@ -38,14 +38,14 @@ def _embed_texts(texts: list[str], batch_size: int = 50) -> np.ndarray:
         batch = texts[i:i + batch_size]
         # Newer SDK: embed_content takes a list of contents
         try:
-            resp = client.models.embed_content(model="text-embedding-004", contents=batch)
+            resp = client.models.embed_content(model="gemini-embedding-001", contents=batch)
             for e in resp.embeddings:
                 vecs.append(np.array(e.values, dtype=np.float32))
         except Exception as e:
             # fall back one-by-one
             for t in batch:
                 try:
-                    r = client.models.embed_content(model="text-embedding-004", contents=t)
+                    r = client.models.embed_content(model="gemini-embedding-001", contents=t)
                     vecs.append(np.array(r.embeddings[0].values, dtype=np.float32))
                 except Exception as e2:
                     vecs.append(np.zeros(768, dtype=np.float32))
@@ -228,7 +228,8 @@ def main():
     # TTR audit
     ttrs = np.array([r["ttr"] for r in results])
     high_ttr_mask = ttrs >= np.quantile(ttrs, 0.75)
-    h9a_high = stat(cos_actuals[high_ttr_mask], cos_shuffled[high_ttr_mask])
+    # Reference: high-TTR subset cos_actual minus the within-bucket null mean
+    h9a_high = float(cos_actuals[high_ttr_mask].mean() - cos_shuffled_diag)
     h9b_high = float(mrrs[high_ttr_mask].mean())
 
     # AUDIT FIX (Agent B MAJOR): chance MRR for actual uniformly placed among 101 items =
@@ -251,7 +252,7 @@ def main():
         "H9b_chance_MRR_one_over_n": 1.0 / n_items,
         "H9b_margin_vs_E_uniform": float(mrrs.mean() - chance_mrr_expected),
         "H9b_verdict": "CONFIRMED" if (mrrs.mean() - chance_mrr_expected) >= 0.05 else "REFUTED_or_NS",
-        "H9_overall_verdict": "CONFIRMED" if (permres.pvalue < 0.0125 and (mrrs.mean() - chance_mrr) >= 0.05) else "REFUTED_or_NS",
+        "H9_overall_verdict": "CONFIRMED" if (permres.pvalue < 0.0125 and (mrrs.mean() - chance_mrr_expected) >= 0.05) else "REFUTED_or_NS",
         "quote_specificity": {
             "mean_TTR": float(ttrs.mean()),
             "Q3_TTR": float(np.quantile(ttrs, 0.75)),
