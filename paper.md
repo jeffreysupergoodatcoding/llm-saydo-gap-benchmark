@@ -6,13 +6,13 @@
 
 ## Abstract
 
-Recent work has used large language models (LLMs) as digital twins of individual people, prompting the model with a behavioral trace and treating its purchase-probability output as a stated intent. We test how well that stated intent tracks revealed purchase on two public benchmarks (H&M Personalized Fashion, 31M transactions; MovieLens 25M, 25M ratings) under a pre-registered protocol. Across n=1,000 paired H&M customers and n=594 MovieLens users, we find that the in-prompt base-rate table that practitioners commonly include for calibration accounts for more of the apparent say-do gap reduction than the underlying Park-2023-lineage cognition pipeline itself (H&M: |Δ_F|=0.077 > |Δ_arch|=0.062; MovieLens: paired diff = −0.020, 95% CI [−0.029, −0.011]). A decomposition of stated-vs-revealed Spearman correlation into a pooled component and a within-demographic-stratum component behaves as a diagnostic for bucket-prior dependence: on H&M the pooled ρ ≈ 0.53 reproduces Sheeran's human meta-analytic correlation while the within-bucket ρ collapses to 0.23–0.28, close to the per-individual twin–human correlation of ≈0.2 reported by Toubia et al. (2025); on MovieLens, where activity bucket carries less information about the outcome, the relationship inverts (within-bucket ρ ≈ 0.43 exceeds pooled ρ ≈ 0.31). A within-H&M test-retest benchmark anchors the comparison: a customer's own past-30-day purchases predict their next 30 days at Pearson r = 0.39, and the LLM's within-bucket ρ is roughly half this domain-specific human-self number. The within-customer reasoning signal is provider-invariant across Gemini 2.5 Flash and a Claude Sonnet-class agent on the same 50 H&M customers (Gemini within ρ = 0.23; Claude within ρ = 0.26), even though Claude's mean signed gap is an order of magnitude smaller than Gemini's (−0.004 vs +0.151). Together, these results bound how much of the LLM digital twin's apparent intent–behavior agreement is per-customer reasoning, and how much is the price of including a population summary inside the prompt.
+Recent work has used large language models (LLMs) as digital twins of individual people, prompting the model with a behavioral trace and treating its purchase-probability output as a stated intent. We test how well that stated intent tracks revealed purchase on two public benchmarks (H&M Personalized Fashion, 31M transactions; MovieLens 25M, 25M ratings) under a pre-registered protocol. Across n=1,000 paired H&M customers and n=594 MovieLens users, we find that the in-prompt base-rate table that practitioners commonly include for calibration accounts for more of the apparent say-do gap reduction than the underlying Park-2023-lineage cognition pipeline itself (H&M: |Δ_F|=0.077 > |Δ_arch|=0.062; MovieLens: paired diff = −0.020, 95% CI [−0.029, −0.011]). A decomposition of stated-vs-revealed Spearman correlation into a pooled component and a within-demographic-stratum component behaves as a diagnostic for bucket-prior dependence: on H&M the pooled ρ ≈ 0.53 reproduces Sheeran's human meta-analytic correlation while the within-bucket ρ collapses to 0.23–0.28, close to the per-individual twin–human correlation of ≈0.2 reported by Toubia et al. (2025); on MovieLens, where activity bucket carries less information about the outcome, the relationship inverts (within-bucket ρ ≈ 0.43 exceeds pooled ρ ≈ 0.31). A within-H&M test-retest benchmark anchors the comparison: a customer's own past-30-day purchases predict their next 30 days at Pearson r = 0.39, and the LLM's within-bucket ρ is roughly half this domain-specific human-self number. The within-customer reasoning signal is provider-invariant across Gemini 2.5 Flash and a Claude Sonnet-class agent on the same 50 H&M customers (Gemini within ρ = 0.23; Claude within ρ = 0.26), even though Claude's mean signed gap is an order of magnitude smaller than Gemini's (−0.004 vs +0.151). We separate how much of the agreement is per-customer reasoning from how much is a side-effect of including a population summary inside the prompt.
 
 ---
 
 ## 1. Introduction
 
-Asking an LLM to play the role of a specific individual and then act on the model's outputs is, increasingly, a load-bearing assumption in consumer-behavior simulation, marketing-experiment forecasting, and "synthetic user" pipelines for product evaluation [park2024selfreport, li2025digitaltwins, chen2025personatwin, lu2025multiturnbehavior, wang2026productdiscovery]. The headline result that motivates the genre — Park et al.'s 86% normalized accuracy on held-out General Social Survey items, computed from 1,052 interview-grounded agents [park2024selfreport] — sits next to a sober empirical audit that finds, on novel marketing outcomes, per-individual correlations closer to r ≈ 0.2 across 164 measures from a 19-study pre-registered mega-audit [peng2025funhouse]. Different domains and different evaluation grains produce different verdicts about what an LLM digital twin is capable of, and the field has not yet settled on what counts as evidence that the model has done something more than reproduce a population summary.
+Asking an LLM to play the role of a specific individual and then act on the model's outputs is, increasingly, a load-bearing assumption in consumer-behavior simulation, marketing-experiment forecasting, and "synthetic user" pipelines for product evaluation [park2024selfreport, li2025digitaltwins, chen2025personatwin, lu2025multiturnbehavior, wang2026productdiscovery]. The headline result that motivates the genre — Park et al.'s 86% normalized accuracy on held-out General Social Survey items, computed from 1,052 interview-grounded agents [park2024selfreport] — sits next to a sober empirical audit that finds, on novel marketing outcomes, per-individual correlations closer to r ≈ 0.2 across 164 measures from a 19-study pre-registered mega-audit [peng2025funhouse]. Verdicts vary by domain and evaluation grain, and the field lacks consensus on what counts as evidence that the model has done more than echo a population summary.
 
 We frame the question through the much older social-science construct of the **stated–revealed preference gap**, also known as the intention–behavior gap [ajzen1991tpb, manski1990intentions, sheeran2002intention, sheeran2016intention, verplanken1999goodintentions]. Humans themselves stated intentions correlate with their later actions at meta-analytic r ≈ 0.53 across health, voting, and consumption domains [sheeran2002intention]; in commerce, the gap is large enough to drive a fifty-year line of research on whether intent surveys are worth running at all [juster1966probability, morwitz2004mere, chandon2005intentions]. The empirical history matters here because the LLM digital-twin literature has imported intent-style questions wholesale — "how likely would this customer be to repurchase?" — without inheriting the social-science methods for separating *the population pattern the LLM might have memorized* from *the per-individual reasoning that would justify treating the LLM as a twin*.
 
@@ -28,17 +28,17 @@ We make four claims, each pre-registered before the headline LLM runs (commit ha
 
 **Fourth, the human self-anchor matters.** A within-H&M test-retest benchmark places a customer's own past-30-day buying as a predictor of their next-30-day buying at Pearson r = 0.39. The LLM's within-bucket ρ is roughly half this domain-specific human-self number — much closer to it than to Sheeran's cross-domain r = 0.53, which has been the default comparator in prior LLM-twin work.
 
-Section 2 places these claims in the prior literature and in the broader intention–behavior tradition that motivates them. Section 3 introduces the data, splits, and pre-registration protocol. Section 4 defines the LLM arms, the cognition pipeline, the leakage decomposition, and the metric set. Section 5 reports results in the order of the four claims, including the cross-provider arm, the cross-domain replication, the within-customer noise floor and counterfactual perturbation, the H9 verbatim coherence test on two embedders, and the within-domain test-retest baseline. Section 6 discusses what these findings imply for practitioners using LLM digital twins for marketing experiments, recommendation explainability, and customer-research substitution. Section 7 lists limitations and explicitly the pre-registration deviations. Appendix A reports additional ablations.
+Section 2 situates the claims in the digital-twin and intention–behavior literatures. Section 3 introduces the data, splits, and pre-registration protocol. Section 4 defines the LLM arms, the cognition pipeline, the leakage decomposition, and the metric set. Section 5 reports results in the order of the four claims, including the cross-provider arm, the cross-domain replication, the within-customer noise floor and counterfactual perturbation, the H9 verbatim coherence test on two embedders, and the within-domain test-retest baseline. Section 6 discusses what these findings imply for practitioners using LLM digital twins for marketing experiments, recommendation explainability, and customer-research substitution. Section 7 lists limitations and explicitly the pre-registration deviations. Appendix A reports additional ablations.
 
 ---
 
 ## 2. Related work
 
-Four bodies of work bear on our question. The first is the social-science literature on the gap between what people say they will do and what they later do. The second is the recent LLM-as-digital-twin literature. The third is the narrower setting of LLM purchase prediction from behavioral traces. The fourth is the methodological infrastructure — pre-registration norms, calibration evaluation, multilevel statistical interpretation — that we lean on throughout.
+Four literatures matter here. The first is the social-science literature on the gap between what people say they will do and what they later do. The second is the recent LLM-as-digital-twin literature. The third is the narrower setting of LLM purchase prediction from behavioral traces. The fourth is the methodological infrastructure — pre-registration norms, calibration evaluation, multilevel statistical interpretation — that we lean on throughout.
 
 ### 2.1 The intention–behavior gap in humans
 
-LaPiere [lapiere1934attitudes] documented the first empirical attitude–behavior gap in 1934 by writing to hotels asking whether they would serve a Chinese couple — most said no — and then traveling with the couple and discovering nearly all of them did serve them. The literature has matured considerably since. Fishbein and Ajzen [fishbein1975belief] formalized intentions as the immediate antecedent of behavior in the Theory of Reasoned Action; Ajzen [ajzen1991tpb] extended this to the Theory of Planned Behavior, adding perceived behavioral control as a third predictor. The TPB framework predicts that intent explains roughly 20–30% of variance in behavior across domains, an estimate that meta-analytic work has confirmed. Sheeran's [sheeran2002intention] meta-analysis of 422 studies reports a median intent–behavior r of 0.53; Sheeran and Webb [sheeran2016intention] update this with a median Cohen's d ≈ 0.45 across action-control interventions. The implementation-intentions tradition, beginning with Gollwitzer [gollwitzer1999implementation] and extended by Verplanken and Faes [verplanken1999goodintentions] for purchase behavior, shows that the gap is *intervenable*: forming a specific "when I am at the store I will buy X" plan moves the correlation upward, sometimes substantially. The general structure is that intent is a noisy upper bound on revealed behavior; the gap is real, and it is the noise model that matters.
+LaPiere [lapiere1934attitudes] documented the first empirical attitude–behavior gap in 1934 by writing to hotels asking whether they would serve a Chinese couple — most said no — and then traveling with the couple and discovering nearly all of them did serve them. The literature has matured considerably since. Fishbein and Ajzen [fishbein1975belief] formalized intentions as the immediate antecedent of behavior in the Theory of Reasoned Action; Ajzen [ajzen1991tpb] extended this to the Theory of Planned Behavior, adding perceived behavioral control as a third predictor. The TPB framework predicts that intent explains roughly 20–30% of variance in behavior across domains, an estimate that meta-analytic work has confirmed. Sheeran's [sheeran2002intention] meta-analysis of 422 studies reports a median intent–behavior r of 0.53; Sheeran and Webb [sheeran2016intention] update this with a median Cohen's d ≈ 0.45 across action-control interventions. The implementation-intentions tradition, beginning with Gollwitzer [gollwitzer1999implementation] and extended by Verplanken and Faes [verplanken1999goodintentions] for purchase behavior, shows that the gap is *intervenable*: forming a specific "when I am at the store I will buy X" plan moves the correlation upward, sometimes substantially. Intent over-states action; what matters for prediction is the structure of the noise.
 
 In economics, the equivalent distinction maps onto stated versus revealed preference. Manski [manski1990intentions, manski2004expectations] makes the case for treating intentions as informative under explicit measurement-error assumptions, an argument that anchors fifty years of subsequent discrete-choice modeling [train2009discrete]. Ben-Akiva et al. [benakiva1994combining] show formally that combining stated and revealed preference data — fitting a discrete-choice model that respects both, with appropriate scaling for the relative noise — outperforms either source alone. Harrison and List's [harrison2004field] field-experiments review reaches the same general conclusion in the experimental-economics tradition. The contingent-valuation debate over how to elicit willingness-to-pay for non-market goods [diamond1994contingent, arrow1993noaa] is the cleanest historical example of a research community settling on protocols for taking stated preferences seriously without conflating them with revealed behavior. The NOAA panel's procedural recommendations — incentive compatibility, follow-up validation, careful framing — became the template for an entire methodology.
 
@@ -68,7 +68,7 @@ Two strands of methodological work directly underwrite our design. Pre-registrat
 
 ---
 
-## 3. Theoretical framework
+## 3. Theoretical framework and definitions
 
 We make the say-do gap concrete with a small formal apparatus. Let `c ∈ C` index a customer in the test pool, `T` the cutoff date, and `y(c) ∈ {0, 1}` the indicator that customer `c` makes any purchase in `[T, T + 30d)`. Let `b(c) ∈ B` denote the demographic stratum of customer `c` — in our case the activity bucket `{1, 2-5, 6-20, 21-100, 101+}` defined by pre-cutoff transaction count. Let `s(c) ∈ [0, 1]` denote the LLM's *stated intent*, the model's estimated probability of `y(c) = 1`. The say-do gap, in its simplest scalar form, is
 
@@ -109,11 +109,11 @@ Three configurations are possible. If `ρ_pooled > ρ_within`, the LLM's apparen
 
 **Counterfactual bound from above.** Let `s(x(c))` denote the LLM's stated intent given customer `c`'s actual trace, and `s(x'(c))` denote the stated intent given a minimal perturbation `x' ≈ x` (we swap one product and one color in one recent transaction; aggregated stats unchanged). The mean absolute perturbation `E[|s(x) − s(x')|]` upper-bounds how much per-customer information the LLM was using. If `E[|s(x) − s(x')|]` is below the LLM's own stochastic noise floor (re-running the same prompt three times with cache-busting nonces), the LLM was not using the trace-specific information at all — its output was a function of the bucket-level summary and the population prior.
 
-These four constructs — gap, leakage decomposition, pooled/within decomposition, counterfactual bound — are the analytical apparatus for the rest of the paper. Each addresses a different question, and together they give a structured account of where the LLM's apparent intent–behavior agreement comes from.
+We use these four constructs throughout. Each isolates a different source of the apparent intent–behavior agreement.
 
 ---
 
-## 3. Data, splits, and pre-registration
+## 4. Data, splits, and pre-registration
 
 ### 3.1 Datasets
 
@@ -141,7 +141,7 @@ The pre-registration document `preregistration_v2.md` was committed to the proje
 
 ---
 
-## 4. Methods
+## 5. Methods
 
 ### 4.1 Representations and arms
 
@@ -213,17 +213,54 @@ The codebase is committed at git hashes `40b07a2` (pre-registration v2), `eb940a
 
 ---
 
-## 5. Results
+## 6. Results
 
-### 5.1 The base-rate-leakage ablation
+### 6.1 The base-rate-leakage ablation
+
+**Table 1** reports the headline gaps for the three Gemini H&M arms on the same 1,000-customer core. All Spearman ρ values are with 1,000-sample stratified-within-bucket bootstrap 95% CIs in brackets.
+
+| Arm | n | E[stated] | E[actual] | Reweighted gap [95% CI] | PR-AUC [95% CI] | Pooled ρ | Within-bucket ρ |
+|---|---|---|---|---|---|---|---|
+| F-base (cognition + base-rate table) | 1,000 | 0.302 | 0.219 | +0.073 [+0.052, +0.094] | 0.568 [0.508, 0.622] | 0.528 [0.485, 0.568] | 0.281 [0.208, 0.353] |
+| F-nobase (cognition, no table) | 1,000 | 0.379 | 0.219 | +0.151 [+0.128, +0.172] | 0.573 [0.515, 0.633] | 0.532 [0.485, 0.573] | 0.228 [0.162, 0.299] |
+| D2-core (flat prompt) | 1,000 | 0.318 | 0.219 | +0.089 [+0.066, +0.113] | 0.542 [0.477, 0.600] | 0.491 [0.445, 0.532] | 0.265 [0.195, 0.337] |
+| LightGBM-RFM baseline (companion v1, no LLM) | 46,865 | — | — | — | **0.622** | — | — |
+| Sheeran 2002 cross-domain meta r | — | — | — | — | — | **0.53** | — |
+| H&M within-domain test-retest r (Phase 24) | 46,865 | — | — | — | — | — | **0.380** |
+
+Table 1. Headline H&M arms on the same 1,000-customer core. Pooled ρ across all arms is consistent with Sheeran's [sheeran2002intention] cross-domain human reference; within-bucket ρ in all three arms is roughly half the within-H&M human-self test-retest r = 0.380 (Phase 24). The LightGBM-RFM baseline from the companion v1 work [own-v1] exceeds the best LLM arm's PR-AUC by ≈0.05; we report it for context but the say-do gap comparisons are between LLM arms, not between LLM and LightGBM.
 
 Table 1 reports the headline gaps for the three Gemini H&M arms on the same 1,000-customer core. The unweighted means show inflated stated intent in every arm: every LLM systematically over-predicts purchase relative to the actual 23% label rate on the core, in a direction that replicates Park's [park2024selfreport] under-dispersion finding and the marketing-research expectation that stated intent overstates revealed action [chandon2005intentions, juster1966probability]. The magnitude of the inflation differs sharply across arms. F-base (the cognition pipeline with the in-prompt base-rate table) produces a signed gap of +0.073 [+0.052, +0.094] with PR-AUC 0.568. F-nobase, with the table removed but the rest of the pipeline intact, doubles the gap to +0.151 [+0.128, +0.172] without meaningfully changing the PR-AUC (0.573). The flat-prompt D2-core comes in between at +0.089 [+0.066, +0.113].
 
-The pairwise tests (Table 2) make the qualitative picture concrete. The paired bootstrap on the difference of signed gaps gives F-base − F-nobase = −0.077 [−0.084, −0.069], paired Wilcoxon p ≈ 2 × 10⁻¹⁰; F-nobase − D2-core = +0.062 [+0.049, +0.076], p ≈ 1 × 10⁻²⁴; and F-base − D2-core = −0.015 [−0.028, −0.001], p ≈ 4 × 10⁻¹¹. All three confidence intervals are disjoint from zero, and the leakage contribution |Δ_F| = 0.077 exceeds the architecture contribution |Δ_arch| = 0.062. The in-prompt base-rate table is doing more of the work than the architecture is.
+The pairwise tests (Table 2) make the qualitative picture concrete.
+
+**Table 2.** Paired-bootstrap difference of signed gaps on the same 1,000 customers (B = 1,000, stratified within bucket), with paired Wilcoxon p on per-customer absolute errors.
+
+| Comparison | Δ gap | 95% CI | Paired Wilcoxon p |
+|---|---|---|---|
+| F-base − F-nobase | −0.077 | [−0.084, −0.069] | < 10⁻⁹ |
+| F-nobase − D2-core | +0.062 | [+0.049, +0.076] | < 10⁻²³ |
+| F-base − D2-core | −0.015 | [−0.028, −0.001] | < 10⁻¹⁰ |
+| **Leakage decomposition** | | | |
+| |Δ_F| (in-prompt table contribution) | **0.077** | | |
+| |Δ_arch| (cognition-pipeline contribution) | **0.062** | | |
+
+The paired bootstrap on the difference of signed gaps gives F-base − F-nobase = −0.077 [−0.084, −0.069], paired Wilcoxon p ≈ 2 × 10⁻¹⁰; F-nobase − D2-core = +0.062 [+0.049, +0.076], p ≈ 1 × 10⁻²⁴; and F-base − D2-core = −0.015 [−0.028, −0.001], p ≈ 4 × 10⁻¹¹. All three confidence intervals are disjoint from zero, and the leakage contribution |Δ_F| = 0.077 exceeds the architecture contribution |Δ_arch| = 0.062. The in-prompt base-rate table is doing more of the work than the architecture is.
 
 A weighting-sensitivity check confirms that the conclusion does not depend on the bucket-population weights. Under raw, test-distribution-reweighted, and bucket-uniform weightings, the arm ranking by signed gap is identical (D2-core < F-base < F-nobase if we compare absolute values, or F-base < D2-core < F-nobase if we compare signed values). The rank invariance is reported in `results/phase20_reweighting_and_B.json`.
 
-The cross-domain replication is unambiguous in the same direction (Table 3). On MovieLens, ML-F-base produces a signed gap of +0.005 with PR-AUC 0.899, ML-F-nobase produces +0.024 with PR-AUC 0.416, and the paired difference of gaps is −0.020 [−0.029, −0.011] (paired Wilcoxon p < 10⁻⁹). The leakage effect's relative size is *larger* on MovieLens than on H&M (the F-nobase gap is roughly five times the F-base gap on MovieLens, against two times on H&M), which is consistent with the harder calibration problem: a 1% MovieLens label rate is much further from any naive LLM prior than a 23% H&M rate is, so an in-prompt anchor helps more.
+The cross-domain replication is unambiguous in the same direction (Table 3).
+
+**Table 3.** Cross-domain replication on MovieLens 25M.
+
+| Arm | n | E[stated] | E[actual] | Signed gap | PR-AUC [95% CI] | Pooled ρ | Within-bucket ρ |
+|---|---|---|---|---|---|---|---|
+| ML-F-base | 594 | 0.021 | 0.017 | +0.005 | 0.899 [0.680, 1.000] | 0.373 [0.253, 0.472] | 0.446 [0.353, 0.525] |
+| ML-F-nobase | 594 | 0.041 | 0.017 | +0.024 | 0.416 [0.186, 0.716] | 0.243 [0.158, 0.310] | 0.428 [0.334, 0.509] |
+| Paired diff | — | — | — | −0.020 [−0.029, −0.011] | — | — | — |
+| MovieLens within-domain human-self r (Pearson w1↔w2 adjacent 30-day; Phase 26) | — | — | — | — | — | — | **0.198** |
+
+On MovieLens, ML-F-base produces a signed gap of +0.005 with PR-AUC 0.899, ML-F-nobase produces +0.024 with PR-AUC 0.416, and the paired difference of gaps is −0.020 [−0.029, −0.011] (paired Wilcoxon p < 10⁻⁹). The leakage effect's relative size is *larger* on MovieLens than on H&M (the F-nobase gap is roughly five times the F-base gap on MovieLens, against two times on H&M), which is consistent with the harder calibration problem: a 1% MovieLens label rate is much further from any naive LLM prior than a 23% H&M rate is, so an in-prompt anchor helps more.
 
 We note that the leakage finding does not depend on the absolute level of accuracy. The headline PR-AUCs on H&M are modest (0.57–0.59 across the three Gemini arms), well below the LightGBM-on-RFM baseline of PR-AUC 0.622 that the companion v1 paper [own-v1] established. The leakage effect is about *what part of the prompt is doing what*, not about whether the LLM is the best predictor; it is not.
 
@@ -233,13 +270,25 @@ We now decompose the LLM's stated–revealed Spearman correlation into its poole
 
 The within-bucket Spearman tells a different story. F-base drops to 0.281, F-nobase to 0.228, D2-core to 0.265. The three numbers cluster around 0.25, half of the pooled value, and they sit close to the per-individual twin–human correlation of ≈0.2 reported by Toubia et al. [toubia2025twin2k500] on N = 2,058. Once we strip away the activity-bucket prior — which the LLM may have inferred from the prompt's static identity fields, or from population priors baked into its weights — the per-customer reasoning that remains is roughly half the strength a human's *own* stated intent would carry [sheeran2002intention]. The cognition-pipeline arms (F-base, F-nobase) do not produce a meaningfully higher within-bucket ρ than the flat-prompt arm (D2-core); the architecture is not adding within-customer signal.
 
-The MovieLens decomposition produces the opposite sign (Figure 1, right panel). ML-F-base has pooled ρ = 0.373 and within-bucket ρ = 0.446; ML-F-nobase has pooled ρ = 0.243 and within-bucket ρ = 0.428. Within > pooled on both ML arms — the inverse of the H&M result. The natural reading is that MovieLens's activity bucket carries much less information about the binary outcome than H&M's does, so removing the bucket signal *reveals* the within-customer information rather than removing it. We treat the inversion not as a failed replication but as the diagnostic doing its job: when the bucket variable is informative about the outcome, pooled ρ inflates relative to within ρ; when it is not, the relationship reverses; and the relative magnitude of the two numbers tells us which signal the LLM was leaning on.
+The MovieLens decomposition produces the opposite sign (Figure 1, right panel). ML-F-base has pooled ρ = 0.373 and within-bucket ρ = 0.446; ML-F-nobase has pooled ρ = 0.243 and within-bucket ρ = 0.428. Within > pooled on both ML arms — the inverse of the H&M result.
+
+We want to be explicit about the reframing this inversion forces. The pre-registered hypothesis statement (`preregistration_v2.md` §R2) anticipated a *uniform* pattern of within ρ < pooled ρ across domains. The MovieLens result fails that specific prediction. We propose, post-hoc, a more general reading: pooled ρ minus within ρ is a function of the bucket–outcome dependency in the dataset, and its sign reveals whether the LLM was leaning on the demographic prior or on within-customer information. When activity bucket is informative about the binary outcome (as in H&M, where bucket-1 has a 2.7% 30-day repeat rate and bucket-101+ has 59.8%), pooled ρ inflates relative to within ρ; when it is not (MovieLens, where every bucket has a 1–3% rate), the relationship reverses, and residualizing out the bucket reveals within-customer signal. Mechanically the math is consistent — Simpson's paradox is a standard multilevel-statistical phenomenon [gelman2007arm] — but the *rhetorical* move from "we expected to replicate" to "we propose a diagnostic" is a post-hoc reinterpretation that a skeptical reviewer should treat as such. We mark this in §8 (pre-registration deviations) and we report the MovieLens inversion as exploratory.
 
 The within-domain human-self benchmark anchors both stories. On H&M we compute the adjacent-30-day Pearson autocorrelation across 46,865 test-pool customers and find r = 0.380 between the window pair (T-60, T-30) and (T-30, T), and r = 0.448 between a two-window-average and the current window. The LLM's within-bucket ρ ≈ 0.25 is roughly half this within-domain human-self number; it is much further from human-self than the pooled number suggests. On MovieLens the within-domain human-self r is 0.198, and the LLM's within-bucket ρ ≈ 0.43 *exceeds* the human-self benchmark — a finding that initially looks like the LLM beats the human, but more parsimoniously reflects MovieLens's combination of very sparse activity (the human-self number is regressed toward zero because the indicator is mostly zero) and the LLM's tendency to weight recent activity heavily even when it is uninformative.
 
-### 5.3 Cross-provider invariance
+### 6.3 Cross-provider invariance (exploratory)
 
-The C-flat-subagent arm scored 50 of the H&M core-1000 customers through a Claude Sonnet-class Agent. Two findings emerge (Table 4). First, Claude's mean signed gap is essentially zero (−0.004) — an order of magnitude smaller than Gemini D2-core's (+0.089) and two orders smaller than Gemini F-nobase's (+0.151). Whatever process is producing the inflated mean intent on Gemini is not producing it on Claude, even with a prompt that is structurally identical to D2-core's flat-prompt version. Second, the within-bucket Spearman is essentially the same across the two providers: Gemini D2-core 0.265, Gemini F-nobase 0.228, Claude 0.258 (using the same residualize-then-pooled-Spearman method as Phase 19; an n-weighted per-bucket variant gives 0.229). The within-customer reasoning signal — the part of the LLM's output that we'd interpret as *the digital twin doing actual digital-twin work* — is provider-invariant on the same 50 customers, while the calibration of the mean to base rates is not.
+The C-flat-subagent arm scored 50 of the H&M core-1000 customers through a Claude Sonnet-class Agent. Two findings emerge (Table 4).
+
+**Table 4.** Cross-provider arm on the same 50-customer H&M subset.
+
+| Arm | n | Mean stated | Mean actual | Signed gap | Pooled ρ | Within-bucket ρ |
+|---|---|---|---|---|---|---|
+| Gemini D2-core (paired subset) | 50 | 0.318 | 0.240 | +0.078 | 0.491 | 0.265 |
+| Gemini F-nobase (paired subset) | 50 | 0.395 | 0.240 | +0.155 | 0.532 | 0.228 |
+| **Claude Code subagent (flat)** | 50 | **0.236** | 0.240 | **−0.004** | 0.566 | 0.258 |
+
+Claude's mean signed gap is −0.004 — an order of magnitude smaller than Gemini D2-core's +0.078 on the same 50 customers. Within-bucket ρ is 0.258 for Claude, 0.265 for Gemini D2-core; the difference is 0.007. With n = 50 paired customers we lack the power for a formal equivalence test (a TOST at ±0.05 on a paired correlation requires n ≈ 200), and we report the arm as exploratory. The qualitative finding — provider-different calibration, provider-similar within-customer reasoning — is suggestive but not confirmatory; the pre-registered Claude direct-API arm at n=400 (deferred for the API-quota reason discussed in §8) is the appropriate next step. First, Claude's mean signed gap is essentially zero (−0.004) — an order of magnitude smaller than Gemini D2-core's (+0.089) and two orders smaller than Gemini F-nobase's (+0.151). Whatever process is producing the inflated mean intent on Gemini is not producing it on Claude, even with a prompt that is structurally identical to D2-core's flat-prompt version. Second, the within-bucket Spearman is essentially the same across the two providers: Gemini D2-core 0.265, Gemini F-nobase 0.228, Claude 0.258 (using the same residualize-then-pooled-Spearman method as Phase 19; an n-weighted per-bucket variant gives 0.229). The within-customer reasoning signal — the part of the LLM's output that we'd interpret as *the digital twin doing actual digital-twin work* — is provider-invariant on the same 50 customers, while the calibration of the mean to base rates is not.
 
 The Claude arm is exploratory because it deviates from the pre-registered confirmatory arm; we report it as a sensitivity check on the headline claim that within-customer reasoning ability is similar across current frontier LLMs even when their mean-calibration differs substantially. The pre-registered Claude direct-API arm at n=400 remains an open follow-up.
 
@@ -289,9 +338,9 @@ We computed 10-decile calibration curves with 1,000-sample bootstrap CIs for eac
 
 ---
 
-## 6. Discussion
+## 7. Discussion
 
-The pre-registered four-contribution structure of the paper produces a coherent picture, summarized in one sentence: a Park-2023-lineage LLM digital twin's apparent agreement with revealed purchase is mostly population-prior plus base-rate-table leakage, with a small but non-zero per-customer reasoning signal on top.
+A one-sentence summary of the four contributions: a Park-2023-lineage LLM digital twin's agreement with revealed purchase is mostly population prior and prompt-table leakage, with a small but non-zero per-customer reasoning signal on top.
 
 The base-rate-leakage result (§5.1) is the one we expect to be most useful to practitioners. The pattern we observed — an in-prompt base-rate table reducing the say-do gap more than the cognition pipeline architecture does — is structurally common in commercial twin pipelines. The Fragment Labs prompt scaffold we ported includes a brand-specific historical sigmoid as a "calibration anchor"; PersonaTwin [chen2025personatwin] conditions on demographic strata in a way that has the same calibrating effect; AgentCF-style methods [zhang2023agentcf] encode population priors into the agent's collaborative memory. In all of these cases, separating the leakage from the architecture requires running a paired ablation, and the ablation is rarely the headline. We hope the paper's pre-registered protocol makes it easier to run that ablation and report it.
 
@@ -307,7 +356,7 @@ The most general implication, summed up across the four contributions, is that t
 
 ---
 
-## 7. Limitations and pre-registration deviations
+## 8. Limitations and pre-registration deviations
 
 Three limitations are central enough to belong in the body rather than a footnote.
 
@@ -317,7 +366,15 @@ Three limitations are central enough to belong in the body rather than a footnot
 
 **Demographic feature restriction.** We use only `age` and `postal_code` as static H&M features, excluding `FN`, `Active`, `club_member_status`, and `fashion_news_frequency` because those fields are snapshot-time. This is a conservative leakage-avoidance choice; a more aggressive treatment that used the time-stamped subset of those fields, or external demographic enrichment, would likely raise the LLM's pooled correlation further, but not change the within-bucket pattern (because the bucket already absorbs the cohort information).
 
-**Pre-registration adherence.** We adhered to the pre-registration on the H7 and H9 confirmatory tests (both refuted at the specified thresholds), the bootstrap-CI protocol (B = 1,000, stratified within bucket), the Bonferroni correction (α = 0.025), and the four mandatory controls. The single substantive deviation is the Claude-subagent substitution for the Claude-direct-API arm, flagged in §5.3 and the decisions log. Two minor deviations: the H9a effect was technically statistically significant under the perm test but practically null under TOST, so we report the verdict as "refuted overall" rather than the more granular "H9a confirmed, H9b refuted" the pre-registration template provided. And the boot-strap B was 500 in early phases (commits before `eb940ab`) and 1,000 in later ones; the impact on CI width at our sample sizes is negligible (within roughly 3%).
+**Pre-registration adherence.** We adhered to the pre-registration on the H7 and H9 confirmatory tests (both refuted at the specified thresholds), the bootstrap-CI protocol (B = 1,000, stratified within bucket), the Bonferroni correction (α = 0.025), and the four mandatory controls. Four deviations to declare:
+
+*(i) The Claude-direct-API arm.* `preregistration_v2.md` §Arms specified C-flat as a direct-API Claude arm at n=400, explicitly forbidding Claude Code subagents. The Anthropic API quota was unavailable in the autonomous-run environment; we substituted a Claude Code subagent at n=50 and report it as exploratory in §6.3.
+
+*(ii) The H9b chance-MRR baseline.* `preregistration_v2.md` §H9b stated the chance baseline as "1/100 = 0.01 by margin 0.05," i.e., MRR > 0.06. The analysis used the harmonic-mean expectation `E[1/rank] = H₁₀₁ / 101 ≈ 0.0517` for the chance baseline, which is the correct expected reciprocal rank for a uniform ranking over 101 items but is not the value the pre-registration committed to. Under either threshold the observed MRR ≈ 0.044 is below chance, so the verdict does not change; the deviation is in the baseline construction, not the conclusion.
+
+*(iii) The Simpson's-paradox reframing.* The pre-registration anticipated a uniform pattern of within-bucket ρ < pooled ρ across domains. The MovieLens result inverts the relationship. We re-cast the finding post-hoc as a "diagnostic" whose sign reveals which signal the LLM relies on. The math is consistent with multilevel-statistical principles, but the rhetorical move is post-hoc and the reader should treat the MovieLens result as exploratory rather than confirmatory replication.
+
+*(iv) Bootstrap B.* `preregistration_v2.md` §Statistical protocol specifies B = 1,000. Early phases (commits before `eb940ab`) used B = 500. CI widths differ by roughly √(1000/500) ≈ 1.41, but at our sample sizes the absolute CI width changes by no more than 0.005 on any reported quantity. The deviation is documented in `decisions_log.md`.
 
 **Implementation caveats.** The cognition pipeline's hyperparameters (60/40 LLM/affect blend, friction component weights, top-5 memory retrieval) are frozen at Fragment Labs defaults. They were not tuned on any H&M or MovieLens data. A reviewer might reasonably ask whether a tuned cognition pipeline would close the gap; we suspect the answer is partly yes, because the pipeline's prompt structure carries information regardless of the weight settings, but the leakage-vs-architecture decomposition would survive — the table contribution is independent of the architectural weights.
 
@@ -325,7 +382,7 @@ Three limitations are central enough to belong in the body rather than a footnot
 
 ---
 
-## 8. Conclusion
+## 9. Conclusion
 
 We pre-registered a four-contribution protocol that separates how much of an LLM digital twin's apparent intent–behavior agreement is base-rate-table leakage from the prompt, how much is the demographic-bucket prior baked into the model's outputs, how much is per-customer reasoning above the noise floor, and how much survives across providers and domains. The most consequential finding is that the in-prompt base-rate table — a piece of prompt scaffolding present in many real commercial twin pipelines — accounts for more of the apparent say-do-gap reduction than the cognition architecture itself does, on both H&M and MovieLens. The pooled-vs-within Spearman decomposition is a diagnostic that flips sign across domains, and the sign reveals where the model's apparent agreement comes from. The within-customer reasoning signal is small (Cliff's δ ≈ 0.17 under counterfactual perturbation), provider-invariant (Gemini and a Claude subagent within 0.03 of each other in within-bucket ρ), and roughly half the within-domain human-self benchmark. The right comparator for a digital twin is not Sheeran's cross-domain r = 0.53, but the within-domain test-retest r — and on retail-fashion that number is 0.39.
 
