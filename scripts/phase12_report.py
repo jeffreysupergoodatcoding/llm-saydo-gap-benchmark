@@ -68,8 +68,8 @@ def main():
         "On a pre-registered n=1,000-customer H&M ablation, the in-prompt base-rate table inside a "
         "Park-2023-lineage LLM-digital-twin prompt accounts for more of the apparent say-do-gap reduction "
         "(|Δ_F| = 0.077) than the cognition architecture itself (|Δ_arch| = 0.062, paired-bootstrap 95% CIs "
-        "disjoint from zero) — **inverting the headline of leakage-uncontrolled prior work** "
-        "[li2025digitaltwins, chen2025personatwin]. "
+        "disjoint from zero) — a leakage-vs-architecture imbalance that prior leakage-uncontrolled work "
+        "[li2025digitaltwins, chen2025personatwin] could not surface. "
         "A second pre-registered finding: pooled Spearman ρ(stated intent, revealed purchase) reaches 0.49-0.53 "
         "across all arms — matching Sheeran's canonical human intent-behavior r ≈ 0.53 [sheeran2002intention] — "
         "but **within demographic strata**, ρ collapses to 0.22-0.28, close to the per-individual twin-human "
@@ -270,11 +270,12 @@ def main():
     L("### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor")
     L("")
     if counter:
+        desc_label = counter.get("anchoring_to_priors_descriptive_threshold", counter.get("anchoring_to_priors", "?"))
         L(f"**Counterfactual perturbation** (minimal: swap one colour and one product_type on one recent purchase). "
           f"On n={counter['n_perturbed']} customers, mean |Δ stated_intent_prob| = "
-          f"**{counter['mean_abs_delta_intent']:.3f}** (audit-revised threshold for prior-anchoring: 0.05, "
-          f"above Gemini's output resolution). "
-          f"`anchoring_to_priors` = **{counter['anchoring_to_priors']}**.")
+          f"**{counter['mean_abs_delta_intent']:.3f}**. The descriptive 0.05 threshold (above Gemini's output "
+          f"resolution) returns `anchoring_to_priors={desc_label}`, but the canonical adjudication is the inferential "
+          f"Phase 16 Mann-Whitney test below — which rejects the strict 'pure anchoring' null but with small effect size.")
     if noise:
         L("")
         L(f"**Temporal noise floor** (re-run same trace 3× with cache-busting nonces, temp=0). "
@@ -338,8 +339,9 @@ def main():
     )
     L("")
     L("## 6. Limitations")
-    L("- Single LLM provider (Gemini 2.5 Flash); single embedding model (`text-embedding-004`, same vendor — co-training confound for H9).")
-    L("- C-flat (Claude direct API) arm dropped due to API quota; provider comparison left to future work.")
+    L("- **Single LLM provider** (Gemini 2.5 Flash on all arms). The base-rate-leakage finding (Δ_F > Δ_arch) is therefore an n=1-provider result. Anthropic API quota was unavailable; the originally pre-registered Claude direct-API arm (C-flat) was dropped after the pre-Phase-10 audit deemed n=100 Claude Code subagents under-powered and confounded. Without a second provider arm, we cannot rule out Gemini-specific calibration behavior as a partial explanation for the imbalance.")
+    L("- **Embedder co-training confound** for H9. The Gemini-family `gemini-embedding-001` embedder was used to score Gemini-generated verbatim quotes against article-description embeddings. Pre-registration v2 (§Embedding model) called for `bge-large` or `text-embedding-3-small` as a disjoint third-party embedder; we used the same-vendor embedder out of API-quota necessity. A bge-large sensitivity replication is the highest-priority follow-up; the current H9 result cannot be cleanly attributed to a real signal failure vs an embedder artifact.")
+    L("- **Single dataset (H&M).** No cross-domain replication; pooled-vs-within decomposition would be more compelling on MovieLens 25M or Amazon Reviews.")
     L("- LLM stated_intent_prob has only ~30 unique values in F-* arms (Gemini's tendency to round to 0.05/0.10 steps); the verbatim is the more diagnostic output, which is why H9 is load-bearing.")
     L("- Cognition pipeline hyperparameters frozen at WIP-beverage defaults; no H&M-specific tuning. A 'tuned' Fragment pipeline might do better; a 'no-pipeline' bare LLM might do worse.")
     L("- Bootstrap B=1000 (v1 used B=500; v2 honors original prereg).")

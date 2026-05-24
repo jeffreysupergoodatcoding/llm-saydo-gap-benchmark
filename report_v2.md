@@ -1,12 +1,12 @@
 # From Stated Intent to Revealed Purchase: Quantifying the Say-Do Gap of LLM Digital Twins on H&M
 
-**Working paper, v2.** Commit `567956b9d1e6`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
+**Working paper, v2.** Commit `148e570c6121`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
 
 **Companion to**: `report.md` (v1), which established the LightGBM vs LLM regime analysis on H&M; this extension reframes that result through the stated-vs-revealed preference lens of social psychology and consumer-behavior literature [sheeran2002intention, sheeran2016intention, lapiere1934attitudes, fishbein1975belief, benakiva1994combining, diamond1994contingent].
 
 ## Abstract
 
-On a pre-registered n=1,000-customer H&M ablation, the in-prompt base-rate table inside a Park-2023-lineage LLM-digital-twin prompt accounts for more of the apparent say-do-gap reduction (|Δ_F| = 0.077) than the cognition architecture itself (|Δ_arch| = 0.062, paired-bootstrap 95% CIs disjoint from zero) — **inverting the headline of leakage-uncontrolled prior work** [li2025digitaltwins, chen2025personatwin]. A second pre-registered finding: pooled Spearman ρ(stated intent, revealed purchase) reaches 0.49-0.53 across all arms — matching Sheeran's canonical human intent-behavior r ≈ 0.53 [sheeran2002intention] — but **within demographic strata**, ρ collapses to 0.22-0.28, close to the per-individual twin-human correlation of ~0.2 reported by Toubia et al. [toubia2025twin2k500] on N=2,058. The aggregate-level agreement is a Simpson's-paradox artifact of the activity-bucket prior, not per-customer reasoning. Counterfactual trace perturbation exceeds the LLM's stochastic noise floor (Mann-Whitney p=0.024) but with small effect (Cliff's δ=0.17), upper-bounding the per-customer reasoning signal. We are not the first to use the stated/revealed-preference lens for LLM agents [andric2025walktheirtalk, alignmentrevisited2025, mindthegap2026, lu2025multiturnbehavior]. Our four contributions: **(c) the base-rate-leakage ablation** (inverts prior work); **(a) the pooled-vs-within-stratum Spearman decomposition** (Simpson's-paradox attribution); **(b) the first public-benchmark quantification of the say-do gap on H&M revealed behavior**; **(d) a counterfactual trace perturbation control** that bounds per-customer reasoning above noise.
+On a pre-registered n=1,000-customer H&M ablation, the in-prompt base-rate table inside a Park-2023-lineage LLM-digital-twin prompt accounts for more of the apparent say-do-gap reduction (|Δ_F| = 0.077) than the cognition architecture itself (|Δ_arch| = 0.062, paired-bootstrap 95% CIs disjoint from zero) — a leakage-vs-architecture imbalance that prior leakage-uncontrolled work [li2025digitaltwins, chen2025personatwin] could not surface. A second pre-registered finding: pooled Spearman ρ(stated intent, revealed purchase) reaches 0.49-0.53 across all arms — matching Sheeran's canonical human intent-behavior r ≈ 0.53 [sheeran2002intention] — but **within demographic strata**, ρ collapses to 0.22-0.28, close to the per-individual twin-human correlation of ~0.2 reported by Toubia et al. [toubia2025twin2k500] on N=2,058. The aggregate-level agreement is a Simpson's-paradox artifact of the activity-bucket prior, not per-customer reasoning. Counterfactual trace perturbation exceeds the LLM's stochastic noise floor (Mann-Whitney p=0.024) but with small effect (Cliff's δ=0.17), upper-bounding the per-customer reasoning signal. We are not the first to use the stated/revealed-preference lens for LLM agents [andric2025walktheirtalk, alignmentrevisited2025, mindthegap2026, lu2025multiturnbehavior]. Our four contributions: **(c) the base-rate-leakage ablation** (inverts prior work); **(a) the pooled-vs-within-stratum Spearman decomposition** (Simpson's-paradox attribution); **(b) the first public-benchmark quantification of the say-do gap on H&M revealed behavior**; **(d) a counterfactual trace perturbation control** that bounds per-customer reasoning above noise.
 
 ## 1. Background and framing
 
@@ -99,7 +99,7 @@ All three pairs are statistically significant (CIs disjoint from 0). |Δ_F|=0.07
 **H9b — MRR over 100 distractors > chance + 0.05**: MRR = 0.0439 (chance E_uniform = 0.0515); margin = -0.0075 → **REFUTED_or_NS**.
 **H9 overall**: REFUTED_or_NS.
 
-*Quote specificity (TTR Q3+ subset, n=57)*: H9a diff = 0.0032145774669430915, H9b MRR = 0.048096063581208964.
+*Quote specificity (TTR Q3+ subset, n=57)*: H9a diff = 0.0032145774669430915, H9b MRR = 0.04808833974122302.
 
 
 Given that the cognition pipeline's residual contribution over flat prompting (|Δ_arch| = 0.062) survived a significant paired test (§4.1.1), we now check whether the *direction* of that residual is favorable: do the pre-registered confirmatory hypotheses pass?
@@ -118,15 +118,15 @@ Sheeran 2002 meta-analytic intent-behavior r ≈ 0.53 (across-individual, social
 
 ### 4.3.2 H9 equivalence test and template-strip sensitivity
 
-H9a was reported as 'CONFIRMED' (perm p=0.0042) but the diff is +0.0016, which is below the conventional 'practically null' bound of ±0.01. Approximate 95% CI of diff = [-0.010057282883689485, 0.013179521611596775]. TOST equivalence to null: **False**. 
-After stripping ≥3×-repeated and low-TTR verbatims (n_remaining=16), the diff-vs-global-null becomes 0.011. The H9a effect is best described as *statistically detectable, practically negligible (Cohen's d ≪ 0.1).*
+H9a was reported as 'CONFIRMED' (perm p=0.0042) but the diff is +0.0016, which is below the conventional 'practically null' bound of ±0.01. Approximate 95% CI of diff = [-0.010310447971042205, -0.003769559246390117]. TOST equivalence to null: **False**. 
+After stripping ≥3×-repeated and low-TTR verbatims (n_remaining=153), the diff-vs-global-null becomes 0.000. The H9a effect is best described as *statistically detectable, practically negligible (Cohen's d ≪ 0.1).*
 
 ### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor
 
-**Counterfactual perturbation** (minimal: swap one colour and one product_type on one recent purchase). On n=50 customers, mean |Δ stated_intent_prob| = **0.038** (audit-revised threshold for prior-anchoring: 0.05, above Gemini's output resolution). `anchoring_to_priors` = **True**.
+**Counterfactual perturbation** (minimal: swap one colour and one product_type on one recent purchase). On n=50 customers, mean |Δ stated_intent_prob| = **0.028**. The descriptive 0.05 threshold (above Gemini's output resolution) returns `anchoring_to_priors=True`, but the canonical adjudication is the inferential Phase 16 Mann-Whitney test below — which rejects the strict 'pure anchoring' null but with small effect size.
 
 **Temporal noise floor** (re-run same trace 3× with cache-busting nonces, temp=0). On n=50 customers, mean max-min spread = **0.0448**; mean within-customer std = **0.0200**. This is the LLM's intrinsic stochasticity floor — counterfactual perturbation |Δ| must exceed this to indicate the LLM is actually reasoning over the perturbed input.
-  - Counterfactual |Δ| / noise_floor spread = **0.85×**.
+  - Counterfactual |Δ| / noise_floor spread = **0.62×**.
 
 **Inferential test (apples-to-apples noise pairs):** Phase 16 derives noise as 2-run |Δ| pairs (n=60 pairs from 3-rep noise floor) and compares to counterfactual perturbation |Δ| (n=50). Mean cf = 0.0382, mean noise pairs = 0.0130. Mann-Whitney U one-sided (cf > noise) p = **0.0244**, bootstrap 95% CI on diff = [+0.0027, +0.0538], Cliff's δ = **+0.168**. Verdict: the LLM responds to trace perturbation more than to its own stochastic noise (p<0.05), but the effect is **small** (Cliff's δ ≈ 0.17, well below the conventional 0.33 'medium' threshold).
 
@@ -165,8 +165,9 @@ The v1 paper's framing — *classical LightGBM beats LLM digital twins* — is p
 Where v1 ended at *classical wins, LLM under-engineered*, v2's instrumentation reveals a sharper story: when the LLM is given an architectural scaffold and a calibration anchor table in its prompt, its gap shrinks — but most of that shrinkage is the leaked test-set marginal (Control 1). When the leakage is stripped, the Park-2023-lineage cognition pipeline contributes a smaller, sometimes negative, amount over flat prompting. The counterfactual perturbation control (3) adjudicates whether the LLM is reasoning over the specific trace or anchoring on priors.
 
 ## 6. Limitations
-- Single LLM provider (Gemini 2.5 Flash); single embedding model (`text-embedding-004`, same vendor — co-training confound for H9).
-- C-flat (Claude direct API) arm dropped due to API quota; provider comparison left to future work.
+- **Single LLM provider** (Gemini 2.5 Flash on all arms). The base-rate-leakage finding (Δ_F > Δ_arch) is therefore an n=1-provider result. Anthropic API quota was unavailable; the originally pre-registered Claude direct-API arm (C-flat) was dropped after the pre-Phase-10 audit deemed n=100 Claude Code subagents under-powered and confounded. Without a second provider arm, we cannot rule out Gemini-specific calibration behavior as a partial explanation for the imbalance.
+- **Embedder co-training confound** for H9. The Gemini-family `gemini-embedding-001` embedder was used to score Gemini-generated verbatim quotes against article-description embeddings. Pre-registration v2 (§Embedding model) called for `bge-large` or `text-embedding-3-small` as a disjoint third-party embedder; we used the same-vendor embedder out of API-quota necessity. A bge-large sensitivity replication is the highest-priority follow-up; the current H9 result cannot be cleanly attributed to a real signal failure vs an embedder artifact.
+- **Single dataset (H&M).** No cross-domain replication; pooled-vs-within decomposition would be more compelling on MovieLens 25M or Amazon Reviews.
 - LLM stated_intent_prob has only ~30 unique values in F-* arms (Gemini's tendency to round to 0.05/0.10 steps); the verbatim is the more diagnostic output, which is why H9 is load-bearing.
 - Cognition pipeline hyperparameters frozen at WIP-beverage defaults; no H&M-specific tuning. A 'tuned' Fragment pipeline might do better; a 'no-pipeline' bare LLM might do worse.
 - Bootstrap B=1000 (v1 used B=500; v2 honors original prereg).

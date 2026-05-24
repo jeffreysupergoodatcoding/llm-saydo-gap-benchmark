@@ -259,7 +259,13 @@ def main():
             "high_TTR_H9a_diff": h9a_high,
             "high_TTR_H9b_MRR": h9b_high,
         },
-        "per_customer_sample": results[:20],
+        "per_customer_sample_first20": results[:20],
+        "all_cos_actuals": [float(r["cos_actual"]) for r in results],
+        "all_mean_cos_distractor": [float(r["mean_cos_distractor"]) for r in results],
+        "all_ttrs": [float(r["ttr"]) for r in results],
+        "all_buckets": [r["bucket"] for r in results],
+        "all_verbatims": [r["verbatim"] for r in results],
+        "all_ranks": [r["rank_among_distractors_plus_actual"] for r in results],
     }
     (RESULTS / "phase11_verbatim.json").write_text(json.dumps(out, indent=2, default=str))
 

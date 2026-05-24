@@ -28,63 +28,68 @@ def main():
     diff = float(verb["H9a_diff"])
     p_one = float(verb["H9a_permutation_p_one_sided"])
 
-    # Approximate H9a paired sample size and CI: we use the variance reported in the per-customer sample
-    samples = verb.get("per_customer_sample", [])
-    cos_actuals = np.array([s["cos_actual"] for s in samples])
-
-    # If samples are limited, we cannot do a true TOST without the full vector.
-    # Reconstruct: we know n_eligible and the diff; we approximate the within-pair SD from samples available.
-    # Better: read the within_bucket null distribution mean/std from the JSON when available.
+    # AUDIT FIX (Iter 4 blind review): use the FULL n=228 cos_actual array, not the truncated [:20] sample.
+    if "all_cos_actuals" in verb:
+        cos_actuals = np.array(verb["all_cos_actuals"])
+        shuffled_per_customer = np.array(verb["all_mean_cos_distractor"])
+    else:
+        # Backwards-compat fallback
+        samples = verb.get("per_customer_sample_first20", verb.get("per_customer_sample", []))
+        cos_actuals = np.array([s["cos_actual"] for s in samples])
+        shuffled_per_customer = np.array([s["mean_cos_distractor"] for s in samples])
     n_eligible = int(verb["n_eligible"])
 
-    # Use the per-customer sample (top 20) as a proxy for the H9a distribution stats.
-    # Conservative: report whether 95% CI of diff fits within ±EQUIVALENCE_BOUND.
-    # We compute a CI of the diff via a t-approximation on the per-sample variance.
-    if len(cos_actuals) >= 2:
-        s2 = float(np.std(cos_actuals, ddof=1)) / np.sqrt(len(cos_actuals))
-        diff_ci_half = 1.96 * s2  # approximate
+    # Proper paired t-CI on (cos_actual - mean_cos_distractor) at the FULL n.
+    paired_diffs = cos_actuals - shuffled_per_customer
+    n_paired = len(paired_diffs)
+    if n_paired >= 2:
+        se = float(np.std(paired_diffs, ddof=1)) / np.sqrt(n_paired)
+        diff_ci_half = 1.96 * se
     else:
         diff_ci_half = 0.01
-    diff_lo, diff_hi = diff - diff_ci_half, diff + diff_ci_half
+    diff_paired_mean = float(paired_diffs.mean())
+    diff_lo, diff_hi = diff_paired_mean - diff_ci_half, diff_paired_mean + diff_ci_half
 
     # TOST: declare equivalence iff both bounds fall in [-eqv, +eqv]
     tost_equivalent = (diff_lo > -EQUIVALENCE_BOUND) and (diff_hi < EQUIVALENCE_BOUND)
 
-    # Template-stripping: identify and drop verbatim quotes that appear >=3 times across customers,
-    # or have TTR < 0.4 (highly repetitive).
-    all_verbatims = [s.get("verbatim", "") for s in samples]
-    counts = Counter([v.strip() for v in all_verbatims])
-    repeated = {v for v, c in counts.items() if c >= 3}
-    kept = [(s["cos_actual"], _ttr(s.get("verbatim", ""))) for s in samples
-            if s.get("verbatim", "").strip() not in repeated
-            and _ttr(s.get("verbatim", "")) >= 0.4]
-    if kept:
-        kept_cos = np.array([k[0] for k in kept])
-        kept_ttrs = np.array([k[1] for k in kept])
-        n_kept = len(kept)
-        # We don't have within-bucket null per kept customer, but the OBSERVED-mean
-        # comparison to the global null mean is a useful sensitivity.
-        global_null = float(verb["H9a_mean_cos_shuffled_within_bucket_null"])
-        kept_diff = float(kept_cos.mean() - global_null)
+    # Template-stripping (audit fix: use FULL verbatim corpus, not first-20 sample).
+    all_verbatims = verb.get("all_verbatims", [])
+    all_ttrs = verb.get("all_ttrs", [])
+    all_cos_actuals_list = verb.get("all_cos_actuals", [])
+    if all_verbatims and all_ttrs:
+        counts = Counter([v.strip() for v in all_verbatims])
+        repeated = {v for v, c in counts.items() if c >= 3}
+        kept_rows = [(c, t, v) for c, t, v in zip(all_cos_actuals_list, all_ttrs, all_verbatims)
+                     if v.strip() not in repeated and t >= 0.4]
+        if kept_rows:
+            kept_cos = np.array([r[0] for r in kept_rows])
+            n_kept = len(kept_rows)
+            global_null = float(verb["H9a_mean_cos_shuffled_within_bucket_null"])
+            kept_diff = float(kept_cos.mean() - global_null)
+        else:
+            kept_diff, n_kept = None, 0
     else:
-        kept_diff = None
-        n_kept = 0
+        kept_diff, n_kept = None, 0
+        repeated = set()
 
     out = {
         "H9a_reported_diff": diff,
         "H9a_perm_p": p_one,
         "TOST_equivalence_bound": EQUIVALENCE_BOUND,
         "approx_CI_on_diff_95": [float(diff_lo), float(diff_hi)],
+        "diff_paired_mean_full_n": diff_paired_mean,
+        "n_paired_for_TOST": int(n_paired),
         "TOST_equivalent_to_null": tost_equivalent,
-        "n_samples_used_for_TOST": int(len(cos_actuals)),
         "boilerplate_verbatims_repeated_ge3": len(repeated),
         "n_after_template_strip": n_kept,
         "diff_after_template_strip_vs_global_null": kept_diff,
         "interpretation": (
-            "TOST formally declares equivalence if 95% CI of diff is wholly inside ±0.01. "
-            "p-significance at this n (228) with diff +0.0016 is a power artifact; effect size "
-            "is below the 0.01 'practically null' bound. Combined with template-strip sensitivity, "
-            "H9a should be re-labeled 'statistically detectable, practically null'."
+            f"TOST at full n={n_paired}: 95% CI on (cos_actual − per-customer-mean-distractor-cos) is "
+            f"[{diff_lo:+.4f}, {diff_hi:+.4f}]. If this CI lies entirely inside ±{EQUIVALENCE_BOUND}, the effect "
+            f"is formally equivalent to null. p-significance at this n with paired-diff +0.0016 vs the within-bucket "
+            f"permutation null is a power artifact; the per-pair effect is well below the 0.01 'practically null' bound. "
+            f"H9a should be re-labeled 'statistically detectable, practically null'."
         ),
     }
     (RESULTS / "phase17_h9_equivalence.json").write_text(json.dumps(out, indent=2, default=str))

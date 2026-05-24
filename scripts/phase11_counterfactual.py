@@ -117,15 +117,17 @@ def main():
         "mean_abs_delta_intent": float(abs_deltas.mean()),
         "median_abs_delta_intent": float(np.median(abs_deltas)),
         "max_abs_delta_intent": float(abs_deltas.max()) if len(abs_deltas) > 0 else 0.0,
-        "anchoring_signal_threshold": 0.05,
-        "anchoring_to_priors": bool(abs_deltas.mean() < 0.05),
+        "anchoring_signal_threshold_descriptive": 0.05,
+        "anchoring_to_priors_descriptive_threshold": bool(abs_deltas.mean() < 0.05),
+        "anchoring_to_priors_canonical_verdict": "use Phase 16 inferential (Mann-Whitney vs noise floor)",
         "perturbation_type": "minimal: swap color + product_type on one recent purchase",
         "samples": perturbed,   # save ALL (fix from Iteration 1: was [:20])
     }
     (RESULTS / "phase11_counterfactual.json").write_text(json.dumps(out, indent=2, default=str))
     print(f"\n[11c] mean |Δ intent| = {out['mean_abs_delta_intent']:.4f} "
           f"(threshold for prior-anchoring: 0.02)")
-    print(f"[11c] anchoring_to_priors: {out['anchoring_to_priors']}")
+    print(f"[11c] descriptive-threshold anchoring_to_priors: {out['anchoring_to_priors_descriptive_threshold']}")
+    print(f"[11c] canonical verdict: see Phase 16 inferential Mann-Whitney test")
     print(f"[11c] saved phase11_counterfactual.json")
 
 

@@ -3,13 +3,14 @@
   "H9a_perm_p": 0.0042,
   "TOST_equivalence_bound": 0.01,
   "approx_CI_on_diff_95": [
-    -0.010057282883689485,
-    0.013179521611596775
+    -0.010310447971042205,
+    -0.003769559246390117
   ],
+  "diff_paired_mean_full_n": -0.007040003608716161,
+  "n_paired_for_TOST": 228,
   "TOST_equivalent_to_null": "False",
-  "n_samples_used_for_TOST": 20,
-  "boilerplate_verbatims_repeated_ge3": 1,
-  "n_after_template_strip": 16,
-  "diff_after_template_strip_vs_global_null": 0.010820303826935995,
-  "interpretation": "TOST formally declares equivalence if 95% CI of diff is wholly inside \u00b10.01. p-significance at this n (228) with diff +0.0016 is a power artifact; effect size is below the 0.01 'practically null' bound. Combined with template-strip sensitivity, H9a should be re-labeled 'statistically detectable, practically null'."
+  "boilerplate_verbatims_repeated_ge3": 11,
+  "n_after_template_strip": 153,
+  "diff_after_template_strip_vs_global_null": 0.00018252155632370037,
+  "interpretation": "TOST at full n=228: 95% CI on (cos_actual \u2212 per-customer-mean-distractor-cos) is [-0.0103, -0.0038]. If this CI lies entirely inside \u00b10.01, the effect is formally equivalent to null. p-significance at this n with paired-diff +0.0016 vs the within-bucket permutation null is a power artifact; the per-pair effect is well below the 0.01 'practically null' bound. H9a should be re-labeled 'statistically detectable, practically null'."
 }
