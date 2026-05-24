@@ -43,6 +43,9 @@ def main():
     gap = _safe(RESULTS / "phase11_gap.json") or {}
     verbatim = _safe(RESULTS / "phase11_verbatim.json") or {}
     counter = _safe(RESULTS / "phase11_counterfactual.json") or {}
+    noise = _safe(RESULTS / "phase13_noise_floor.json") or {}
+    field_mask = _safe(RESULTS / "phase14_field_mask.json") or {}
+    calib_bins = _safe(RESULTS / "phase15_calibration_bins.json") or {}
     p1 = _safe(RESULTS / "phase1_summary.json") or {}
 
     lines: list[str] = []
@@ -184,12 +187,41 @@ def main():
         for arm, bg in gap["R2_heterogeneous_gap"].items():
             L(f"- {arm}: " + ", ".join(f"{b}={g:+.3f}" for b, g in bg.items()))
     L("")
-    L("### 4.5 Counterfactual perturbation (Control 3)")
+    L("### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor")
     L("")
     if counter:
-        L(f"On n={counter['n_perturbed']} customers, mean |Δ stated_intent_prob| under perturbation = "
-          f"**{counter['mean_abs_delta_intent']:.3f}** (threshold for prior-anchoring: 0.02). "
+        L(f"**Counterfactual perturbation** (minimal: swap one colour and one product_type on one recent purchase). "
+          f"On n={counter['n_perturbed']} customers, mean |Δ stated_intent_prob| = "
+          f"**{counter['mean_abs_delta_intent']:.3f}** (audit-revised threshold for prior-anchoring: 0.05, "
+          f"above Gemini's output resolution). "
           f"`anchoring_to_priors` = **{counter['anchoring_to_priors']}**.")
+    if noise:
+        L("")
+        L(f"**Temporal noise floor** (re-run same trace 3× with cache-busting nonces, temp=0). "
+          f"On n={noise['n_customers']} customers, mean max-min spread = "
+          f"**{noise['mean_max_minus_min_spread']:.4f}**; mean within-customer std = "
+          f"**{noise['mean_std_within_customer']:.4f}**. "
+          f"This is the LLM's intrinsic stochasticity floor — counterfactual perturbation |Δ| must "
+          f"exceed this to indicate the LLM is actually reasoning over the perturbed input.")
+        if counter:
+            ratio = counter['mean_abs_delta_intent'] / max(noise['mean_max_minus_min_spread'], 1e-6)
+            L(f"  - Counterfactual |Δ| / noise_floor spread = **{ratio:.2f}×**.")
+    L("")
+    L("### 4.6 Field-masking ablation (which fields drive the gap?)")
+    L("")
+    if field_mask:
+        L("Re-running F-nobase with one input field masked at a time on a n=50 subsample. Larger "
+          "mean |Δ stated_intent_prob| = the LLM was leaning on that field:")
+        for cond, val in sorted(field_mask["mean_abs_delta_vs_full"].items(), key=lambda kv: -kv[1]):
+            L(f"- `{cond}`: mean |Δ| = {val:.3f}")
+    L("")
+    L("### 4.7 Per-decile calibration with bootstrap CIs")
+    L("")
+    if calib_bins:
+        L("![decile calibration](results/phase15_calibration_decile.png)")
+        L("")
+        L("Per-decile reliability with 95% bootstrap CIs (`phase15_calibration_bins.json`). Reads under-dispersion "
+          "at finer grain than the 5-bucket activity-level view: each arm's predicted-intent distribution is compared to actual rates within decile.")
     L("")
     L("---")
     L("")
