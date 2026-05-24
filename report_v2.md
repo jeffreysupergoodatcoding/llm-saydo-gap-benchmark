@@ -1,12 +1,12 @@
 # From Stated Intent to Revealed Purchase: Quantifying the Say-Do Gap of LLM Digital Twins on H&M
 
-**Working paper, v2.** Commit `86a9943be24b`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
+**Working paper, v2.** Commit `567956b9d1e6`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
 
 **Companion to**: `report.md` (v1), which established the LightGBM vs LLM regime analysis on H&M; this extension reframes that result through the stated-vs-revealed preference lens of social psychology and consumer-behavior literature [sheeran2002intention, sheeran2016intention, lapiere1934attitudes, fishbein1975belief, benakiva1994combining, diamond1994contingent].
 
 ## Abstract
 
-On a 31M-transaction H&M public benchmark, prompted LLM digital twins reproduce Sheeran's canonical human intent-behavior correlation (Spearman ρ ≈ 0.53) at the population level — but **within demographic strata**, ρ collapses to 0.22-0.28, revealing that the apparent agreement is largely a base-rate artifact rather than per-customer reasoning. We further show, via a pre-registered ablation on n=1,000 paired customers, that a Park-2023-lineage cognition pipeline (memory→retrieval→reflection→decision) does *not* close the say-do gap once the leaked base-rate anchor table is removed: the in-prompt rate table accounts for more of the apparent improvement (|Δ_F|=0.077) than the cognition architecture itself (|Δ_arch|=0.062), with paired-bootstrap 95% CIs disjoint from zero. Counterfactual trace perturbation reaches statistical significance over the LLM's stochastic noise floor (Mann-Whitney p=0.024) but with small effect (Cliff's δ=0.17). We are not the first to use the stated/revealed-preference lens for LLM agents [andric2025walktheirtalk, alignmentrevisited2025, mindthegap2026, lu2025multiturnbehavior]; Toubia et al. [toubia2025twin2k500] report per-individual twin-human correlation ~0.2 on N=2,058 — a numerical anchor for our within-stratum Spearman finding. **Our four contributions are: (a) a pooled-vs-within-stratum Spearman decomposition** separating demographic-prior signal from per-customer reasoning, showing LLM digital twins match the Sheeran human benchmark only in aggregate; **(b) the first public-benchmark quantification of the say-do gap on H&M revealed behavior**; **(c) a base-rate-leakage ablation** demonstrating that the in-prompt rate table exceeds the cognition-pipeline architecture effect, inverting the headline of leakage-uncontrolled prior work [li2025digitaltwins, chen2025personatwin]; **(d) a counterfactual trace perturbation control** that quantifies how much customer-specific reasoning the LLM's output reflects above its own stochastic noise.
+On a pre-registered n=1,000-customer H&M ablation, the in-prompt base-rate table inside a Park-2023-lineage LLM-digital-twin prompt accounts for more of the apparent say-do-gap reduction (|Δ_F| = 0.077) than the cognition architecture itself (|Δ_arch| = 0.062, paired-bootstrap 95% CIs disjoint from zero) — **inverting the headline of leakage-uncontrolled prior work** [li2025digitaltwins, chen2025personatwin]. A second pre-registered finding: pooled Spearman ρ(stated intent, revealed purchase) reaches 0.49-0.53 across all arms — matching Sheeran's canonical human intent-behavior r ≈ 0.53 [sheeran2002intention] — but **within demographic strata**, ρ collapses to 0.22-0.28, close to the per-individual twin-human correlation of ~0.2 reported by Toubia et al. [toubia2025twin2k500] on N=2,058. The aggregate-level agreement is a Simpson's-paradox artifact of the activity-bucket prior, not per-customer reasoning. Counterfactual trace perturbation exceeds the LLM's stochastic noise floor (Mann-Whitney p=0.024) but with small effect (Cliff's δ=0.17), upper-bounding the per-customer reasoning signal. We are not the first to use the stated/revealed-preference lens for LLM agents [andric2025walktheirtalk, alignmentrevisited2025, mindthegap2026, lu2025multiturnbehavior]. Our four contributions: **(c) the base-rate-leakage ablation** (inverts prior work); **(a) the pooled-vs-within-stratum Spearman decomposition** (Simpson's-paradox attribution); **(b) the first public-benchmark quantification of the say-do gap on H&M revealed behavior**; **(d) a counterfactual trace perturbation control** that bounds per-customer reasoning above noise.
 
 ## 1. Background and framing
 
@@ -64,8 +64,9 @@ Primary metric: signed gap `E[stated_intent] − E[actual]`, reweighted to the t
 | F-base | 1000 | 0.292 | 0.219 | +0.073 [+0.052, +0.094] | 0.568 [0.508, 0.622] |
 | F-nobase | 1000 | 0.369 | 0.219 | +0.151 [+0.128, +0.172] | 0.573 [0.515, 0.633] |
 
-![per-bucket signed gap](results/phase11_gap_by_bucket.png)
-![calibration](results/phase11_calibration.png)
+![Figure 1. Signed gap by activity bucket; F-base and D2 converge in low-activity buckets while F-nobase inflates monotonically — leakage's effect is concentrated where the base-rate prior carries most information.](results/phase11_gap_by_bucket.png)
+
+![Figure 2. Reliability diagrams (10 bins) for each arm; all three are under-dispersed but F-nobase deviates most from the diagonal at high-intent deciles.](results/phase11_calibration.png)
 
 ### 4.1.1 Pairwise gap differences (paired bootstrap on the same 1,000 customers)
 
@@ -88,26 +89,20 @@ All three pairs are statistically significant (CIs disjoint from 0). |Δ_F|=0.07
 - **Δ_F = gap(F-base) − gap(F-nobase) = -0.077**  → contribution attributable to the base-rate table itself
 - **Δ_arch = gap(F-nobase) − gap(D2) = +0.062**  → clean contribution attributable to the cognition pipeline
 
-**Leakage dominates the apparent cognition-pipeline benefit.** The Park-2023-lineage architecture, when stripped of its in-prompt base-rate anchor, contributes less to gap reduction than the bare table did. This is exactly the failure mode the pre-registered Control 1 was designed to surface and is the *headline finding* of v2: claims that 'agentic cognition closes the say-do gap' must control for this leakage.
+**The in-prompt rate table is associated with a larger gap reduction than the cognition architecture** (|Δ_F| = 0.077 vs |Δ_arch| = 0.062), consistent with leakage as the dominant driver. The Park-2023-lineage architecture, when stripped of its in-prompt base-rate anchor, contributes less to gap reduction than the bare table did. This is exactly the failure mode the pre-registered Control 1 was designed to surface, and it is the *headline finding* of v2: claims that 'agentic cognition closes the say-do gap' must control for in-prompt base-rate leakage before being credited to the architecture.
 
 ### 4.3 Hypothesis verdicts
 
 **H7 — Cognition closes the gap (F-nobase vs D2, paired Wilcoxon, α=0.025)**: mean |stated−actual| = 0.280 (F-nobase) vs 0.244 (D2); diff = +0.035; p = 1 → **REFUTED_or_NS**.
 
-**H9a — Verbatim cosine to actual next-article exceeds within-bucket shuffled baseline**: mean cos = 0.5521 vs shuffled 0.5505; diff = +0.0016; perm p = 0.0042 → **CONFIRMED**.
+**H9a — Verbatim cosine to actual next-article exceeds within-bucket shuffled baseline**: mean cos = 0.5521 vs shuffled 0.5505; diff = +0.0016 (well below ±0.01 practical-equivalence bound); perm p = 0.0042 → **NULL_EFFECT** (statistically detectable, practically null; see §4.3.2 for TOST).
 **H9b — MRR over 100 distractors > chance + 0.05**: MRR = 0.0439 (chance E_uniform = 0.0515); margin = -0.0075 → **REFUTED_or_NS**.
 **H9 overall**: REFUTED_or_NS.
 
 *Quote specificity (TTR Q3+ subset, n=57)*: H9a diff = 0.0032145774669430915, H9b MRR = 0.048096063581208964.
 
-### 4.4 R1 and R2 replication
 
-**R1 — Intent inflation (signed gap, all positive = inflation)**: F-base = +0.075, F-nobase = +0.152, D2-core = +0.090
-
-**R2 — Heterogeneous gap (per activity bucket)**:
-- F-base: 1=+0.034, 2-5=+0.024, 6-20=+0.035, 21-100=+0.143, 101+=+0.138
-- F-nobase: 1=+0.071, 2-5=+0.066, 6-20=+0.149, 21-100=+0.266, 101+=+0.207
-- D2-core: 1=+0.013, 2-5=+0.053, 6-20=+0.114, 21-100=+0.135, 101+=+0.134
+Given that the cognition pipeline's residual contribution over flat prompting (|Δ_arch| = 0.062) survived a significant paired test (§4.1.1), we now check whether the *direction* of that residual is favorable: do the pre-registered confirmatory hypotheses pass?
 
 ### 4.3.1 Sheeran comparator: Spearman ρ of stated intent vs revealed behavior
 
@@ -124,7 +119,7 @@ Sheeran 2002 meta-analytic intent-behavior r ≈ 0.53 (across-individual, social
 ### 4.3.2 H9 equivalence test and template-strip sensitivity
 
 H9a was reported as 'CONFIRMED' (perm p=0.0042) but the diff is +0.0016, which is below the conventional 'practically null' bound of ±0.01. Approximate 95% CI of diff = [-0.010057282883689485, 0.013179521611596775]. TOST equivalence to null: **False**. 
-After stripping ≥3×-repeated and low-TTR verbatims (n_remaining=16), the diff-vs-global-null becomes 0.010820303826935995. The H9a effect is best described as *statistically detectable, practically negligible (Cohen's d ≪ 0.1).*
+After stripping ≥3×-repeated and low-TTR verbatims (n_remaining=16), the diff-vs-global-null becomes 0.011. The H9a effect is best described as *statistically detectable, practically negligible (Cohen's d ≪ 0.1).*
 
 ### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor
 

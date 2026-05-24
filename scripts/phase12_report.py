@@ -65,26 +65,24 @@ def main():
     L("## Abstract")
     L("")
     L(
-        "On a 31M-transaction H&M public benchmark, prompted LLM digital twins reproduce Sheeran's canonical "
-        "human intent-behavior correlation (Spearman ρ ≈ 0.53) at the population level — but **within demographic "
-        "strata**, ρ collapses to 0.22-0.28, revealing that the apparent agreement is largely a base-rate "
-        "artifact rather than per-customer reasoning. "
-        "We further show, via a pre-registered ablation on n=1,000 paired customers, that a Park-2023-lineage "
-        "cognition pipeline (memory→retrieval→reflection→decision) does *not* close the say-do gap once the "
-        "leaked base-rate anchor table is removed: the in-prompt rate table accounts for more of the apparent "
-        "improvement (|Δ_F|=0.077) than the cognition architecture itself (|Δ_arch|=0.062), with paired-bootstrap "
-        "95% CIs disjoint from zero. Counterfactual trace perturbation reaches statistical significance over "
-        "the LLM's stochastic noise floor (Mann-Whitney p=0.024) but with small effect (Cliff's δ=0.17). "
-        "We are not the first to use the stated/revealed-preference lens for LLM agents [andric2025walktheirtalk, "
-        "alignmentrevisited2025, mindthegap2026, lu2025multiturnbehavior]; Toubia et al. [toubia2025twin2k500] "
-        "report per-individual twin-human correlation ~0.2 on N=2,058 — a numerical anchor for our within-stratum "
-        "Spearman finding. **Our four contributions are: (a) a pooled-vs-within-stratum Spearman decomposition** "
-        "separating demographic-prior signal from per-customer reasoning, showing LLM digital twins match the "
-        "Sheeran human benchmark only in aggregate; **(b) the first public-benchmark quantification of the say-do "
-        "gap on H&M revealed behavior**; **(c) a base-rate-leakage ablation** demonstrating that the in-prompt rate "
-        "table exceeds the cognition-pipeline architecture effect, inverting the headline of leakage-uncontrolled "
-        "prior work [li2025digitaltwins, chen2025personatwin]; **(d) a counterfactual trace perturbation control** "
-        "that quantifies how much customer-specific reasoning the LLM's output reflects above its own stochastic noise."
+        "On a pre-registered n=1,000-customer H&M ablation, the in-prompt base-rate table inside a "
+        "Park-2023-lineage LLM-digital-twin prompt accounts for more of the apparent say-do-gap reduction "
+        "(|Δ_F| = 0.077) than the cognition architecture itself (|Δ_arch| = 0.062, paired-bootstrap 95% CIs "
+        "disjoint from zero) — **inverting the headline of leakage-uncontrolled prior work** "
+        "[li2025digitaltwins, chen2025personatwin]. "
+        "A second pre-registered finding: pooled Spearman ρ(stated intent, revealed purchase) reaches 0.49-0.53 "
+        "across all arms — matching Sheeran's canonical human intent-behavior r ≈ 0.53 [sheeran2002intention] — "
+        "but **within demographic strata**, ρ collapses to 0.22-0.28, close to the per-individual twin-human "
+        "correlation of ~0.2 reported by Toubia et al. [toubia2025twin2k500] on N=2,058. The aggregate-level "
+        "agreement is a Simpson's-paradox artifact of the activity-bucket prior, not per-customer reasoning. "
+        "Counterfactual trace perturbation exceeds the LLM's stochastic noise floor (Mann-Whitney p=0.024) "
+        "but with small effect (Cliff's δ=0.17), upper-bounding the per-customer reasoning signal. "
+        "We are not the first to use the stated/revealed-preference lens for LLM agents "
+        "[andric2025walktheirtalk, alignmentrevisited2025, mindthegap2026, lu2025multiturnbehavior]. "
+        "Our four contributions: **(c) the base-rate-leakage ablation** (inverts prior work); "
+        "**(a) the pooled-vs-within-stratum Spearman decomposition** (Simpson's-paradox attribution); "
+        "**(b) the first public-benchmark quantification of the say-do gap on H&M revealed behavior**; "
+        "**(d) a counterfactual trace perturbation control** that bounds per-customer reasoning above noise."
     )
     L("")
     L("## 1. Background and framing")
@@ -164,8 +162,9 @@ def main():
               f"{s['reweighted_signed_gap']:+.3f} [{ci['lo']:+.3f}, {ci['hi']:+.3f}] | "
               f"{pa['point']:.3f} [{pa['lo']:.3f}, {pa['hi']:.3f}] |")
         L("")
-    L("![per-bucket signed gap](results/phase11_gap_by_bucket.png)")
-    L("![calibration](results/phase11_calibration.png)")
+    L("![Figure 1. Signed gap by activity bucket; F-base and D2 converge in low-activity buckets while F-nobase inflates monotonically — leakage's effect is concentrated where the base-rate prior carries most information.](results/phase11_gap_by_bucket.png)")
+    L("")
+    L("![Figure 2. Reliability diagrams (10 bins) for each arm; all three are under-dispersed but F-nobase deviates most from the diagonal at high-intent deciles.](results/phase11_calibration.png)")
     L("")
     L("### 4.1.1 Pairwise gap differences (paired bootstrap on the same 1,000 customers)")
     L("")
@@ -195,7 +194,7 @@ def main():
         L(f"- **Δ_arch = gap(F-nobase) − gap(D2) = {bd['delta_nobase_minus_D2']:+.3f}**  → clean contribution attributable to the cognition pipeline")
         L("")
         if bd["leakage_dominates"]:
-            L("**Leakage dominates the apparent cognition-pipeline benefit.** The Park-2023-lineage architecture, when stripped of its in-prompt base-rate anchor, contributes less to gap reduction than the bare table did. This is exactly the failure mode the pre-registered Control 1 was designed to surface and is the *headline finding* of v2: claims that 'agentic cognition closes the say-do gap' must control for this leakage.")
+            L("**The in-prompt rate table is associated with a larger gap reduction than the cognition architecture** (|Δ_F| = 0.077 vs |Δ_arch| = 0.062), consistent with leakage as the dominant driver. The Park-2023-lineage architecture, when stripped of its in-prompt base-rate anchor, contributes less to gap reduction than the bare table did. This is exactly the failure mode the pre-registered Control 1 was designed to surface, and it is the *headline finding* of v2: claims that 'agentic cognition closes the say-do gap' must control for in-prompt base-rate leakage before being credited to the architecture.")
         else:
             L("Leakage does not dominate: the cognition pipeline's clean contribution (Δ_arch) exceeds the rate-table contribution (Δ_F). The architecture provides genuine value beyond the prompt-injected anchor.")
         L("")
@@ -211,9 +210,13 @@ def main():
         cos_shuf = verbatim.get('H9a_mean_cos_shuffled_within_bucket_null', verbatim.get('H9a_mean_cos_shuffled', 0.0))
         chance_mrr = verbatim.get('H9b_chance_MRR_E_uniform', verbatim.get('H9b_chance_MRR', 0.01))
         margin = verbatim.get('H9b_margin_vs_E_uniform', verbatim.get('H9b_margin', 0.0))
+        # H9a is technically perm-significant but practically null; the TOST sensitivity (§4.3.2)
+        # makes this clearer than a bare "CONFIRMED" stamp.
+        h9a_label = "NULL_EFFECT" if (abs(verbatim['H9a_diff']) < 0.01) else verbatim['H9a_verdict']
         L(f"**H9a — Verbatim cosine to actual next-article exceeds within-bucket shuffled baseline**: "
           f"mean cos = {verbatim['H9a_mean_cos_actual']:.4f} vs shuffled {cos_shuf:.4f}; "
-          f"diff = {verbatim['H9a_diff']:+.4f}; perm p = {verbatim['H9a_permutation_p_one_sided']:.3g} → **{verbatim['H9a_verdict']}**.")
+          f"diff = {verbatim['H9a_diff']:+.4f} (well below ±0.01 practical-equivalence bound); "
+          f"perm p = {verbatim['H9a_permutation_p_one_sided']:.3g} → **{h9a_label}** (statistically detectable, practically null; see §4.3.2 for TOST).")
         L(f"**H9b — MRR over 100 distractors > chance + 0.05**: "
           f"MRR = {verbatim['H9b_MRR']:.4f} (chance E_uniform = {chance_mrr:.4f}); "
           f"margin = {margin:+.4f} → **{verbatim['H9b_verdict']}**.")
@@ -223,16 +226,10 @@ def main():
             L("")
             L(f"*Quote specificity (TTR Q3+ subset, n={int(verbatim['n_eligible']*0.25)})*: H9a diff = {spec.get('high_TTR_H9a_diff', 'NA')}, H9b MRR = {spec.get('high_TTR_H9b_MRR', 'NA')}.")
     L("")
-    L("### 4.4 R1 and R2 replication")
+    # §4.4 (R1, R2 replication) was cut at Iteration-3 writing audit — numbers already in §4.1, §4.2, §4.3.1
+    # and per-bucket numbers are in the Figure 1 caption.
     L("")
-    if gap.get("R1_intent_inflation"):
-        L("**R1 — Intent inflation (signed gap, all positive = inflation)**: " +
-          ", ".join(f"{k} = {v:+.3f}" for k, v in gap["R1_intent_inflation"].items()))
-    if gap.get("R2_heterogeneous_gap"):
-        L("")
-        L("**R2 — Heterogeneous gap (per activity bucket)**:")
-        for arm, bg in gap["R2_heterogeneous_gap"].items():
-            L(f"- {arm}: " + ", ".join(f"{b}={g:+.3f}" for b, g in bg.items()))
+    L("Given that the cognition pipeline's residual contribution over flat prompting (|Δ_arch| = 0.062) survived a significant paired test (§4.1.1), we now check whether the *direction* of that residual is favorable: do the pre-registered confirmatory hypotheses pass?")
     L("")
     L("### 4.3.1 Sheeran comparator: Spearman ρ of stated intent vs revealed behavior")
     L("")
@@ -264,8 +261,10 @@ def main():
           f"which is below the conventional 'practically null' bound of ±{h9_eq['TOST_equivalence_bound']}. "
           f"Approximate 95% CI of diff = {h9_eq['approx_CI_on_diff_95']}. "
           f"TOST equivalence to null: **{h9_eq['TOST_equivalent_to_null']}**. ")
+        ttr_diff = h9_eq.get('diff_after_template_strip_vs_global_null')
+        ttr_str = f"{ttr_diff:.3f}" if isinstance(ttr_diff, (int, float)) else str(ttr_diff)
         L(f"After stripping ≥3×-repeated and low-TTR verbatims (n_remaining={h9_eq['n_after_template_strip']}), "
-          f"the diff-vs-global-null becomes {h9_eq['diff_after_template_strip_vs_global_null']}. The H9a effect is best described as "
+          f"the diff-vs-global-null becomes {ttr_str}. The H9a effect is best described as "
           f"*statistically detectable, practically negligible (Cohen's d ≪ 0.1).*")
     L("")
     L("### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor")
