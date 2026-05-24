@@ -33,7 +33,31 @@ if _envf.exists():
 
 CACHE_DIR = _ROOT / "cache" / "llm"
 COST_LOG = _ROOT / "cache" / "llm_costs.jsonl"
-COST_CAP_USD = 20.0
+COST_CAP_USD = 35.0  # raised for v3 with 11 methods
+
+# Global rate limiter — cap concurrent calls to stay under Gemini burst quotas.
+# Free-tier Flash 2.5 is ~10 RPM but burst windows are wider; 90 RPM has been stable
+# across multi-hour runs without 429 storms.
+import threading as _threading
+_RATE_LIMIT_RPM = int(os.environ.get("LLM_RATE_LIMIT_RPM", "90"))
+_rate_lock = _threading.Lock()
+_call_times: list[float] = []  # timestamps of recent calls
+
+def _rate_limit_acquire():
+    """Block until a slot is available within the rolling 60-second RPM window."""
+    while True:
+        with _rate_lock:
+            now = time.time()
+            # Drop calls older than 60s
+            cutoff = now - 60.0
+            while _call_times and _call_times[0] < cutoff:
+                _call_times.pop(0)
+            if len(_call_times) < _RATE_LIMIT_RPM:
+                _call_times.append(now)
+                return
+            # Wait until the oldest call ages out
+            wait_s = max(0.1, 60.0 - (now - _call_times[0]))
+        time.sleep(wait_s)
 
 # Per-1M-token prices (USD)
 PRICES = {
@@ -134,9 +158,14 @@ def call_llm(model: str, prompt: str, system: Optional[str] = None, max_tokens: 
     if _total_cost() >= COST_CAP_USD:
         raise RuntimeError(f"LLM cost cap of ${COST_CAP_USD} reached")
 
-    # Retry on transient failures (503, 429, network) with exponential backoff
+    # Acquire global RPM-window slot before each fresh API call.
+    _rate_limit_acquire()
+
+    # Retry on transient failures (503, 429, network) with exponential backoff + jitter.
+    # Increased attempts and longer backoff to handle sustained Gemini 429s.
+    import random
     last_err = None
-    for attempt in range(5):
+    for attempt in range(10):
         try:
             if model.startswith("gemini"):
                 raw = _gemini_call(model, prompt, system, max_tokens)
@@ -154,9 +183,13 @@ def call_llm(model: str, prompt: str, system: Optional[str] = None, max_tokens: 
                 "Errno 8", "Errno 60", "Errno 54", # network errors
                 "Connection reset", "Connection aborted", "Temporary failure",
                 "ConnectionError", "TimeoutError",
+                "quota", "Quota",
             )
             if any(s in msg for s in retry_markers):
-                time.sleep(min(2 ** attempt, 30))
+                # Backoff: 2,4,8,16,32,64,90,90,90,90 seconds + jitter
+                base = min(2 ** attempt, 90)
+                sleep_s = base + random.uniform(0, base * 0.3)
+                time.sleep(sleep_s)
                 continue
             raise
     else:

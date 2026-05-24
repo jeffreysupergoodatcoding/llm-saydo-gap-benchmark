@@ -75,31 +75,39 @@ def already_done(method_name: str) -> set[str]:
 
 
 def rewrite_jsonl_dropping_bad(method_name: str):
-    """Remove records with DP-level errors and de-duplicate by customer_id (keep first)."""
+    """De-duplicate by customer_id, preferring clean records over DP-errored ones.
+
+    Strategy: for each customer, keep the FIRST clean (no DP error) record; if no
+    clean record exists, drop them entirely (they need to be re-run).
+    """
     fn = OUT_DIR / f"{method_name}.jsonl"
     if not fn.exists():
         return 0, 0
-    good_by_cid: dict[str, str] = {}
-    bad = 0
-    dupes = 0
+    clean: dict[str, str] = {}
+    dirty_only: set[str] = set()
+    dropped_dupes = 0
+    dropped_bad = 0
     for line in fn.read_text().splitlines():
         try:
             rec = json.loads(line)
-            if _record_has_dp_errors(rec):
-                bad += 1
-                continue
-            cid = rec.get("customer_id")
-            if cid is None:
-                bad += 1
-                continue
-            if cid in good_by_cid:
-                dupes += 1
-                continue
-            good_by_cid[cid] = line
         except Exception:
-            bad += 1
-    fn.write_text("\n".join(good_by_cid.values()) + ("\n" if good_by_cid else ""))
-    return len(good_by_cid), bad + dupes
+            dropped_bad += 1
+            continue
+        cid = rec.get("customer_id")
+        if not cid:
+            dropped_bad += 1
+            continue
+        if _record_has_dp_errors(rec):
+            dirty_only.add(cid)
+            dropped_bad += 1
+            continue
+        if cid in clean:
+            dropped_dupes += 1
+            continue
+        clean[cid] = line
+    # If a cid is in both clean and dirty_only, that's fine — clean wins.
+    fn.write_text("\n".join(clean.values()) + ("\n" if clean else ""))
+    return len(clean), dropped_bad + dropped_dupes
 
 
 def _load_optional(p: Path):
