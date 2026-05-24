@@ -398,10 +398,11 @@ def main():
         L("")
         L("**Two cross-provider findings.** First, Claude's *signed gap is essentially zero* (-0.004) — an order of magnitude "
           "smaller than Gemini's flat-prompt gap (+0.089). Provider calibration of stated intent to base rates differs substantially. "
-          "Second, **the pooled-vs-within-bucket Simpson's-paradox pattern replicates exactly**: Claude pooled ρ = 0.566, "
-          "within-bucket ρ = 0.258. Within-customer reasoning quality (the within-bucket ρ) is essentially **provider-invariant** "
-          "(0.23-0.28 across both Gemini and Claude); the pooled-ρ inflation toward Sheeran's r=0.53 is a bucket-prior artifact "
-          "that all current LLM digital twins exhibit. The base-rate-leakage finding (c) generalizes beyond Gemini.")
+          "Second, **the pooled-vs-within-bucket Simpson's-paradox pattern replicates on H&M**: Claude pooled ρ = 0.566, "
+          "within-bucket ρ = 0.258 (within-bucket method: residualize stated and actual within each activity bucket then compute pooled Spearman; "
+          "an n-weighted-per-bucket-Spearman variant gives 0.229). Within-customer reasoning quality (the within-bucket ρ) is essentially "
+          "**provider-invariant** (0.23-0.28 across both Gemini and Claude on H&M); the pooled-ρ inflation toward Sheeran's r=0.53 is a "
+          "bucket-prior artifact that all current LLM digital twins exhibit on H&M-like data.")
     L("")
     L("### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor")
     L("")

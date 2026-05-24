@@ -1,6 +1,6 @@
 # From Stated Intent to Revealed Purchase: Quantifying the Say-Do Gap of LLM Digital Twins on H&M
 
-**Working paper, v2.** Commit `650081de30e3`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
+**Working paper, v2.** Commit `09cec3894f07`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
 
 **Companion to**: `report.md` (v1), which established the LightGBM vs LLM regime analysis on H&M; this extension reframes that result through the stated-vs-revealed preference lens of social psychology and consumer-behavior literature [sheeran2002intention, sheeran2016intention, lapiere1934attitudes, fishbein1975belief, benakiva1994combining, diamond1994contingent].
 
@@ -168,7 +168,7 @@ With that caveat: a stratified 50-customer subsample of the H&M core was scored 
 | Gemini F-nobase (1000) | 0.379 | 0.228 | +0.151 | 0.532 | 0.228 |
 | **Claude Code subagent flat (50)** | **0.236** | **0.240** | **-0.004** | **0.566** | **0.258** |
 
-**Two cross-provider findings.** First, Claude's *signed gap is essentially zero* (-0.004) — an order of magnitude smaller than Gemini's flat-prompt gap (+0.089). Provider calibration of stated intent to base rates differs substantially. Second, **the pooled-vs-within-bucket Simpson's-paradox pattern replicates exactly**: Claude pooled ρ = 0.566, within-bucket ρ = 0.258. Within-customer reasoning quality (the within-bucket ρ) is essentially **provider-invariant** (0.23-0.28 across both Gemini and Claude); the pooled-ρ inflation toward Sheeran's r=0.53 is a bucket-prior artifact that all current LLM digital twins exhibit. The base-rate-leakage finding (c) generalizes beyond Gemini.
+**Two cross-provider findings.** First, Claude's *signed gap is essentially zero* (-0.004) — an order of magnitude smaller than Gemini's flat-prompt gap (+0.089). Provider calibration of stated intent to base rates differs substantially. Second, **the pooled-vs-within-bucket Simpson's-paradox pattern replicates on H&M**: Claude pooled ρ = 0.566, within-bucket ρ = 0.258 (within-bucket method: residualize stated and actual within each activity bucket then compute pooled Spearman; an n-weighted-per-bucket-Spearman variant gives 0.229). Within-customer reasoning quality (the within-bucket ρ) is essentially **provider-invariant** (0.23-0.28 across both Gemini and Claude on H&M); the pooled-ρ inflation toward Sheeran's r=0.53 is a bucket-prior artifact that all current LLM digital twins exhibit on H&M-like data.
 
 ### 4.5 Counterfactual perturbation (Control 3) + temporal noise floor
 
