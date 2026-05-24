@@ -1,0 +1,114 @@
+{
+  "gemini": {
+    "provider": "gemini-2.5-flash",
+    "n": 20,
+    "suspicious_count": 0,
+    "details": [
+      {
+        "cid": "20650e8ea5e5\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "7d1581dd6a35\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "30f171ea802d\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "60bcdd611ee2\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "c609b6e9280b\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "e60cd19f7b42\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "61d122e9d3e8\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "d6ac1c46c6d4\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "9a0d8079e9c5\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "26bb79f78e03\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "bec4dd69904a\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "175b947aac54\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "0513c5f8b629\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "ba1bc4a3eaf8\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "82823779a69c\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "b4705966eff0\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "97dd589f2df3\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "49b23352fa7a\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "159d55d0c60c\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      },
+      {
+        "cid": "f9b61275b11c\u2026",
+        "response": "UNKNOWN",
+        "suspicious": false
+      }
+    ]
+  },
+  "id_control": {
+    "n": 20,
+    "mean_stated_intent": 0.35699999999999993,
+    "std_stated_intent": 0.30718235626415785
+  }
+}

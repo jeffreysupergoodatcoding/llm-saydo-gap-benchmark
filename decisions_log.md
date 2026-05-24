@@ -33,6 +33,38 @@ Running log of every scoping decision, assumption, and surprise during the study
 - **N_days sweep**: PR-AUC ramps steadily: 7d=0.31, 14d=0.36, 30d=0.45, 60d=0.54, 90d=0.57, 180d=0.61, 365d=0.62. Peaks at 365 days; very slight dip at all-history (~700d).
 - Two clear scaling-law findings. The N_days curve in particular is publication-worthy.
 
+## 2026-05-24 — Mid-run audit fixes (3 BLOCKER bugs caught while F-base was running)
+
+Three parallel audit subagents (cognition pipeline / Phase-11 stats / deliberation prompt) flagged blockers BEFORE the F-base run completed. Fixes applied to disk (F-base process loaded the previous code, but its outputs go through the fixed Phase-11 scripts):
+
+1. **BLOCKER — canonical stated_intent_prob was post-guardrail.** `run.py:55` exported `stated_intent_prob_final` (after `decision.py` clamps lapsed→0.25, single→0.30, etc.). But `preregistration_v2.md` defines canonical = raw `stimulus_30d_buy_likelihood/100`. The guardrails are pure mean-shrinkage toward truth — they would have given F-arms an unearned gap reduction. **Fix**: `phase11_gap.py::load_arm` now loads `stated_intent_raw` from the npz (already saved by phase10_arms.py); the guardrailed value is retained as `scores_guardrailed` for sensitivity.
+
+2. **BLOCKER — H9a permutation null was degenerate.** `phase11_verbatim.py` previously used `mean(cosine to distractor pool)` as the "shuffled baseline." That collapses the permutation null into a deterministic statistic; the prereg-specified test was a within-bucket permutation of (verbatim → actual-article) assignments. **Fix**: replaced with proper within-bucket permutation, n_perm=10000.
+
+3. **BLOCKER — bucket-index lookup bug.** `phase11_verbatim.py` indexed `buckets[ci]` where `ci` was an index into `positive_cids` (a subset of `cids`). For any customer in `positive_cids` past position N in the full cid list, this silently returned the wrong bucket. **Fix**: built `positive_buckets` parallel array.
+
+4. **MAJOR — H7 verdict missed prereg's 0.05 margin.** Wilcoxon-significant alone was being read as "CONFIRMED." Prereg requires `|gap(F-nobase)| ≤ |gap(D2)| − 0.05`. **Fix**: `phase11_gap.py` now computes the paired |gap| margin separately and only declares CONFIRMED if both the Wilcoxon AND the margin clear thresholds. Three-state verdict: CONFIRMED / PARTIAL / REFUTED_or_NS.
+
+5. **MAJOR — stratified bootstrap not used.** The bootstrap on the reweighted gap was IID instead of stratified-within-bucket. **Fix**: stratified resampling within each bucket to the original bucket size.
+
+6. **MAJOR — H9b chance MRR.** Pre-reg said `1/100` but the actual chance MRR for a uniformly placed actual among 101 items is `H_101/101 ≈ 0.0517`. **Fix**: report both numbers; use the harmonic-mean rate as the principled comparator.
+
+7. **MAJOR — counterfactual perturbation not minimal.** `_perturb_trace` was dropping the last purchase AND decrementing `total_orders` AND `distinct_articles`. **Fix**: now only swaps colour + product_type on one recent purchase; preserves aggregate stats. Threshold raised from 0.02 to 0.05 (above Gemini's output resolution).
+
+8. **APPLY-NOW deliberation parser bugs.** `deliberation.py::parse_response` regex `\{[^{}]*\}` failed on nested objects; `_safe_pct` treated integer `1` as "100% on 0..1 scale" rather than "1 percent." **Fix**: brace-balanced extractor; `parse_ok` flag; integer-vs-fractional disambiguation in `_safe_pct`.
+
+9. **DOCUMENTED — `aov >= 0.04` threshold provenance.** Cognition pipeline thresholds were inherited from Fragment WIP defaults. The H&M AOV scale matches by coincidence. To preempt reviewer "tuned-on-test" challenges, this is now documented: thresholds are *Fragment defaults*, not H&M-fitted.
+
+These fixes are mid-run because the parallel audit caught them before F-nobase started. The F-base outputs already saved include raw scores, so no LLM re-running is required.
+
+## 2026-05-24 — Extension v2 launched
+
+- Pre-registration v2 committed to git (commit `40b07a2`, prereg-v2 hash `ba96c6ec`) before any Phase 10 LLM run, per audit requirement.
+- references.bib comprehensively corrected after subagent audit verified each arXiv ID. Fixed: peng2025funhouse (title was wrong; first author Tianyi not Tara), li2025behaviorchain (was zhang2025howfar; first author Rui Li not Zhang), wang2026productdiscovery (first author Zichao not Zheng), chu2025marketing (title corrected), ergul2025instruction (first author was wrong), evalbehaviorsim2025 (title corrected). Added 11 new entries including Andric 2025, Alignment Revisited, Mind the Gap, Lu 2025, Sheeran 2002/2016, Verplanken & Faes, LaPiere 1934, Ben-Akiva, Diamond-Hausman, NOAA panel.
+- Phase 8 smoke test (n=5) confirms the F-base / F-nobase contrast produces dramatic per-customer divergence (e.g., customer `8547f94d…` 0.08 with base-rate anchor vs 0.65 without). This validates the audit's prediction that the base-rate-leakage decomposition will be a dominant signal — making it potentially the headline of the extension paper.
+- Phase 9 memorization probe: Gemini returned `UNKNOWN` for all 20 H&M `customer_id`s (0/20 suspicious). No detectable contamination from Kaggle public notebooks; safe to proceed.
+- **C-flat arm dropped**: Anthropic API returns 400 "credit balance too low" across `claude-haiku-4-5`, `claude-3-5-haiku-latest`, `claude-3-5-sonnet-latest`. Per plan fallback ("if no quota, fall back to Claude Code subagents and explicitly acknowledge the confound") and per audit recommendation (H10 demoted/dropped because n=100 Claude was severely under-powered anyway), we skip the C-flat arm in the headline. Provider comparison is left to future work.
+
 ## 2026-05-23 — Final-audit fixes
 
 - **H4 formal Spearman computed**: pre-reg specified ρ(PR-AUC, -Wasserstein) < 0 as the rank-inversion test; the previous report adjudicated H4 qualitatively. Computed formally over all 7 reps: ρ = +0.393, p = 0.383. Verdict: REFUTED (positive sign instead of negative; small n=7 limits power). Saved to `results/audit_h4_d3_followup.json`.

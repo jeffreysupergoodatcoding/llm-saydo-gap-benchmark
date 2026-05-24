@@ -1,0 +1,95 @@
+{
+  "train_pool_full": 1314052,
+  "test_pool_full": 1336736,
+  "train_label_rate_full": 0.17466888677160416,
+  "test_label_rate_full": 0.16631107413879778,
+  "train_n": 40000,
+  "val_n": 5000,
+  "test_n": 46865,
+  "train_label_rate": 0.237,
+  "val_label_rate": 0.2242,
+  "test_label_rate": 0.21463778939507094,
+  "bucket_breakdown": {
+    "train": [
+      {
+        "activity_bucket": "1",
+        "n": 7993,
+        "label_rate": 0.02827474039784812
+      },
+      {
+        "activity_bucket": "101+",
+        "n": 8058,
+        "label_rate": 0.612807148175726
+      },
+      {
+        "activity_bucket": "2-5",
+        "n": 7979,
+        "label_rate": 0.054894097004637175
+      },
+      {
+        "activity_bucket": "21-100",
+        "n": 7946,
+        "label_rate": 0.35187515731185504
+      },
+      {
+        "activity_bucket": "6-20",
+        "n": 8024,
+        "label_rate": 0.1348454636091725
+      }
+    ],
+    "val": [
+      {
+        "activity_bucket": "1",
+        "n": 1015,
+        "label_rate": 0.017733990147783252
+      },
+      {
+        "activity_bucket": "101+",
+        "n": 929,
+        "label_rate": 0.6189451022604952
+      },
+      {
+        "activity_bucket": "2-5",
+        "n": 1030,
+        "label_rate": 0.036893203883495145
+      },
+      {
+        "activity_bucket": "21-100",
+        "n": 1032,
+        "label_rate": 0.3594961240310077
+      },
+      {
+        "activity_bucket": "6-20",
+        "n": 994,
+        "label_rate": 0.11971830985915492
+      }
+    ],
+    "test": [
+      {
+        "activity_bucket": "1",
+        "n": 9302,
+        "label_rate": 0.027413459471081487
+      },
+      {
+        "activity_bucket": "101+",
+        "n": 8275,
+        "label_rate": 0.598429003021148
+      },
+      {
+        "activity_bucket": "2-5",
+        "n": 9754,
+        "label_rate": 0.04910805823251999
+      },
+      {
+        "activity_bucket": "21-100",
+        "n": 9717,
+        "label_rate": 0.325820726561696
+      },
+      {
+        "activity_bucket": "6-20",
+        "n": 9817,
+        "label_rate": 0.12294998472038302
+      }
+    ]
+  }
+}
