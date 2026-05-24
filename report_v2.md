@@ -1,6 +1,6 @@
 # From Stated Intent to Revealed Purchase: Quantifying the Say-Do Gap of LLM Digital Twins on H&M
 
-**Working paper, v2.** Commit `88a6faeb660e`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
+**Working paper, v2.** Commit `4dd19c189288`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
 
 **Companion to**: `report.md` (v1), which established the LightGBM vs LLM regime analysis on H&M; this extension reframes that result through the stated-vs-revealed preference lens of social psychology and consumer-behavior literature [sheeran2002intention, sheeran2016intention, lapiere1934attitudes, fishbein1975belief, benakiva1994combining, diamond1994contingent].
 
@@ -134,6 +134,24 @@ After stripping ≥3×-repeated and low-TTR verbatims (n_remaining=153), the dif
 | H9b margin | -0.0075 | -0.0096 |
 
 Both embedders agree on the qualitative finding: H9a is statistically detectable with a practically null effect; H9b's MRR is *below* chance. The negative H9 result is **robust to embedder-vendor choice**, ruling out the co-training confound flagged in the pre-registration v2 limitations.
+
+### 4.3.3 Cross-domain replication on MovieLens 25M (n=594)
+
+Addresses the v2 blind-reviewer Blocker on single-dataset scope. The same Park-2023-lineage cognition pipeline (with MovieLens-specific behavioral_trace + base-rate table) was run on 594 stratified MovieLens-25M users (the activity-bucket distribution skews heavy because most MovieLens users have ≥6 lifetime ratings; bucket-1 and 2-5 each contain only n=3 users). Same temporal-cutoff protocol (2018-07-22 / 2018-08-22). 'Label' = any rating in the 30-day label window.
+
+| Arm | n | Mean stated | Mean actual | Signed gap | Pooled ρ | Within-bucket ρ |
+|---|---|---|---|---|---|---|
+| ML F-base | 594 | 0.021 | 0.017 | +0.005 | +0.373 [+0.253, +0.472] | +0.446 [+0.353, +0.525] |
+| ML F-nobase | 594 | 0.041 | 0.017 | +0.024 | +0.243 [+0.158, +0.310] | +0.428 [+0.334, +0.509] |
+
+Paired difference of gaps: gap(F-base) − gap(F-nobase) = -0.0195 95% CI [-0.0291, -0.0110], paired Wilcoxon p = 9.67e-32.
+
+**Cross-domain replication verdicts**:
+- Leakage-pattern present on MovieLens (F-base gap < F-nobase gap, i.e. table reduced inflation): **True**.
+- F-base: pooled ρ = 0.373, within ρ = 0.446, within/pooled ratio = 1.19
+- F-nobase: pooled ρ = 0.243, within ρ = 0.428, within/pooled ratio = 1.77
+
+If the within/pooled ratio is < 1 on both domains, the Simpson's-paradox attribution generalizes beyond retail. If the leakage pattern reverses (F-base gap < F-nobase gap on H&M but the opposite on ML), the leakage effect is base-rate-table-direction-specific (LLM follows the prompt) but not architecture-specific — also publishable as a domain-sensitivity finding.
 
 ### 4.4 Cross-provider arm: Claude Code subagent flat-prompt (n=50, H&M core)
 

@@ -323,6 +323,46 @@ def main():
           "H9b's MRR is *below* chance. The negative H9 result is **robust to embedder-vendor choice**, ruling out the "
           "co-training confound flagged in the pre-registration v2 limitations.")
     L("")
+    L("### 4.3.3 Cross-domain replication on MovieLens 25M (n=594)")
+    L("")
+    if ml_analysis:
+        ml_fb = ml_analysis.get("F-base", {})
+        ml_fnb = ml_analysis.get("F-nobase", {})
+        if ml_fb and ml_fnb:
+            L("Addresses the v2 blind-reviewer Blocker on single-dataset scope. The same Park-2023-lineage cognition "
+              "pipeline (with MovieLens-specific behavioral_trace + base-rate table) was run on 594 stratified "
+              "MovieLens-25M users (the activity-bucket distribution skews heavy because most MovieLens users have ≥6 "
+              "lifetime ratings; bucket-1 and 2-5 each contain only n=3 users). Same temporal-cutoff protocol "
+              "(2018-07-22 / 2018-08-22). 'Label' = any rating in the 30-day label window.")
+            L("")
+            L("| Arm | n | Mean stated | Mean actual | Signed gap | Pooled ρ | Within-bucket ρ |")
+            L("|---|---|---|---|---|---|---|")
+            pb_fb = ml_fb["pooled_spearman"]; wb_fb = ml_fb["within_bucket_spearman"]
+            pb_fnb = ml_fnb["pooled_spearman"]; wb_fnb = ml_fnb["within_bucket_spearman"]
+            L(f"| ML F-base | {ml_fb['n']} | {ml_fb['mean_stated']:.3f} | {ml_fb['mean_actual']:.3f} | {ml_fb['signed_gap']:+.3f} | {pb_fb['rho']:+.3f} [{pb_fb['lo']:+.3f}, {pb_fb['hi']:+.3f}] | {wb_fb['rho']:+.3f} [{wb_fb['lo']:+.3f}, {wb_fb['hi']:+.3f}] |")
+            L(f"| ML F-nobase | {ml_fnb['n']} | {ml_fnb['mean_stated']:.3f} | {ml_fnb['mean_actual']:.3f} | {ml_fnb['signed_gap']:+.3f} | {pb_fnb['rho']:+.3f} [{pb_fnb['lo']:+.3f}, {pb_fnb['hi']:+.3f}] | {wb_fnb['rho']:+.3f} [{wb_fnb['lo']:+.3f}, {wb_fnb['hi']:+.3f}] |")
+            pd_ = ml_analysis.get("paired_diff_F-base_minus_F-nobase", {})
+            if pd_:
+                L("")
+                L(f"Paired difference of gaps: gap(F-base) − gap(F-nobase) = {pd_['diff_of_gaps']:+.4f} "
+                  f"95% CI [{pd_['95CI'][0]:+.4f}, {pd_['95CI'][1]:+.4f}], paired Wilcoxon p = {pd_['wilcoxon_p_paired_abs_err']:.3g}.")
+            rep = ml_analysis.get("replication_verdicts", {})
+            if rep:
+                L("")
+                L(f"**Cross-domain replication verdicts**:")
+                L(f"- Leakage-pattern present on MovieLens (F-base gap < F-nobase gap, i.e. table reduced inflation): **{rep['leakage_pattern_present']}**.")
+                pvw = rep.get("pooled_vs_within_decomposition", {})
+                if pvw:
+                    for arm_n, vals in pvw.items():
+                        ratio = vals.get("ratio_within_over_pooled")
+                        ratio_str = f"{ratio:.2f}" if isinstance(ratio, (int, float)) else "—"
+                        L(f"- {arm_n}: pooled ρ = {vals['pooled_ρ']:.3f}, within ρ = {vals['within_ρ']:.3f}, within/pooled ratio = {ratio_str}")
+            L("")
+            L("If the within/pooled ratio is < 1 on both domains, the Simpson's-paradox attribution generalizes "
+              "beyond retail. If the leakage pattern reverses (F-base gap < F-nobase gap on H&M but the opposite on "
+              "ML), the leakage effect is base-rate-table-direction-specific (LLM follows the prompt) but not "
+              "architecture-specific — also publishable as a domain-sensitivity finding.")
+    L("")
     L("### 4.4 Cross-provider arm: Claude Code subagent flat-prompt (n=50, H&M core)")
     L("")
     if claude_provider:
