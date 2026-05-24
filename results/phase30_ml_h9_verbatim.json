@@ -1,0 +1,18 @@
+{
+  "domain": "MovieLens",
+  "embedder": "BAAI/bge-large-en-v1.5",
+  "n_eligible": 10,
+  "H9a_mean_cos_actual": 0.39934754371643066,
+  "H9a_mean_cos_perm_null": 0.3975021847170591,
+  "H9a_diff": 0.0018453589993715491,
+  "H9a_perm_p_one_sided": 0.3778,
+  "paired_diff_mean_actual_minus_dist": -0.005072206258773804,
+  "paired_diff_95CI": [
+    -0.02640083726186742,
+    0.016256424744319813
+  ],
+  "H9b_MRR": 0.043318884344791725,
+  "H9b_chance_MRR_E_uniform": 0.05145820304691713,
+  "H9b_margin": -0.008139318702125406,
+  "n_perm": 5000
+}
