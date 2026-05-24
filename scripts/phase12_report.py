@@ -331,6 +331,8 @@ def main():
           "H9b's MRR is *below* chance. The negative H9 result is **robust to embedder-vendor choice**, ruling out the "
           "co-training confound flagged in the pre-registration v2 limitations.")
     L("")
+    L("![Figure 3. Pooled (blue) vs within-bucket (orange) Spearman ρ across H&M and MovieLens arms, with within-domain human-self test-retest references (green: H&M r=0.38, purple: ML r=0.20) and the Sheeran 2002 cross-domain reference (red dotted, r=0.53). On H&M the LLM's pooled ρ exceeds Sheeran while within-bucket ρ falls below the within-domain human-self line. On MovieLens the order inverts: within-bucket ρ exceeds pooled ρ and both lie below Sheeran. The bucket-prior diagnostic produces opposite signs across domains.](results/phase27_domain_comparison.png)")
+    L("")
     L("### 4.3.3 Cross-domain replication on MovieLens 25M (n=594)")
     L("")
     if ml_analysis:

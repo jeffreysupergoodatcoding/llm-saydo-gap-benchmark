@@ -1,6 +1,6 @@
 # From Stated Intent to Revealed Purchase: Quantifying the Say-Do Gap of LLM Digital Twins on H&M
 
-**Working paper, v2.** Commit `d8fff906ec21`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
+**Working paper, v2.** Commit `650081de30e3`. Pre-registration v2 hash `ba96c6ec57485740` (committed before any Phase-10 LLM run).
 
 **Companion to**: `report.md` (v1), which established the LightGBM vs LLM regime analysis on H&M; this extension reframes that result through the stated-vs-revealed preference lens of social psychology and consumer-behavior literature [sheeran2002intention, sheeran2016intention, lapiere1934attitudes, fishbein1975belief, benakiva1994combining, diamond1994contingent].
 
@@ -134,6 +134,8 @@ After stripping ≥3×-repeated and low-TTR verbatims (n_remaining=153), the dif
 | H9b margin | -0.0075 | -0.0096 |
 
 Both embedders agree on the qualitative finding: H9a is statistically detectable with a practically null effect; H9b's MRR is *below* chance. The negative H9 result is **robust to embedder-vendor choice**, ruling out the co-training confound flagged in the pre-registration v2 limitations.
+
+![Figure 3. Pooled (blue) vs within-bucket (orange) Spearman ρ across H&M and MovieLens arms, with within-domain human-self test-retest references (green: H&M r=0.38, purple: ML r=0.20) and the Sheeran 2002 cross-domain reference (red dotted, r=0.53). On H&M the LLM's pooled ρ exceeds Sheeran while within-bucket ρ falls below the within-domain human-self line. On MovieLens the order inverts: within-bucket ρ exceeds pooled ρ and both lie below Sheeran. The bucket-prior diagnostic produces opposite signs across domains.](results/phase27_domain_comparison.png)
 
 ### 4.3.3 Cross-domain replication on MovieLens 25M (n=594)
 
