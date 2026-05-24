@@ -12,6 +12,13 @@ import time
 from pathlib import Path
 from typing import Optional
 
+# Patch broken macOS DNS resolver (fallback to `host` command)
+try:
+    from . import dns_patch
+    dns_patch.install()
+except Exception:
+    pass
+
 # Load .env if present (so OPENAI_API_KEY / GOOGLE_API_KEY are picked up automatically)
 _ROOT = Path(__file__).resolve().parents[1]
 _envf = _ROOT / ".env"
@@ -141,8 +148,15 @@ def call_llm(model: str, prompt: str, system: Optional[str] = None, max_tokens: 
         except Exception as e:
             last_err = e
             msg = str(e)
-            if any(s in msg for s in ("503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED", "rate limit", "timeout")):
-                time.sleep(2 ** attempt)
+            retry_markers = (
+                "503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED", "rate limit", "timeout",
+                "nodename", "servname",            # DNS failure (Errno 8)
+                "Errno 8", "Errno 60", "Errno 54", # network errors
+                "Connection reset", "Connection aborted", "Temporary failure",
+                "ConnectionError", "TimeoutError",
+            )
+            if any(s in msg for s in retry_markers):
+                time.sleep(min(2 ** attempt, 30))
                 continue
             raise
     else:

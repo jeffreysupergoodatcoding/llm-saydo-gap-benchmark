@@ -1,15 +1,19 @@
-"""Phase 34: full sandbox run — core-1000 × 8 methods, with incremental persistence.
+"""Phase 34: full sandbox run — core-1000 × 8 methods, parallelized.
+
+Uses ThreadPoolExecutor to run multiple (customer, method) sessions concurrently
+since the bottleneck is network latency to Gemini, not CPU.
 
 Saves per-method per-customer outcomes to JSONL. Resumable: skips customers
 already in the per-method JSONL.
 
-Run with: PYTHONPATH=. uv run python scripts/phase34_run_full.py [--method M1] [--max N]
+Run: PYTHONPATH=. uv run python scripts/phase34_run_full.py [--method M1] [--max N] [--workers 16]
 """
 from __future__ import annotations
 import argparse
 import json
-import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date
 from pathlib import Path
 
@@ -18,37 +22,76 @@ import polars as pl
 from src import T_TEST_CUTOFF
 from src.behavioral_trace import behavioral_trace
 from src.sandbox.runner import run_session
-from src.sandbox.methods import (
-    METHOD_REGISTRY, M3_KNN, M8_RAG,
-)
+from src.sandbox.methods import METHOD_REGISTRY, M3_KNN, M8_RAG
 
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "results" / "phase34_sandbox"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
+_write_locks: dict[str, threading.Lock] = {}
+
+
+def _get_lock(method: str) -> threading.Lock:
+    if method not in _write_locks:
+        _write_locks[method] = threading.Lock()
+    return _write_locks[method]
+
 
 def load_neighbours():
-    p = ROOT / "results" / "phase33_neighbours.json"
-    return json.loads(p.read_text())
+    return json.loads((ROOT / "results" / "phase33_neighbours.json").read_text())
 
 
 def load_history_pool():
-    p = ROOT / "results" / "phase33_history_pool.json"
-    return json.loads(p.read_text())
+    return json.loads((ROOT / "results" / "phase33_history_pool.json").read_text())
+
+
+def _record_has_dp_errors(rec: dict) -> bool:
+    """Return True if any DP in weekly_actions has an error field (indicates LLM call failed at DP level)."""
+    if "error" in rec:
+        return True
+    for wa in rec.get("weekly_actions", []):
+        for k in ("dp1", "dp2", "dp3"):
+            v = wa.get(k)
+            if isinstance(v, dict) and "error" in v:
+                return True
+    return False
 
 
 def already_done(method_name: str) -> set[str]:
+    """Customers we should SKIP — only those with clean records (no DP-level errors)."""
     fn = OUT_DIR / f"{method_name}.jsonl"
     if not fn.exists():
         return set()
     done = set()
     for line in fn.read_text().splitlines():
         try:
-            done.add(json.loads(line)["customer_id"])
+            rec = json.loads(line)
+            if not _record_has_dp_errors(rec):
+                done.add(rec["customer_id"])
         except Exception:
             pass
     return done
+
+
+def rewrite_jsonl_dropping_bad(method_name: str):
+    """Remove records with DP-level errors so re-runs don't duplicate them."""
+    fn = OUT_DIR / f"{method_name}.jsonl"
+    if not fn.exists():
+        return 0, 0
+    good = []
+    bad = 0
+    for line in fn.read_text().splitlines():
+        try:
+            rec = json.loads(line)
+            if _record_has_dp_errors(rec):
+                bad += 1
+                continue
+            good.append(line)
+        except Exception:
+            bad += 1
+    fn.write_text("\n".join(good) + ("\n" if good else ""))
+    return len(good), bad
 
 
 def make_method(method_name: str, neighbours, history_pool):
@@ -60,17 +103,50 @@ def make_method(method_name: str, neighbours, history_pool):
     return cls()
 
 
+def run_one(cid, trace, method_name, method_obj, label, bucket, want_scalar: bool):
+    try:
+        outcome = run_session(cid, trace, method_obj)
+        rec = {
+            "customer_id": cid,
+            "method": method_name,
+            "actual": label,
+            "bucket": bucket,
+            "purchased": int(outcome.purchased),
+            "n_purchases": len(outcome.weekly_purchases),
+            "purchased_items": outcome.weekly_purchases,
+            "weekly_actions": outcome.weekly_actions,
+            "declared_max_purchases": outcome.final_state.declared_max_purchases,
+            "n_dp_calls": outcome.n_dp_calls,
+        }
+        if want_scalar:
+            try:
+                sc = method_obj.scalar_prob({**trace, "_cid": cid})
+                rec["scalar_prob"] = sc.get("scalar_prob", 0.5)
+            except Exception as e:
+                rec["scalar_prob_error"] = str(e)
+        return rec
+    except Exception as e:
+        return {"customer_id": cid, "method": method_name, "error": str(e),
+                "actual": label, "bucket": bucket}
+
+
+def write_record(method: str, rec: dict):
+    fn = OUT_DIR / f"{method}.jsonl"
+    with _get_lock(method):
+        with fn.open("a") as f:
+            f.write(json.dumps(rec, default=str) + "\n")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--method", action="append", default=None,
-                    help="Restrict to method names. Default: all 8.")
-    ap.add_argument("--max", type=int, default=None,
-                    help="Max customers per method.")
-    ap.add_argument("--scalar", action="store_true",
-                    help="Also compute per-method scalar_prob alongside sandbox.")
+    ap.add_argument("--method", action="append", default=None)
+    ap.add_argument("--max", type=int, default=None)
+    ap.add_argument("--workers", type=int, default=16)
+    ap.add_argument("--scalar", action="store_true")
     args = ap.parse_args()
 
     methods = args.method or list(METHOD_REGISTRY.keys())
+
     core = pl.read_parquet(ROOT / "results" / "phase31_core1000_v3.parquet")
     cids = core["customer_id"].to_list()
     labels = dict(zip(cids, core["label"].to_list()))
@@ -78,62 +154,54 @@ def main():
     if args.max:
         cids = cids[: args.max]
 
-    print(f"Loading neighbours/history pool...")
+    print(f"Loading neighbours/history pool...", flush=True)
     neighbours = load_neighbours()
     history_pool = load_history_pool()
 
-    print(f"Building traces for {len(cids)} customers (may take a minute)...")
+    print(f"Building traces for {len(cids)} customers...", flush=True)
     t0 = time.time()
     traces = behavioral_trace(cids, cutoff=date.fromisoformat(T_TEST_CUTOFF))
-    print(f"Traces ready: {len(traces)}  ({time.time()-t0:.1f}s)")
+    print(f"Traces ready: {len(traces)}  ({time.time()-t0:.1f}s)", flush=True)
 
     for mname in methods:
+        # Drop existing records with DP-level errors so we can re-run them cleanly.
+        good_n, bad_n = rewrite_jsonl_dropping_bad(mname)
+        if bad_n:
+            print(f"\n[{mname}] dropped {bad_n} previously errored records "
+                  f"(kept {good_n} clean records)", flush=True)
         done = already_done(mname)
         todo = [c for c in cids if c not in done and c in traces]
-        print(f"\n=== Method {mname}: {len(done)} already done, {len(todo)} to run ===")
+        print(f"\n=== Method {mname}: {len(done)} already done, {len(todo)} to run "
+              f"with {args.workers} workers ===", flush=True)
         m = make_method(mname, neighbours, history_pool)
-        fn = OUT_DIR / f"{mname}.jsonl"
         t_start = time.time()
-        ok = 0
-        err = 0
-        for i, cid in enumerate(todo):
-            trace = traces[cid]
-            try:
-                outcome = run_session(cid, trace, m)
-                rec = {
-                    "customer_id": cid,
-                    "method": mname,
-                    "actual": labels[cid],
-                    "bucket": buckets[cid],
-                    "purchased": int(outcome.purchased),
-                    "n_purchases": len(outcome.weekly_purchases),
-                    "purchased_items": outcome.weekly_purchases,
-                    "weekly_actions": outcome.weekly_actions,
-                    "declared_max_purchases": outcome.final_state.declared_max_purchases,
-                    "n_dp_calls": outcome.n_dp_calls,
-                }
-                # Compute scalar if requested
-                if args.scalar:
-                    try:
-                        sc = m.scalar_prob({**trace, "_cid": cid})
-                        rec["scalar_prob"] = sc.get("scalar_prob", 0.5)
-                    except Exception as e:
-                        rec["scalar_prob_error"] = str(e)
-                with fn.open("a") as f:
-                    f.write(json.dumps(rec, default=str) + "\n")
-                ok += 1
-            except Exception as e:
-                err += 1
-                err_rec = {"customer_id": cid, "method": mname, "error": str(e),
+        ok = err = 0
+        with ThreadPoolExecutor(max_workers=args.workers) as ex:
+            futures = {
+                ex.submit(run_one, cid, traces[cid], mname, m,
+                          labels[cid], buckets[cid], args.scalar): cid
+                for cid in todo
+            }
+            done_count = 0
+            for fut in as_completed(futures):
+                cid = futures[fut]
+                try:
+                    rec = fut.result()
+                except Exception as e:
+                    rec = {"customer_id": cid, "method": mname, "error": f"future-exc: {e}",
                            "actual": labels[cid], "bucket": buckets[cid]}
-                with fn.open("a") as f:
-                    f.write(json.dumps(err_rec) + "\n")
-                print(f"  ERR {cid[:10]}... {e}")
-            if (i + 1) % 50 == 0 or (i + 1) == len(todo):
-                elapsed = time.time() - t_start
-                rate = (i + 1) / max(elapsed, 1e-6)
-                eta = (len(todo) - i - 1) / max(rate, 1e-6)
-                print(f"  [{mname}] {i+1}/{len(todo)} ok={ok} err={err}  rate={rate:.2f}/s  ETA={eta:.0f}s")
+                write_record(mname, rec)
+                if "error" in rec:
+                    err += 1
+                else:
+                    ok += 1
+                done_count += 1
+                if done_count % 25 == 0 or done_count == len(todo):
+                    elapsed = time.time() - t_start
+                    rate = done_count / max(elapsed, 1e-6)
+                    eta = (len(todo) - done_count) / max(rate, 1e-6)
+                    print(f"  [{mname}] {done_count}/{len(todo)} ok={ok} err={err} "
+                          f"rate={rate:.2f}/s ETA={eta:.0f}s", flush=True)
 
 
 if __name__ == "__main__":
