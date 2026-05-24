@@ -143,8 +143,22 @@ def main():
     if f_base is None or f_nobase is None:
         raise SystemExit("[11] Need both F-base and F-nobase scores. Run Phase 10 first.")
 
-    d2_core = load_d2_for_core(f_nobase["cids"])
-    print(f"[11] D2-on-core overlap: {d2_core['overlap_n']}/{len(f_nobase['cids'])}")
+    # Prefer the D2-core arm (n=1000 paired) over the chance-overlap with D2 5000.
+    d2_core_path = RESULTS / "phase10_D2-core_scores.npz"
+    if d2_core_path.exists():
+        d2_data = np.load(d2_core_path, allow_pickle=True)
+        d2_core = {
+            "name": "D2-core",
+            "cids": list(d2_data["customer_id"]),
+            "scores": d2_data["stated_intent"].astype(float),
+            "actual": d2_data["actual"].astype(int),
+            "buckets": d2_data["activity_bucket"].astype(str),
+            "overlap_n": len(d2_data["customer_id"]),
+        }
+        print(f"[11] using D2-core (full paired n={d2_core['overlap_n']})")
+    else:
+        d2_core = load_d2_for_core(f_nobase["cids"])
+        print(f"[11] (fallback) D2-on-core overlap from 5000-sample: {d2_core['overlap_n']}/{len(f_nobase['cids'])}")
 
     out: dict = {"arms": {}}
 
