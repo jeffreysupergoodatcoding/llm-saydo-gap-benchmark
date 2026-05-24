@@ -95,15 +95,17 @@ def main():
     L(
         "On two pre-registered public benchmarks (H&M Personalized Fashion, n=1,000 paired; MovieLens 25M, n=594), "
         "the in-prompt base-rate table inside a Park-2023-lineage LLM-digital-twin prompt accounts for more of the "
-        "apparent say-do-gap reduction than the cognition architecture itself, with the effect **replicating across "
-        "both domains** (H&M: |Δ_F|=0.077 > |Δ_arch|=0.062; MovieLens: gap(F-base) = 0.005, gap(F-nobase) = 0.024, "
-        "paired diff = −0.020, 95% CI [−0.029, −0.011]). "
-        "A pooled-vs-within-stratum Spearman decomposition reveals the LLM's aggregate-level intent-behavior "
-        "correlation is a **diagnostic of bucket-prior dependence**: on H&M (where activity-bucket strongly predicts "
-        "outcome) pooled ρ ≈ 0.53 matches Sheeran's human meta-analytic r [sheeran2002intention] but within-bucket "
+        "apparent say-do-gap reduction than the cognition architecture itself — **and this leakage-vs-architecture "
+        "effect replicates directionally across both domains** (H&M: |Δ_F|=0.077 > |Δ_arch|=0.062, gap(F-base) < "
+        "gap(F-nobase); MovieLens: gap(F-base)=0.005 < gap(F-nobase)=0.024, paired diff −0.020, 95% CI [−0.029, "
+        "−0.011]). "
+        "A pooled-vs-within-stratum Spearman decomposition behaves as a **bucket-prior-dependence diagnostic** but "
+        "*does not replicate as a single pattern across domains*: on H&M (where activity-bucket strongly predicts "
+        "outcome) pooled ρ ≈ 0.53 matches Sheeran's human meta-analytic r [sheeran2002intention] while within-bucket "
         "ρ collapses to 0.23-0.28 (close to Toubia et al.'s twin-human r ≈ 0.2 [toubia2025twin2k500]); on MovieLens "
-        "(where bucket is less informative) within-bucket ρ ≈ 0.43 *exceeds* pooled ρ ≈ 0.31 — the same diagnostic "
-        "produces opposite signs, with both readings clarifying which signal the LLM relies on. "
+        "(where bucket is uninformative) within-bucket ρ ≈ 0.43 *exceeds* pooled ρ ≈ 0.31. The diagnostic is "
+        "domain-heterogeneous — its sign reveals whether the LLM's apparent intent-behavior agreement is bucket-prior "
+        "or within-customer reasoning, and that revelation itself is the contribution, not a uniform 'replication'. "
         "The within-bucket ρ is **provider-invariant** across Gemini 2.5 Flash and a Claude Sonnet-class Code subagent "
         "arm (Gemini: 0.23; Claude: 0.26 on the same 50 customers), while Claude's signed gap is an order of magnitude "
         "smaller than Gemini's (-0.004 vs +0.151) — provider calibration of stated intent differs but per-customer "
@@ -369,13 +371,21 @@ def main():
               "ML), the leakage effect is base-rate-table-direction-specific (LLM follows the prompt) but not "
               "architecture-specific — also publishable as a domain-sensitivity finding.")
     L("")
-    L("### 4.4 Cross-provider arm: Claude Code subagent flat-prompt (n=50, H&M core)")
+    L("### 4.4 Cross-provider arm: Claude Code subagent flat-prompt (n=50, H&M core) — *pre-registration deviation, see note below*")
     L("")
     if claude_provider:
-        L("Addresses the v2 blind-reviewer Blocker #3 ('single-provider, n=1 result for the leakage claim'). "
-          "A stratified 50-customer subsample of the H&M core was scored by a Claude (Sonnet-class) digital-twin "
-          "subagent under a flat narrative prompt structurally identical to Gemini D2's. The arm uses Claude Code's "
-          "Agent primitive (no Anthropic-API quota required) and is the *only* non-Gemini arm in the study.")
+        L("**Pre-registration deviation (must be flagged).** `preregistration_v2.md` §Arms specified a C-flat arm "
+          "at n=400 using the *direct* Anthropic API (`claude-haiku-4-5`), explicitly noted as 'NOT Claude Code subagent.' "
+          "Anthropic-API quota was unavailable in the autonomous-run environment. We substitute a Claude Code Agent "
+          "(Sonnet-class) subagent at n=50 — both the provider mechanism (subagent vs direct API) and the sample size "
+          "differ from prereg. This is a methodologically meaningful swap (subagent semantics include multi-step "
+          "planning, no temperature control, no deterministic seeding guarantees), so we report this arm as "
+          "**exploratory cross-provider evidence**, not the pre-registered confirmatory provider comparison. The "
+          "pre-registered provider comparison remains open for future work with paid quota.")
+        L("")
+        L("With that caveat: a stratified 50-customer subsample of the H&M core was scored by a Claude Sonnet-class "
+          "subagent under a flat narrative prompt structurally identical to Gemini D2's. The arm is the *only* "
+          "non-Gemini scoring in the study.")
         L("")
         L("| Arm (n) | Mean stated | Mean actual | Signed gap | Pooled ρ | Within-bucket ρ |")
         L("|---|---|---|---|---|---|")

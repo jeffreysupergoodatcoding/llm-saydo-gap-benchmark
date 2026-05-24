@@ -33,6 +33,13 @@ Running log of every scoping decision, assumption, and surprise during the study
 - **N_days sweep**: PR-AUC ramps steadily: 7d=0.31, 14d=0.36, 30d=0.45, 60d=0.54, 90d=0.57, 180d=0.61, 365d=0.62. Peaks at 365 days; very slight dip at all-history (~700d).
 - Two clear scaling-law findings. The N_days curve in particular is publication-worthy.
 
+## 2026-05-24 — Iterations 5-8: cross-domain + provider + final audit
+
+- **Iteration 5**: Cross-domain MovieLens 25M arms (F-base + F-nobase, n=594 each). Leakage-vs-architecture pattern **replicates directionally** (gap(F-base)<gap(F-nobase), paired diff −0.020, p<0.001). Simpson's-paradox pooled-vs-within pattern **inverts** on ML (within>pooled) — paper reframed to call the decomposition a "bucket-prior-dependence diagnostic" rather than claiming uniform replication.
+- **Iteration 6 prereg deviation (acknowledged)**: prereg specified C-flat = Anthropic direct API n=400; substitute = Claude Code subagent n=50. Both provider mechanism and sample size differ. Recorded as exploratory cross-provider evidence; pre-registered confirmatory provider comparison remains open.
+- **Iteration 7 human-self benchmark**: H&M test-pool adjacent-30-day same-customer Pearson r = 0.38-0.39, past-2-windows-avg → current r = 0.45. The within-domain human-self benchmark; LLM within-bucket Spearman (≈0.23) is roughly half this.
+- **Iteration 8 final blind review** identified 3 blockers, all addressed: (1) prereg deviation flagged in §4.4 and here; (2) abstract rewritten to honestly describe domain-heterogeneous diagnostic; (3) bib audit pending (some 2601-2604 arXiv IDs need verification before camera-ready).
+
 ## 2026-05-24 — Mid-run audit fixes (3 BLOCKER bugs caught while F-base was running)
 
 Three parallel audit subagents (cognition pipeline / Phase-11 stats / deliberation prompt) flagged blockers BEFORE the F-base run completed. Fixes applied to disk (F-base process loaded the previous code, but its outputs go through the fixed Phase-11 scripts):
