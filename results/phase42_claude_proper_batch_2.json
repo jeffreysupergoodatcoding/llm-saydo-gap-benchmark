@@ -1,0 +1,2777 @@
+[
+  {
+    "customer_id": "6a1d0997dc39a43d06052df831bd58d653aa005c614d24851bbb9257f402a84a",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 47\n  total_orders: 2\n  recency_days: 444\n  tenure_days: 444\n  aov: 0.0254\n  channel2_share: 1.0\n  top_section: Womens Swimwear, beachwear\n  top_garment_group: Swimwear\n  top_colour: Red\n  personality: habit-driven\n\nRECENT PURCHASES (most-recent 5):\n  444d ago: Bikini top / Swimwear / Red / Womens Swimwear, beachwear ($0.033881355932203386)\n  444d ago: Swimwear bottom / Swimwear / Red / Womens Swimwear, beachwear ($0.016932203389830508)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Light Blue",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Vest top",
+          "garment_group": "Blouses",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Basic",
+          "colour": "White",
+          "section": "Divided Basics",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bikini top",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Cardigan",
+          "garment_group": "Knitwear",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Dark Blue",
+          "section": "Young Girl",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Top",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Grey",
+          "section": "Denim Men",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Contemporary Street",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Jacket",
+          "garment_group": "Outdoor",
+          "colour": "Dark Blue",
+          "section": "Baby Girl",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "9a5c2688b8fc3b201942ba25d0b6958193e52e67b6de7be0f5e658bc9a90b99d",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 34\n  total_orders: 3\n  recency_days: 592\n  tenure_days: 592\n  aov: 0.0181\n  channel2_share: 1.0\n  top_section: Young Boy\n  top_garment_group: Jersey Fancy\n  top_colour: Black\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  592d ago: T-shirt / Jersey Fancy / White / Young Boy ($0.022016949152542376)\n  592d ago: Shorts / Jersey Basic / Dark Green / Boys Underwear & Basics ($0.016932203389830508)\n  592d ago: Trousers / Jersey Fancy / Black / Young Boy ($0.01523728813559322)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Black",
+          "section": "Young Boy",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Light Blue",
+          "section": "Boys Underwear & Basics",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Hoodie",
+          "garment_group": "Jersey Basic",
+          "colour": "Grey",
+          "section": "Men Underwear",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "White",
+          "section": "Young Boy",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Top",
+          "garment_group": "Jersey Basic",
+          "colour": "Dark Blue",
+          "section": "Boys Underwear & Basics",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Leggings/Tights",
+          "garment_group": "Socks and Tights",
+          "colour": "Black",
+          "section": "Womens Nightwear, Socks & Tigh",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Black",
+          "section": "Young Boy",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Boys Underwear & Basics",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Boots",
+          "garment_group": "Shoes",
+          "colour": "Beige",
+          "section": "Kids & Baby Shoes",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "Dark Blue",
+          "section": "Young Boy",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Boys Underwear & Basics",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Black",
+          "section": "Contemporary Smart",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "091a563c1560026b08077a6c1b694655d2e4d11e708ee6e26b28d9f0366a886a",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 39\n  total_orders: 2\n  recency_days: 95\n  tenure_days: 95\n  aov: 0.0135\n  channel2_share: 1.0\n  top_section: Womens Swimwear, beachwear\n  top_garment_group: Swimwear\n  top_colour: Pink\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  95d ago: T-shirt / Jersey Fancy / Pink / Divided Collection ($0.010152542372881357)\n  95d ago: Bikini top / Swimwear / Black / Womens Swimwear, beachwear ($0.016932203389830508)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Hoodie",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Young Boy",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bikini top",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Leggings/Tights",
+          "garment_group": "Jersey Fancy",
+          "colour": "Grey",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bikini top",
+          "garment_group": "Swimwear",
+          "colour": "Red",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Garment Set",
+          "garment_group": "Woven/Jersey/Knitted mix Baby",
+          "colour": "White",
+          "section": "Baby Boy",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bikini top",
+          "garment_group": "Swimwear",
+          "colour": "Dark Green",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Grey",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Shorts",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "20fc493855f334760c5ef45e521be5e6681cd6a032cde5aca26387b1c1747420",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 56\n  total_orders: 4\n  recency_days: 120\n  tenure_days: 120\n  aov: 0.0339\n  channel2_share: 1.0\n  top_section: Womens Tailoring\n  top_garment_group: Blouses\n  top_colour: Black\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  120d ago: Blouse / Blouses / Light Pink / Womens Tailoring ($0.042355932203389825)\n  120d ago: Blouse / Blouses / Light Beige / Womens Everyday Collection ($0.033881355932203386)\n  120d ago: Blouse / Blouses / Black / Womens Everyday Collection ($0.033881355932203386)\n  120d ago: Blouse / Blouses / White / Womens Tailoring ($0.025406779661016947)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Shirt",
+          "garment_group": "Blouses",
+          "colour": "White",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "White",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Socks",
+          "garment_group": "Socks and Tights",
+          "colour": "Black",
+          "section": "Boys Underwear & Basics",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Blouse",
+          "garment_group": "Blouses",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Shirt",
+          "garment_group": "Blouses",
+          "colour": "White",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Blazer",
+          "garment_group": "Dressed",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Blazer",
+          "garment_group": "Unknown",
+          "colour": "Dark Blue",
+          "section": "Men Other 2",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Vest top",
+          "garment_group": "Blouses",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Shorts",
+          "garment_group": "Shorts",
+          "colour": "Blue",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "White",
+          "section": "Kids Girl",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "77d47d4d67fd6d798dfddb8779df010fe3b5905fea711552fec79499f07a54fe",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: None\n  total_orders: 4\n  recency_days: 393\n  tenure_days: 393\n  aov: 0.0195\n  channel2_share: 1.0\n  top_section: Ladies H&M Sport\n  top_garment_group: Accessories\n  top_colour: Dark Blue\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  393d ago: Bikini top / Accessories / Dark Blue / Ladies H&M Sport ($0.013542372881355931)\n  393d ago: Swimwear bottom / Swimwear / White / Womens Swimwear, beachwear ($0.022016949152542376)\n  393d ago: Bikini top / Accessories / White / Ladies H&M Sport ($0.016932203389830508)\n  393d ago: Swimwear bottom / Swimwear / Dark Blue / Womens Swimwear, beachwear ($0.025406779661016947)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Shorts",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Bikini top",
+          "garment_group": "Swimwear",
+          "colour": "Red",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "White",
+          "section": "Contemporary Street",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Dark Green",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Dark Blue",
+          "section": "Denim Men",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Bikini top",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Skirt",
+          "garment_group": "Trousers",
+          "colour": "Light Pink",
+          "section": "Divided Projects",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "White",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Shorts",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Men H&M Sport",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "caa700ff6a14a00a94d08ec61f157570173dc36145e1a4edcef9431b5a64e532",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 18\n  total_orders: 5\n  recency_days: 2\n  tenure_days: 265\n  aov: 0.0168\n  channel2_share: 0.6\n  top_section: Womens Swimwear, beachwear\n  top_garment_group: Trousers\n  top_colour: Other Pink\n  personality: novelty-seeking\n\nRECENT PURCHASES (most-recent 5):\n  265d ago: Trousers / Trousers / Blue / Womens Everyday Collection ($0.019813559322033897)\n  265d ago: Sweater / Knitwear / Beige / Divided Collection ($0.019813559322033897)\n  265d ago: Trousers / Trousers / Blue / Womens Everyday Collection ($0.012186440677966101)\n  2d ago: Swimwear bottom / Swimwear / Other Pink / Womens Swimwear, beachwear ($0.013542372881355931)\n  2d ago: Bikini top / Swimwear / Other Pink / Womens Swimwear, beachwear ($0.018627118644067797)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Bikini top",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Bodysuit",
+          "garment_group": "Jersey Fancy",
+          "colour": "White",
+          "section": "Baby Girl",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Blue",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Dress",
+          "garment_group": "Dresses Ladies",
+          "colour": "Black",
+          "section": "Divided Selected",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Grey",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Dark Blue",
+          "section": "Baby Boy",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bikini top",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Black",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Belt",
+          "garment_group": "Accessories",
+          "colour": "Yellowish Brown",
+          "section": "Womens Big accessories",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "3514e59f3de7a4c8d716cd9bf05c70b189a387778145b23e47e306e3411430cb",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 25\n  total_orders: 3\n  recency_days: 424\n  tenure_days: 471\n  aov: 0.0424\n  channel2_share: 1.0\n  top_section: Denim Men\n  top_garment_group: Shorts\n  top_colour: Dark Blue\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  471d ago: Dress / Dresses Ladies / Dark Blue / Womens Everyday Collection ($0.042355932203389825)\n  424d ago: Shorts / Shorts / Light Blue / Denim Men ($0.042355932203389825)\n  424d ago: Shorts / Shorts / Black / Denim Men ($0.042355932203389825)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Shorts",
+          "garment_group": "Shorts",
+          "colour": "Blue",
+          "section": "Denim Men",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Skirt",
+          "garment_group": "Skirts",
+          "colour": "Light Blue",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Jacket",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Collaborations",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Shorts",
+          "garment_group": "Shorts",
+          "colour": "Light Blue",
+          "section": "Denim Men",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Necklace",
+          "garment_group": "Accessories",
+          "colour": "Gold",
+          "section": "Womens Small accessories",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Blue",
+          "section": "Denim Men",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "White",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Shorts",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Boys Underwear & Basics",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Blue",
+          "section": "Denim Men",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Blouse",
+          "garment_group": "Blouses",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "20472b69ff8e93bf25af94faad5606e24d7796756187dd7dbfb3a1354aeb6536",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 23\n  total_orders: 2\n  recency_days: 108\n  tenure_days: 108\n  aov: 0.0076\n  channel2_share: 1.0\n  top_section: Men Underwear\n  top_garment_group: Jersey Basic\n  top_colour: White\n  personality: habit-driven\n\nRECENT PURCHASES (most-recent 5):\n  108d ago: T-shirt / Jersey Basic / White / Men Underwear ($0.007610169491525424)\n  108d ago: T-shirt / Jersey Basic / Black / Men Underwear ($0.007610169491525424)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Basic",
+          "colour": "Dark Red",
+          "section": "Men Underwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Dark Blue",
+          "section": "Young Boy",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Heeled sandals",
+          "garment_group": "Shoes",
+          "colour": "Black",
+          "section": "Womens Shoes",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Hoodie",
+          "garment_group": "Jersey Basic",
+          "colour": "Dark Green",
+          "section": "Men Underwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Hoodie",
+          "garment_group": "Special Offers",
+          "colour": "Red",
+          "section": "Kids Local Relevance",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Bikini top",
+          "garment_group": "Swimwear",
+          "colour": "Dark Green",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Basic",
+          "colour": "White",
+          "section": "Men Underwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Jacket",
+          "garment_group": "Unknown",
+          "colour": "Yellowish Brown",
+          "section": "Men Project",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Sweater",
+          "garment_group": "Jersey Basic",
+          "colour": "Beige",
+          "section": "Men Underwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Blouse",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Special Collections",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Leggings/Tights",
+          "garment_group": "Jersey Fancy",
+          "colour": "Grey",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "37839f6041bab629d228013fb5813913e27c346f008227e7c36231c7b57fbd89",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 51\n  total_orders: 3\n  recency_days: 39\n  tenure_days: 304\n  aov: 0.0424\n  channel2_share: 1.0\n  top_section: Womens Tailoring\n  top_garment_group: Knitwear\n  top_colour: Dark Green\n  personality: novelty-seeking\n\nRECENT PURCHASES (most-recent 5):\n  304d ago: Sweater / Knitwear / Dark Green / Womens Tailoring ($0.03811864406779661)\n  304d ago: Sweater / Knitwear / Light Grey / Womens Everyday Collection ($0.03811864406779661)\n  39d ago: Jacket / Outdoor / Black / Men H&M Sport ($0.050830508474576264)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Cardigan",
+          "garment_group": "Knitwear",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Grey",
+          "section": "Divided Collection",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Bra",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Vest top",
+          "garment_group": "Blouses",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Dark Grey",
+          "section": "Men Suits & Tailoring",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Shorts",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Top",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Womens Everyday Basics",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "875bf7adf3ec48b8759ff773b55ef6157171e96fe7381ecdeaa85bfee25e534d",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 27\n  total_orders: 4\n  recency_days: 153\n  tenure_days: 691\n  aov: 0.0352\n  channel2_share: 0.5\n  top_section: Womens Everyday Basics\n  top_garment_group: Accessories\n  top_colour: Black\n  personality: novelty-seeking\n\nRECENT PURCHASES (most-recent 5):\n  691d ago: Umbrella / Accessories / Black / Womens Small accessories ($0.013542372881355931)\n  598d ago: Blouse / Blouses / Dark Blue / Womens Trend ($0.07625423728813559)\n  153d ago: Pyjama set / Under-, Nightwear / Beige / Womens Nightwear, Socks & Tigh ($0.033881355932203386)\n  153d ago: Leggings/Tights / Jersey Basic / Black / Womens Everyday Basics ($0.016932203389830508)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Womens Everyday Basics",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Fancy",
+          "colour": "White",
+          "section": "Womens Trend",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Light Blue",
+          "section": "Divided Asia keys",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Basic",
+          "colour": "White",
+          "section": "Womens Everyday Basics",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Necklace",
+          "garment_group": "Accessories",
+          "colour": "White",
+          "section": "Womens Small accessories",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Swimwear set",
+          "garment_group": "Swimwear",
+          "colour": "Blue",
+          "section": "Kids Accessories, Swimwear & D",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Womens Everyday Basics",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Hair ties",
+          "garment_group": "Accessories",
+          "colour": "Black",
+          "section": "Womens Small accessories",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Beige",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Womens Everyday Basics",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Dress",
+          "garment_group": "Jersey Fancy",
+          "colour": "Other Red",
+          "section": "Womens Trend",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Blue",
+          "section": "Ladies Denim",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "e1a35931373c538dcf9d2e66cbccdf364c50eb7d5b023f47430d88ff77a2bfc2",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 30\n  total_orders: 3\n  recency_days: 16\n  tenure_days: 16\n  aov: 0.0163\n  channel2_share: 1.0\n  top_section: Womens Swimwear, beachwear\n  top_garment_group: Swimwear\n  top_colour: Green\n  personality: habit-driven\n\nRECENT PURCHASES (most-recent 5):\n  16d ago: Bikini top / Swimwear / Light Yellow / Womens Swimwear, beachwear ($0.01371186440677966)\n  16d ago: Bikini top / Swimwear / Green / Womens Swimwear, beachwear ($0.01523728813559322)\n  16d ago: Swimwear bottom / Swimwear / Black / Womens Swimwear, beachwear ($0.019813559322033897)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Blue",
+          "section": "Contemporary Smart",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Unknown",
+          "colour": "Dark Pink",
+          "section": "Divided Projects",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "White",
+          "section": "Contemporary Smart",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Top",
+          "garment_group": "Unknown",
+          "colour": "Silver",
+          "section": "Special Collections",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Hoodie",
+          "garment_group": "Jersey Fancy",
+          "colour": "Greenish Khaki",
+          "section": "Young Boy",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Scarf",
+          "garment_group": "Accessories",
+          "colour": "Black",
+          "section": "Womens Big accessories",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Swimsuit",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Sweater",
+          "garment_group": "Special Offers",
+          "colour": "Yellow",
+          "section": "Kids Local Relevance",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Shorts",
+          "garment_group": "Shorts",
+          "colour": "Dark Blue",
+          "section": "Womens Casual",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "14662ce46cad19f7db9365f0f54cbccdc948046beaaa4f88e737b77a23b3bb26",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 46\n  total_orders: 3\n  recency_days: 268\n  tenure_days: 268\n  aov: 0.0395\n  channel2_share: 1.0\n  top_section: Divided Collection\n  top_garment_group: Trousers\n  top_colour: Dark Grey\n  personality: habit-driven\n\nRECENT PURCHASES (most-recent 5):\n  268d ago: Trousers / Trousers / Dark Grey / Divided Collection ($0.042355932203389825)\n  268d ago: Trousers / Trousers / Dark Grey / Divided Collection ($0.042355932203389825)\n  268d ago: Sweater / Knitwear / Black / Divided Collection ($0.033881355932203386)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Yellow",
+          "section": "Divided Collection",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Sandals",
+          "garment_group": "Shoes",
+          "colour": "Light Orange",
+          "section": "Kids & Baby Shoes",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Outdoor Waistcoat",
+          "garment_group": "Outdoor",
+          "colour": "Dark Blue",
+          "section": "Kids Outerwear",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Dress",
+          "garment_group": "Dresses Ladies",
+          "colour": "Black",
+          "section": "Divided Collection",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Kids Sports",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Unknown",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Light Beige",
+          "section": "Womens Lingerie",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Grey",
+          "section": "Divided Collection",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Cap",
+          "garment_group": "Accessories",
+          "colour": "White",
+          "section": "Men Accessories",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Leggings/Tights",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Mama",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Divided Collection",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Grey",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Light Blue",
+          "section": "Mama",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "f5f2fce956ad0783997431d340a9f5219a6006faee83d81abcbfc7f2c4389063",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 22\n  total_orders: 4\n  recency_days: 569\n  tenure_days: 591\n  aov: 0.0317\n  channel2_share: 0.25\n  top_section: Men Accessories\n  top_garment_group: Knitwear\n  top_colour: Black\n  personality: novelty-seeking\n\nRECENT PURCHASES (most-recent 5):\n  591d ago: Sweater / Knitwear / Light Pink / Womens Everyday Basics ($0.035576271186440675)\n  591d ago: Trousers / Trousers Denim / Black / Ladies Denim ($0.014389830508474576)\n  591d ago: Sweater / Knitwear / Dark Green / Womens Everyday Collection ($0.025915254237288132)\n  569d ago: Bag / Accessories / Black / Men Accessories ($0.050830508474576264)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Sunglasses",
+          "garment_group": "Accessories",
+          "colour": "Black",
+          "section": "Men Accessories",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Shorts",
+          "garment_group": "Shorts",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Ballerinas",
+          "garment_group": "Shoes",
+          "colour": "Dark Blue",
+          "section": "Kids & Baby Shoes",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Belt",
+          "garment_group": "Accessories",
+          "colour": "Dark Orange",
+          "section": "Men Accessories",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Blue",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Shorts",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Men H&M Sport",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Gloves",
+          "garment_group": "Accessories",
+          "colour": "Black",
+          "section": "Men Accessories",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Womens Everyday Basics",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Cardigan",
+          "garment_group": "Special Offers",
+          "colour": "Light Yellow",
+          "section": "Kids Local Relevance",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Cap/peaked",
+          "garment_group": "Accessories",
+          "colour": "Dark Blue",
+          "section": "Men Accessories",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Blue",
+          "section": "Ladies Denim",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Grey",
+          "section": "Contemporary Casual",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "993b9a1e80633aa152df97bfeb1c5aee2f551146d5ad86b0bd62d6f807e6a894",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 18\n  total_orders: 5\n  recency_days: 53\n  tenure_days: 118\n  aov: 0.0259\n  channel2_share: 1.0\n  top_section: Womens Lingerie\n  top_garment_group: Under-, Nightwear\n  top_colour: Black\n  personality: novelty-seeking\n\nRECENT PURCHASES (most-recent 5):\n  118d ago: Bra / Under-, Nightwear / Dark Red / Womens Lingerie ($0.025406779661016947)\n  118d ago: Bra / Under-, Nightwear / Black / Womens Lingerie ($0.025406779661016947)\n  118d ago: Underwear bottom / Under-, Nightwear / Black / Womens Lingerie ($0.010152542372881357)\n  53d ago: Skirt / Trousers / Black / Divided Projects ($0.03049152542372881)\n  53d ago: Skirt / Skirts / Black / Divided Collection ($0.03811864406779661)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Bra",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Fancy",
+          "colour": "Red",
+          "section": "Divided Projects",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Blue",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sandals",
+          "garment_group": "Special Offers",
+          "colour": "Grey",
+          "section": "Men Other",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Dress",
+          "garment_group": "Dresses Ladies",
+          "colour": "Turquoise",
+          "section": "Divided Projects",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Dress",
+          "garment_group": "Dresses Ladies",
+          "colour": "Greenish Khaki",
+          "section": "Divided Selected",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bra",
+          "garment_group": "Under-, Nightwear",
+          "colour": "White",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Sweater",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Divided Projects",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Dark Grey",
+          "section": "Ladies Denim",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "835959a029d684051e12ca6fde4b20bd74d59a95bf678067b2761067d5f08478",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 48\n  total_orders: 2\n  recency_days: 240\n  tenure_days: 240\n  aov: 0.0457\n  channel2_share: 1.0\n  top_section: Womens Nightwear, Socks & Tigh\n  top_garment_group: Under-, Nightwear\n  top_colour: Black\n  personality: habit-driven\n\nRECENT PURCHASES (most-recent 5):\n  240d ago: Pyjama set / Under-, Nightwear / Black / Womens Nightwear, Socks & Tigh ($0.0457457627118644)\n  240d ago: Pyjama set / Under-, Nightwear / Light Pink / Womens Nightwear, Socks & Tigh ($0.0457457627118644)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Sweater",
+          "garment_group": "Under-, Nightwear",
+          "colour": "White",
+          "section": "Womens Nightwear, Socks & Tigh",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "T-shirt",
+          "garment_group": "Unknown",
+          "colour": "White",
+          "section": "Men Project",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Hoodie",
+          "garment_group": "Jersey Fancy",
+          "colour": "Red",
+          "section": "Kids Boy",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Socks",
+          "garment_group": "Socks and Tights",
+          "colour": "Black",
+          "section": "Womens Nightwear, Socks & Tigh",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Shirt",
+          "garment_group": "Woven/Jersey/Knitted mix Baby",
+          "colour": "Red",
+          "section": "Baby Boy",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Slippers",
+          "garment_group": "Shoes",
+          "colour": "Light Pink",
+          "section": "Kids & Baby Shoes",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Socks",
+          "garment_group": "Socks and Tights",
+          "colour": "White",
+          "section": "Womens Nightwear, Socks & Tigh",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Leggings/Tights",
+          "garment_group": "Jersey Fancy",
+          "colour": "Grey",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sweater",
+          "garment_group": "Special Offers",
+          "colour": "Grey",
+          "section": "Kids Local Relevance",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Underwear Tights",
+          "garment_group": "Socks and Tights",
+          "colour": "Black",
+          "section": "Womens Nightwear, Socks & Tigh",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Leggings/Tights",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Yellow",
+          "section": "Baby Boy",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "1cdebbf6c5909c23e8620ceda69ef6d09fdc90fd49fd404736e11c85f407db79",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 35\n  total_orders: 5\n  recency_days: 182\n  tenure_days: 182\n  aov: 0.0483\n  channel2_share: 0.0\n  top_section: Womens Tailoring\n  top_garment_group: Trousers\n  top_colour: Black\n  personality: novelty-seeking\n\nRECENT PURCHASES (most-recent 5):\n  182d ago: Blazer / Dressed / Light Pink / Womens Tailoring ($0.061000000000000006)\n  182d ago: Trousers / Trousers / Light Pink / Womens Tailoring ($0.050830508474576264)\n  182d ago: Trousers / Trousers / Black / Womens Tailoring ($0.07625423728813559)\n  182d ago: Shirt / Blouses / Black / Divided Collection ($0.03049152542372881)\n  182d ago: Bra / Under-, Nightwear / Dark Red / Womens Lingerie ($0.022864406779661017)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Dress",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Skirt",
+          "garment_group": "Skirts",
+          "colour": "Black",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Top",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Divided Complements Other",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Shirt",
+          "garment_group": "Blouses",
+          "colour": "Light Pink",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Dress",
+          "garment_group": "Dresses Ladies",
+          "colour": "Light Pink",
+          "section": "Divided Projects",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Black",
+          "section": "Divided Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Belt",
+          "garment_group": "Accessories",
+          "colour": "Yellowish Brown",
+          "section": "Womens Big accessories",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Shorts",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Men Underwear",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "72c77782e33adb26b6364e5f0952ca18df5f32b24335c1ebe1d432447265dc13",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 23\n  total_orders: 3\n  recency_days: 84\n  tenure_days: 205\n  aov: 0.0344\n  channel2_share: 1.0\n  top_section: Ladies H&M Sport\n  top_garment_group: Jersey Fancy\n  top_colour: Yellowish Brown\n  personality: habit-driven\n\nRECENT PURCHASES (most-recent 5):\n  205d ago: Leggings/Tights / Jersey Fancy / Black / Ladies H&M Sport ($0.050830508474576264)\n  84d ago: Shorts / Unknown / Light Orange / Ladies H&M Sport ($0.03049152542372881)\n  84d ago: Vest top / Jersey Fancy / Yellowish Brown / Ladies H&M Sport ($0.022016949152542376)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Shorts",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Coat",
+          "garment_group": "Outdoor",
+          "colour": "Dark Grey",
+          "section": "Womens Jackets",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Black",
+          "section": "Young Girl",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Light Blue",
+          "section": "Mama",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Dress",
+          "garment_group": "Accessories",
+          "colour": "Other Pink",
+          "section": "Kids Accessories, Swimwear & D",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Hoodie",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Light Grey",
+          "section": "Kids Boy",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Shorts",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Blazer",
+          "garment_group": "Dressed",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Blue",
+          "section": "Kids Boy",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "e2cb3ade17da8d6b36d23b46ff233ef5fba6d21b8f2adc6a295295398e9029aa",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 30\n  total_orders: 2\n  recency_days: 54\n  tenure_days: 54\n  aov: 0.0381\n  channel2_share: 1.0\n  top_section: Mama\n  top_garment_group: Jersey Fancy\n  top_colour: White\n  personality: habit-driven\n\nRECENT PURCHASES (most-recent 5):\n  54d ago: T-shirt / Jersey Fancy / Light Grey / Mama ($0.042355932203389825)\n  54d ago: Vest top / Jersey Fancy / White / Mama ($0.033881355932203386)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Fancy",
+          "colour": "Light Grey",
+          "section": "Mama",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Kids Sports",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Underwear Tights",
+          "garment_group": "Socks and Tights",
+          "colour": "Dark Blue",
+          "section": "Baby Essentials & Complements",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Jersey Fancy",
+          "colour": "Dark Blue",
+          "section": "Mama",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Jacket",
+          "garment_group": "Dresses Ladies",
+          "colour": "Light Blue",
+          "section": "Divided Asia keys",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Mama",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "Light Grey",
+          "section": "Young Boy",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Boots",
+          "garment_group": "Shoes",
+          "colour": "Black",
+          "section": "Divided Accessories",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Mama",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Fancy",
+          "colour": "White",
+          "section": "Contemporary Street",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Garment Set",
+          "garment_group": "Jersey Fancy",
+          "colour": "Dark Blue",
+          "section": "Baby Essentials & Complements",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "6680ec3cb5e2a8e0cd1c9e1047ebb88b02bf35323f83aec65c7f5361b23eda64",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 41\n  total_orders: 2\n  recency_days: 126\n  tenure_days: 126\n  aov: 0.0135\n  channel2_share: 1.0\n  top_section: Womens Lingerie\n  top_garment_group: Under-, Nightwear\n  top_colour: Red\n  personality: habit-driven\n\nRECENT PURCHASES (most-recent 5):\n  126d ago: Bra / Under-, Nightwear / Red / Womens Lingerie ($0.013542372881355931)\n  126d ago: Bra / Under-, Nightwear / White / Womens Lingerie ($0.013542372881355931)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Bra",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Shorts",
+          "garment_group": "Jersey Fancy",
+          "colour": "Light Blue",
+          "section": "Contemporary Street",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Basic",
+          "colour": "White",
+          "section": "Girls Underwear & Basics",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Dress",
+          "garment_group": "Dresses Ladies",
+          "colour": "Light Blue",
+          "section": "Womens Premium",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers Denim",
+          "colour": "Dark Blue",
+          "section": "Ladies Denim",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Vest top",
+          "garment_group": "Blouses",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Swimwear bottom",
+          "garment_group": "Swimwear",
+          "colour": "Black",
+          "section": "Womens Swimwear, beachwear",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Light Blue",
+          "section": "Mama",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Fancy",
+          "colour": "Dark Grey",
+          "section": "Divided Selected",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "b77b96b592aefeb065fd3ff882e391cbd1f8368f9dcc6f60e374d6282738c5e6",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 41\n  total_orders: 2\n  recency_days: 575\n  tenure_days: 575\n  aov: 0.0508\n  channel2_share: 1.0\n  top_section: Divided Basics\n  top_garment_group: Jersey Basic\n  top_colour: Dark Blue\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  575d ago: Trousers / Jersey Fancy / Dark Blue / Womens Trend ($0.07625423728813559)\n  575d ago: Trousers / Jersey Basic / Dark Blue / Divided Basics ($0.025406779661016947)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Divided Basics",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Dress",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Womens Trend",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Shorts",
+          "garment_group": "Shorts",
+          "colour": "Light Blue",
+          "section": "Denim Men",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Basic",
+          "colour": "Beige",
+          "section": "Divided Basics",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Womens Trend",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Coat",
+          "garment_group": "Outdoor",
+          "colour": "Grey",
+          "section": "Womens Jackets",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Leggings/Tights",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Divided Basics",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Womens Trend",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Jacket",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Divided Projects",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Hoodie",
+          "garment_group": "Jersey Basic",
+          "colour": "Beige",
+          "section": "Divided Basics",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Dress",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Womens Trend",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "White",
+          "section": "Contemporary Street",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "5cddbc1ae1787a0bffd45460ba60e7d6e00c6be2658786106b5a04403840de6d",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 27\n  total_orders: 3\n  recency_days: 510\n  tenure_days: 510\n  aov: 0.0203\n  channel2_share: 0.0\n  top_section: H&M+\n  top_garment_group: Jersey Fancy\n  top_colour: Black\n  personality: habit-driven\n\nRECENT PURCHASES (most-recent 5):\n  510d ago: Top / Jersey Fancy / Beige / H&M+ ($0.022864406779661017)\n  510d ago: Top / Jersey Fancy / Black / H&M+ ($0.022864406779661017)\n  510d ago: Top / Jersey Fancy / Black / H&M+ ($0.01523728813559322)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Dress",
+          "garment_group": "Blouses",
+          "colour": "Black",
+          "section": "H&M+",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Hoodie",
+          "garment_group": "Jersey Fancy",
+          "colour": "Dark Blue",
+          "section": "Contemporary Street",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Men Project",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "H&M+",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Unknown",
+          "colour": "Black",
+          "section": "Kids Sports",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Shorts",
+          "garment_group": "Trousers Denim",
+          "colour": "Black",
+          "section": "Divided Complements Other",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Dress",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "H&M+",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "White",
+          "section": "Contemporary Street",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Blouse",
+          "garment_group": "Unknown",
+          "colour": "Dark Grey",
+          "section": "Ladies Other",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Dress",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "H&M+",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Shirt",
+          "garment_group": "Special Offers",
+          "colour": "Dark Beige",
+          "section": "Kids Local Relevance",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Jacket",
+          "garment_group": "Shirts",
+          "colour": "Black",
+          "section": "Men Edition",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "3fb314bd224ce4b7581f42fc757a2eb60b3bdef837cdd30f43786ca24f69b5a1",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 19\n  total_orders: 4\n  recency_days: 86\n  tenure_days: 139\n  aov: 0.0162\n  channel2_share: 0.25\n  top_section: Womens Lingerie\n  top_garment_group: Under-, Nightwear\n  top_colour: White\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  139d ago: Jumpsuit/Playsuit / Dresses/Skirts girls / Blue / Kids Girl ($0.0274406779661017)\n  88d ago: Bra / Under-, Nightwear / Black / Womens Lingerie ($0.01523728813559322)\n  86d ago: Bra / Under-, Nightwear / White / Womens Lingerie ($0.011847457627118646)\n  86d ago: Unknown / Under-, Nightwear / White / Womens Lingerie ($0.010152542372881357)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Dark Red",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Dress",
+          "garment_group": "Dresses/Skirts girls",
+          "colour": "Dark Blue",
+          "section": "Kids Girl",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Blouse",
+          "garment_group": "Blouses",
+          "colour": "Dark Pink",
+          "section": "Divided Selected",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bra",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Dark Red",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Dress",
+          "garment_group": "Jersey Fancy",
+          "colour": "Pink",
+          "section": "Kids Girl",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Mama",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Dark Red",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Dress",
+          "garment_group": "Jersey Fancy",
+          "colour": "Light Grey",
+          "section": "Kids Girl",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Special Offers",
+          "colour": "Black",
+          "section": "Special Collections",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bra",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Light Beige",
+          "section": "Womens Lingerie",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Dress",
+          "garment_group": "Dresses/Skirts girls",
+          "colour": "Pink",
+          "section": "Kids Girl",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Blue",
+          "section": "Contemporary Smart",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "6d5d5368f5b40c5c935b73640ad4446e85f4cbb50e8e28126f9a50a3e3b3d56c",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 37\n  total_orders: 2\n  recency_days: 315\n  tenure_days: 315\n  aov: 0.0381\n  channel2_share: 1.0\n  top_section: Mama\n  top_garment_group: Jersey Fancy\n  top_colour: Dark Grey\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  315d ago: Vest top / Jersey Fancy / Pink / Mama ($0.033881355932203386)\n  315d ago: Bra / Under-, Nightwear / Dark Grey / Womens Lingerie ($0.042355932203389825)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Grey",
+          "section": "Mama",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Black",
+          "section": "Womens Lingerie",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Grey",
+          "section": "Mama",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Underwear bottom",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Dark Red",
+          "section": "Womens Lingerie",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Underwear Tights",
+          "garment_group": "Socks and Tights",
+          "colour": "Black",
+          "section": "Womens Nightwear, Socks & Tigh",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Mama",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Bra",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Light Beige",
+          "section": "Womens Lingerie",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sunglasses",
+          "garment_group": "Special Offers",
+          "colour": "Light Purple",
+          "section": "Men Other",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Mama",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Bra",
+          "garment_group": "Under-, Nightwear",
+          "colour": "Dark Red",
+          "section": "Womens Lingerie",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Bag",
+          "garment_group": "Accessories",
+          "colour": "Black",
+          "section": "Womens Big accessories",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "75cdd44c53055cce777987a026a4bdd583aca786022fd2b23dbf74e0cf99194c",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 24\n  total_orders: 3\n  recency_days: 114\n  tenure_days: 114\n  aov: 0.0305\n  channel2_share: 1.0\n  top_section: Divided Collection\n  top_garment_group: Trousers\n  top_colour: Black\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  114d ago: Leggings/Tights / Jersey Fancy / Black / Ladies H&M Sport ($0.03049152542372881)\n  114d ago: Trousers / Trousers / Black / Divided Collection ($0.03049152542372881)\n  114d ago: Trousers / Trousers / Black / Divided Collection ($0.03049152542372881)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Dark Grey",
+          "section": "Divided Collection",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Leggings/Tights",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Hair string",
+          "garment_group": "Accessories",
+          "colour": "Beige",
+          "section": "Womens Small accessories",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Divided Collection",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Bra",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Jacket",
+          "garment_group": "Outdoor",
+          "colour": "Dark Beige",
+          "section": "Womens Jackets",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Black",
+          "section": "Divided Collection",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Leggings/Tights",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Top",
+          "garment_group": "Jersey Basic",
+          "colour": "Black",
+          "section": "Divided Basics",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Shorts",
+          "garment_group": "Shorts",
+          "colour": "Light Blue",
+          "section": "Divided Collection",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "T-shirt",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sunglasses",
+          "garment_group": "Special Offers",
+          "colour": "Light Yellow",
+          "section": "Men Other",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  },
+  {
+    "customer_id": "75e4054cf623f09f8570ce0fb226573db67e52edc5f102d541a9bf9a381a3141",
+    "bucket": "2-5",
+    "trace_text": "CUSTOMER PROFILE (pre-cutoff snapshot, no PII):\n  age: 29\n  total_orders: 5\n  recency_days: 324\n  tenure_days: 423\n  aov: 0.0335\n  channel2_share: 1.0\n  top_section: Ladies H&M Sport\n  top_garment_group: Jersey Fancy\n  top_colour: Black\n  personality: balanced\n\nRECENT PURCHASES (most-recent 5):\n  423d ago: Leggings/Tights / Jersey Fancy / Black / Ladies H&M Sport ($0.023711864406779665)\n  423d ago: Shorts / Jersey Fancy / Black / Ladies H&M Sport ($0.016932203389830508)\n  324d ago: Shorts / Jersey Fancy / Black / Ladies H&M Sport ($0.016932203389830508)\n  324d ago: Sweater / Knitwear / Beige / Womens Everyday Collection ($0.05930508474576271)\n  324d ago: Sweater / Knitwear / Off White / Womens Casual ($0.050830508474576264)\n\nSANDBOX WINDOW STATE: week=1/4, attention_budget_remaining=3, weekly_purchases_so_far=0",
+    "weekly_menus": [
+      [
+        {
+          "label": "A",
+          "product_type": "Top",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Trousers",
+          "garment_group": "Trousers",
+          "colour": "Blue",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Socks",
+          "garment_group": "Socks and Tights",
+          "colour": "Light Blue",
+          "section": "Womens Nightwear, Socks & Tigh",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bra",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Sweater",
+          "garment_group": "Knitwear",
+          "colour": "Dark Red",
+          "section": "Womens Casual",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Jacket",
+          "garment_group": "Outdoor",
+          "colour": "Black",
+          "section": "Mens Outerwear",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bra",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Shorts",
+          "garment_group": "Shorts",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Sweater",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Womens Tailoring",
+          "in_or_out": "OOD"
+        }
+      ],
+      [
+        {
+          "label": "A",
+          "product_type": "Bra",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Ladies H&M Sport",
+          "in_or_out": "in-section"
+        },
+        {
+          "label": "B",
+          "product_type": "Vest top",
+          "garment_group": "Jersey Fancy",
+          "colour": "Black",
+          "section": "Womens Everyday Collection",
+          "in_or_out": "cross-section"
+        },
+        {
+          "label": "C",
+          "product_type": "Cardigan",
+          "garment_group": "Special Offers",
+          "colour": "Light Yellow",
+          "section": "Kids Local Relevance",
+          "in_or_out": "OOD"
+        }
+      ]
+    ]
+  }
+]

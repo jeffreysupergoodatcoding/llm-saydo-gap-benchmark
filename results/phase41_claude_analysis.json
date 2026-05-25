@@ -1,0 +1,688 @@
+{
+  "methods": {
+    "M1": {
+      "n": 1000,
+      "funnel_realized_purchase_rate": 0.354,
+      "actual_rate": 0.21,
+      "sandbox_signed_gap": 0.144,
+      "sandbox_signed_gap_reweighted": 0.1477940894057398,
+      "sandbox_gap_bootstrap": {
+        "point": 0.144,
+        "se": 0.018259148918699782,
+        "lo": 0.11247136455777226,
+        "hi": 0.18352536274405198,
+        "B": 1000
+      },
+      "within_bucket_rho": {
+        "per_bucket_rho": {
+          "1": -0.0758692863633992,
+          "2-5": -0.0907355393984124,
+          "6-20": -0.017255419304732705,
+          "21-100": -0.009462751592884035,
+          "101+": -0.06512569260696481
+        },
+        "weighted_rho": -0.05168973785327863,
+        "n_per_bucket": {
+          "1": 200,
+          "2-5": 200,
+          "6-20": 200,
+          "21-100": 200,
+          "101+": 200
+        }
+      },
+      "commitment_shrinkage": {
+        "scalar_gap": 0.09384840000000003,
+        "sandbox_gap": 0.144,
+        "commitment_shrinkage": -0.05015159999999996,
+        "null_se": 6.938893903907228e-18,
+        "null_lo": -0.05015159999999996,
+        "null_hi": -0.05015159999999996,
+        "permutation_p": 1.0,
+        "B": 1000
+      },
+      "per_bucket": {
+        "1": {
+          "n": 200,
+          "funnel_purchase_rate": 0.22,
+          "actual_rate": 0.02,
+          "gap": 0.2
+        },
+        "2-5": {
+          "n": 200,
+          "funnel_purchase_rate": 0.185,
+          "actual_rate": 0.035,
+          "gap": 0.15
+        },
+        "6-20": {
+          "n": 200,
+          "funnel_purchase_rate": 0.365,
+          "actual_rate": 0.145,
+          "gap": 0.22
+        },
+        "21-100": {
+          "n": 200,
+          "funnel_purchase_rate": 0.46,
+          "actual_rate": 0.32,
+          "gap": 0.14
+        },
+        "101+": {
+          "n": 200,
+          "funnel_purchase_rate": 0.54,
+          "actual_rate": 0.53,
+          "gap": 0.010000000000000009
+        }
+      },
+      "H10_pass": false
+    },
+    "M3": {
+      "n": 1000,
+      "funnel_realized_purchase_rate": 0.402,
+      "actual_rate": 0.21,
+      "sandbox_signed_gap": 0.19200000000000003,
+      "sandbox_signed_gap_reweighted": 0.1890124826629681,
+      "sandbox_gap_bootstrap": {
+        "point": 0.19200000000000003,
+        "se": 0.016349902451610426,
+        "lo": 0.1547353008641844,
+        "hi": 0.2217466446175184,
+        "B": 1000
+      },
+      "within_bucket_rho": {
+        "per_bucket_rho": {
+          "1": -0.04067819981796424,
+          "2-5": -0.07361772889557407,
+          "6-20": 0.057390546260049545,
+          "21-100": -0.04982770140662673,
+          "101+": 0.10941897829364362
+        },
+        "weighted_rho": 0.000537178886705627,
+        "n_per_bucket": {
+          "1": 200,
+          "2-5": 200,
+          "6-20": 200,
+          "21-100": 200,
+          "101+": 200
+        }
+      },
+      "commitment_shrinkage": {
+        "scalar_gap": 0.0553023,
+        "sandbox_gap": 0.19200000000000003,
+        "commitment_shrinkage": -0.13669770000000003,
+        "null_se": 2.7755575615628914e-17,
+        "null_lo": -0.13669770000000003,
+        "null_hi": -0.13669770000000003,
+        "permutation_p": 1.0,
+        "B": 1000
+      },
+      "per_bucket": {
+        "1": {
+          "n": 200,
+          "funnel_purchase_rate": 0.075,
+          "actual_rate": 0.02,
+          "gap": 0.05499999999999999
+        },
+        "2-5": {
+          "n": 200,
+          "funnel_purchase_rate": 0.13,
+          "actual_rate": 0.035,
+          "gap": 0.095
+        },
+        "6-20": {
+          "n": 200,
+          "funnel_purchase_rate": 0.25,
+          "actual_rate": 0.145,
+          "gap": 0.10500000000000001
+        },
+        "21-100": {
+          "n": 200,
+          "funnel_purchase_rate": 0.705,
+          "actual_rate": 0.32,
+          "gap": 0.38499999999999995
+        },
+        "101+": {
+          "n": 200,
+          "funnel_purchase_rate": 0.85,
+          "actual_rate": 0.53,
+          "gap": 0.31999999999999995
+        }
+      },
+      "H10_pass": false
+    },
+    "M8": {
+      "n": 1000,
+      "funnel_realized_purchase_rate": 0.313,
+      "actual_rate": 0.21,
+      "sandbox_signed_gap": 0.10300000000000001,
+      "sandbox_signed_gap_reweighted": 0.09788328176677696,
+      "sandbox_gap_bootstrap": {
+        "point": 0.10300000000000001,
+        "se": 0.015269545435925503,
+        "lo": 0.06808535420889793,
+        "hi": 0.12655641470180312,
+        "B": 1000
+      },
+      "within_bucket_rho": {
+        "per_bucket_rho": {
+          "1": -0.027206478089547157,
+          "2-5": 0.07339224832890381,
+          "6-20": 0.07939468542877703,
+          "21-100": 0.07981071622412711,
+          "101+": 0.11893766206028425
+        },
+        "weighted_rho": 0.06486576679050901,
+        "n_per_bucket": {
+          "1": 200,
+          "2-5": 200,
+          "6-20": 200,
+          "21-100": 200,
+          "101+": 200
+        }
+      },
+      "commitment_shrinkage": {
+        "scalar_gap": 0.052384599999999976,
+        "sandbox_gap": 0.10300000000000001,
+        "commitment_shrinkage": -0.05061540000000003,
+        "null_se": 2.0816681711721685e-17,
+        "null_lo": -0.05061540000000003,
+        "null_hi": -0.05061540000000003,
+        "permutation_p": 1.0,
+        "B": 1000
+      },
+      "per_bucket": {
+        "1": {
+          "n": 200,
+          "funnel_purchase_rate": 0.035,
+          "actual_rate": 0.02,
+          "gap": 0.015000000000000003
+        },
+        "2-5": {
+          "n": 200,
+          "funnel_purchase_rate": 0.055,
+          "actual_rate": 0.035,
+          "gap": 0.019999999999999997
+        },
+        "6-20": {
+          "n": 200,
+          "funnel_purchase_rate": 0.14,
+          "actual_rate": 0.145,
+          "gap": -0.004999999999999977
+        },
+        "21-100": {
+          "n": 200,
+          "funnel_purchase_rate": 0.52,
+          "actual_rate": 0.32,
+          "gap": 0.2
+        },
+        "101+": {
+          "n": 200,
+          "funnel_purchase_rate": 0.815,
+          "actual_rate": 0.53,
+          "gap": 0.2849999999999999
+        }
+      },
+      "H10_pass": false
+    },
+    "M9": {
+      "n": 1000,
+      "funnel_realized_purchase_rate": 0.454,
+      "actual_rate": 0.21,
+      "sandbox_signed_gap": 0.24400000000000002,
+      "sandbox_signed_gap_reweighted": 0.24009335324869302,
+      "sandbox_gap_bootstrap": {
+        "point": 0.24400000000000002,
+        "se": 0.014817594035305968,
+        "lo": 0.211239275045343,
+        "hi": 0.26990281126640336,
+        "B": 1000
+      },
+      "within_bucket_rho": {
+        "per_bucket_rho": {
+          "1": -0.03277367626722311,
+          "2-5": -0.059892290727946725,
+          "6-20": 0.2337124790444175,
+          "21-100": -0.05077700314997218,
+          "101+": 0.18218664910671356
+        },
+        "weighted_rho": 0.05449123160119781,
+        "n_per_bucket": {
+          "1": 200,
+          "2-5": 200,
+          "6-20": 200,
+          "21-100": 200,
+          "101+": 200
+        }
+      },
+      "commitment_shrinkage": {
+        "scalar_gap": 0.06458650000000002,
+        "sandbox_gap": 0.24400000000000002,
+        "commitment_shrinkage": -0.1794135,
+        "null_se": 5.551115123125783e-17,
+        "null_lo": -0.1794135,
+        "null_hi": -0.1794135,
+        "permutation_p": 1.0,
+        "B": 1000
+      },
+      "per_bucket": {
+        "1": {
+          "n": 200,
+          "funnel_purchase_rate": 0.05,
+          "actual_rate": 0.02,
+          "gap": 0.030000000000000002
+        },
+        "2-5": {
+          "n": 200,
+          "funnel_purchase_rate": 0.09,
+          "actual_rate": 0.035,
+          "gap": 0.05499999999999999
+        },
+        "6-20": {
+          "n": 200,
+          "funnel_purchase_rate": 0.35,
+          "actual_rate": 0.145,
+          "gap": 0.205
+        },
+        "21-100": {
+          "n": 200,
+          "funnel_purchase_rate": 0.825,
+          "actual_rate": 0.32,
+          "gap": 0.5049999999999999
+        },
+        "101+": {
+          "n": 200,
+          "funnel_purchase_rate": 0.955,
+          "actual_rate": 0.53,
+          "gap": 0.42499999999999993
+        }
+      },
+      "H10_pass": false
+    },
+    "S1": {
+      "n": 1000,
+      "funnel_realized_purchase_rate": 0.416,
+      "actual_rate": 0.21,
+      "sandbox_signed_gap": 0.206,
+      "sandbox_signed_gap_reweighted": 0.20248842419716206,
+      "sandbox_gap_bootstrap": {
+        "point": 0.206,
+        "se": 0.016273336551295356,
+        "lo": 0.1712406860130161,
+        "hi": 0.2354842686439773,
+        "B": 1000
+      },
+      "within_bucket_rho": {
+        "per_bucket_rho": {
+          "1": -0.03766628887890314,
+          "2-5": 0.20858299868652821,
+          "6-20": 0.061715408928619986,
+          "21-100": -0.04179052005994905,
+          "101+": 0.14920305354081587
+        },
+        "weighted_rho": 0.06800893044342238,
+        "n_per_bucket": {
+          "1": 200,
+          "2-5": 200,
+          "6-20": 200,
+          "21-100": 200,
+          "101+": 200
+        }
+      },
+      "commitment_shrinkage": {
+        "scalar_gap": 0.06458650000000002,
+        "sandbox_gap": 0.206,
+        "commitment_shrinkage": -0.14141349999999997,
+        "null_se": 2.7755575615628914e-17,
+        "null_lo": -0.14141349999999997,
+        "null_hi": -0.14141349999999997,
+        "permutation_p": 1.0,
+        "B": 1000
+      },
+      "per_bucket": {
+        "1": {
+          "n": 200,
+          "funnel_purchase_rate": 0.065,
+          "actual_rate": 0.02,
+          "gap": 0.045
+        },
+        "2-5": {
+          "n": 200,
+          "funnel_purchase_rate": 0.1,
+          "actual_rate": 0.035,
+          "gap": 0.065
+        },
+        "6-20": {
+          "n": 200,
+          "funnel_purchase_rate": 0.31,
+          "actual_rate": 0.145,
+          "gap": 0.165
+        },
+        "21-100": {
+          "n": 200,
+          "funnel_purchase_rate": 0.715,
+          "actual_rate": 0.32,
+          "gap": 0.39499999999999996
+        },
+        "101+": {
+          "n": 200,
+          "funnel_purchase_rate": 0.89,
+          "actual_rate": 0.53,
+          "gap": 0.36
+        }
+      },
+      "H10_pass": false
+    },
+    "S2": {
+      "n": 1000,
+      "funnel_realized_purchase_rate": 0.52,
+      "actual_rate": 0.21,
+      "sandbox_signed_gap": 0.31000000000000005,
+      "sandbox_signed_gap_reweighted": 0.30733265763362816,
+      "sandbox_gap_bootstrap": {
+        "point": 0.31000000000000005,
+        "se": 0.015994472756224072,
+        "lo": 0.2745836738504211,
+        "hi": 0.33832210338205426,
+        "B": 1000
+      },
+      "within_bucket_rho": {
+        "per_bucket_rho": {
+          "1": -0.05522223882036203,
+          "2-5": 0.09588850321872446,
+          "6-20": 0.1499042276328558,
+          "21-100": 0.08218064389831761,
+          "101+": -0.06297059211935338
+        },
+        "weighted_rho": 0.041956108762036495,
+        "n_per_bucket": {
+          "1": 200,
+          "2-5": 200,
+          "6-20": 200,
+          "21-100": 200,
+          "101+": 200
+        }
+      },
+      "commitment_shrinkage": {
+        "scalar_gap": 0.09055740000000004,
+        "sandbox_gap": 0.31000000000000005,
+        "commitment_shrinkage": -0.21944260000000002,
+        "null_se": 1.1102230246251565e-16,
+        "null_lo": -0.21944260000000002,
+        "null_hi": -0.21944260000000002,
+        "permutation_p": 1.0,
+        "B": 1000
+      },
+      "per_bucket": {
+        "1": {
+          "n": 200,
+          "funnel_purchase_rate": 0.13,
+          "actual_rate": 0.02,
+          "gap": 0.11
+        },
+        "2-5": {
+          "n": 200,
+          "funnel_purchase_rate": 0.22,
+          "actual_rate": 0.035,
+          "gap": 0.185
+        },
+        "6-20": {
+          "n": 200,
+          "funnel_purchase_rate": 0.44,
+          "actual_rate": 0.145,
+          "gap": 0.29500000000000004
+        },
+        "21-100": {
+          "n": 200,
+          "funnel_purchase_rate": 0.83,
+          "actual_rate": 0.32,
+          "gap": 0.51
+        },
+        "101+": {
+          "n": 200,
+          "funnel_purchase_rate": 0.98,
+          "actual_rate": 0.53,
+          "gap": 0.44999999999999996
+        }
+      },
+      "H10_pass": false
+    },
+    "S3": {
+      "n": 1000,
+      "funnel_realized_purchase_rate": 0.635,
+      "actual_rate": 0.21,
+      "sandbox_signed_gap": 0.42500000000000004,
+      "sandbox_signed_gap_reweighted": 0.4256814253707444,
+      "sandbox_gap_bootstrap": {
+        "point": 0.42500000000000004,
+        "se": 0.016846968585838392,
+        "lo": 0.39276983623172823,
+        "hi": 0.4574549850634785,
+        "B": 1000
+      },
+      "within_bucket_rho": {
+        "per_bucket_rho": {
+          "1": 0.0016607927730023662,
+          "2-5": 0.02928097411604095,
+          "6-20": 0.1038412613393665,
+          "21-100": 0.039480098002787435,
+          "101+": -0.06675510079056683
+        },
+        "weighted_rho": 0.021501605088126083,
+        "n_per_bucket": {
+          "1": 200,
+          "2-5": 200,
+          "6-20": 200,
+          "21-100": 200,
+          "101+": 200
+        }
+      },
+      "commitment_shrinkage": {
+        "scalar_gap": 0.06458650000000002,
+        "sandbox_gap": 0.42500000000000004,
+        "commitment_shrinkage": -0.36041350000000005,
+        "null_se": 5.551115123125783e-17,
+        "null_lo": -0.36041350000000005,
+        "null_hi": -0.36041350000000005,
+        "permutation_p": 1.0,
+        "B": 1000
+      },
+      "per_bucket": {
+        "1": {
+          "n": 200,
+          "funnel_purchase_rate": 0.245,
+          "actual_rate": 0.02,
+          "gap": 0.225
+        },
+        "2-5": {
+          "n": 200,
+          "funnel_purchase_rate": 0.355,
+          "actual_rate": 0.035,
+          "gap": 0.31999999999999995
+        },
+        "6-20": {
+          "n": 200,
+          "funnel_purchase_rate": 0.675,
+          "actual_rate": 0.145,
+          "gap": 0.53
+        },
+        "21-100": {
+          "n": 200,
+          "funnel_purchase_rate": 0.905,
+          "actual_rate": 0.32,
+          "gap": 0.585
+        },
+        "101+": {
+          "n": 200,
+          "funnel_purchase_rate": 0.995,
+          "actual_rate": 0.53,
+          "gap": 0.46499999999999997
+        }
+      },
+      "H10_pass": false
+    },
+    "S4": {
+      "n": 1000,
+      "funnel_realized_purchase_rate": 0.33,
+      "actual_rate": 0.21,
+      "sandbox_signed_gap": 0.12000000000000002,
+      "sandbox_signed_gap_reweighted": 0.11417305025072022,
+      "sandbox_gap_bootstrap": {
+        "point": 0.12000000000000002,
+        "se": 0.015064880449058363,
+        "lo": 0.08283863490878057,
+        "hi": 0.14227775525445432,
+        "B": 1000
+      },
+      "within_bucket_rho": {
+        "per_bucket_rho": {
+          "1": -0.010126874357261942,
+          "2-5": -0.019140477510011272,
+          "6-20": -0.06390214842634574,
+          "21-100": -0.0034593275779522025,
+          "101+": 0.1721787999398187
+        },
+        "weighted_rho": 0.015109994413649505,
+        "n_per_bucket": {
+          "1": 200,
+          "2-5": 200,
+          "6-20": 200,
+          "21-100": 200,
+          "101+": 200
+        }
+      },
+      "commitment_shrinkage": {
+        "scalar_gap": 0.05086100000000002,
+        "sandbox_gap": 0.12000000000000002,
+        "commitment_shrinkage": -0.069139,
+        "null_se": 2.7755575615628914e-17,
+        "null_lo": -0.069139,
+        "null_hi": -0.069139,
+        "permutation_p": 1.0,
+        "B": 1000
+      },
+      "per_bucket": {
+        "1": {
+          "n": 200,
+          "funnel_purchase_rate": 0.005,
+          "actual_rate": 0.02,
+          "gap": -0.015
+        },
+        "2-5": {
+          "n": 200,
+          "funnel_purchase_rate": 0.01,
+          "actual_rate": 0.035,
+          "gap": -0.025
+        },
+        "6-20": {
+          "n": 200,
+          "funnel_purchase_rate": 0.2,
+          "actual_rate": 0.145,
+          "gap": 0.05500000000000002
+        },
+        "21-100": {
+          "n": 200,
+          "funnel_purchase_rate": 0.565,
+          "actual_rate": 0.32,
+          "gap": 0.24499999999999994
+        },
+        "101+": {
+          "n": 200,
+          "funnel_purchase_rate": 0.87,
+          "actual_rate": 0.53,
+          "gap": 0.33999999999999997
+        }
+      },
+      "H10_pass": false
+    }
+  },
+  "pairwise_h11": {
+    "S1_vs_M1": {
+      "point": 0.119698668296701,
+      "lo": 0.04107942313613038,
+      "hi": 0.19623415959992857,
+      "se": 0.04016917664092026,
+      "B": 1000,
+      "H11_pass": true
+    },
+    "S2_vs_M1": {
+      "point": 0.09364584661531512,
+      "lo": 0.020666771470294783,
+      "hi": 0.1641953057165733,
+      "se": 0.0367431250437531,
+      "B": 1000,
+      "H11_pass": true
+    },
+    "S3_vs_M1": {
+      "point": 0.07319134294140471,
+      "lo": 0.000887906196727521,
+      "hi": 0.15286283045274646,
+      "se": 0.03822048129756858,
+      "B": 1000,
+      "H11_pass": true
+    },
+    "S4_vs_M1": {
+      "point": 0.06679973226692813,
+      "lo": 0.004770928309965233,
+      "hi": 0.1256132178815613,
+      "se": 0.03107876308133014,
+      "B": 1000,
+      "H11_pass": true
+    }
+  },
+  "test_weights": {
+    "2-5": 0.20812973434332657,
+    "6-20": 0.20947402112450655,
+    "1": 0.19848501013549558,
+    "21-100": 0.20734023258295103,
+    "101+": 0.17657100181372026
+  },
+  "provider": "claude",
+  "holm_bonferroni_h10": {
+    "M8": {
+      "p": 0.9997407005519225,
+      "holm_crit": 0.003125,
+      "reject_h0": false
+    },
+    "S4": {
+      "p": 0.9999983124900865,
+      "holm_crit": 0.0035714285714285718,
+      "reject_h0": false
+    },
+    "M1": {
+      "p": 0.9999998684337943,
+      "holm_crit": 0.004166666666666667,
+      "reject_h0": false
+    },
+    "M3": {
+      "p": 1.0,
+      "holm_crit": 0.005,
+      "reject_h0": false
+    },
+    "M9": {
+      "p": 1.0,
+      "holm_crit": 0.00625,
+      "reject_h0": false
+    },
+    "S1": {
+      "p": 1.0,
+      "holm_crit": 0.008333333333333333,
+      "reject_h0": false
+    },
+    "S2": {
+      "p": 1.0,
+      "holm_crit": 0.0125,
+      "reject_h0": false
+    },
+    "S3": {
+      "p": 1.0,
+      "holm_crit": 0.025,
+      "reject_h0": false
+    }
+  },
+  "h11_mde": {
+    "median_paired_se": 0.03822048129756858,
+    "mde_80_power_alpha_0.025": 0.11783465964815425,
+    "preregistered_threshold": 0.03
+  },
+  "H10_any_pass": false,
+  "H11_any_pass": true,
+  "H10_holm_any_pass": false
+}
