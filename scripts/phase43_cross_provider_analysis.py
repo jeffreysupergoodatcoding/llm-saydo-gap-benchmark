@@ -299,25 +299,77 @@ def main():
         print(f"  {m}: n={len(recs)} gap={gap_rw:+.3f} CI=[{boot['lo']:+.3f},{boot['hi']:+.3f}] wb_rho={wbs['weighted_rho']:+.3f}")
     result["arms"]["claude_meta_policy"] = arm_b
 
-    # Arm C: Claude proper per-DP (M1 only currently)
-    print("\n=== Arm C: Claude proper per-DP (M1 only) ===")
+    # Arm C: Claude proper per-DP (M1 and S4)
+    print("\n=== Arm C: Claude proper per-DP (M1 + S4) ===")
     arm_c = {}
-    recs = load_claude_proper()
-    if recs:
-        gap_rw = signed_gap(recs, weights=reweight_to_test(recs, test_w))
-        boot = stratified_bootstrap_gap(recs, test_weights=test_w)
-        wbs = within_bucket_spearman(recs)
+    recs_m1 = load_claude_proper()
+    if recs_m1:
+        gap_rw = signed_gap(recs_m1, weights=reweight_to_test(recs_m1, test_w))
+        boot = stratified_bootstrap_gap(recs_m1, test_weights=test_w)
+        wbs = within_bucket_spearman(recs_m1)
         arm_c["M1"] = {
-            "n": len(recs),
-            "actual_rate": float(np.mean([r["actual"] for r in recs])),
-            "funnel_rate": float(np.mean([r["purchased"] for r in recs])),
+            "n": len(recs_m1),
+            "actual_rate": float(np.mean([r["actual"] for r in recs_m1])),
+            "funnel_rate": float(np.mean([r["purchased"] for r in recs_m1])),
             "gap_reweighted": gap_rw,
             "bootstrap": boot,
             "within_bucket_rho": wbs,
-            "per_bucket": per_bucket(recs),
+            "per_bucket": per_bucket(recs_m1),
         }
-        print(f"  M1: n={len(recs)} gap={gap_rw:+.3f} CI=[{boot['lo']:+.3f},{boot['hi']:+.3f}] wb_rho={wbs['weighted_rho']:+.3f}")
+        print(f"  M1: n={len(recs_m1)} gap={gap_rw:+.3f} CI=[{boot['lo']:+.3f},{boot['hi']:+.3f}] wb_rho={wbs['weighted_rho']:+.3f}")
+    # S4 consolidated file
+    s4_fn = ROOT / "results" / "phase42_claude_proper_S4.jsonl"
+    if s4_fn.exists():
+        s4_recs = []
+        for line in s4_fn.read_text().splitlines():
+            try:
+                s4_recs.append(json.loads(line))
+            except Exception:
+                pass
+        if s4_recs:
+            s4_recs = _dedupe(s4_recs)
+            gap_rw = signed_gap(s4_recs, weights=reweight_to_test(s4_recs, test_w))
+            boot = stratified_bootstrap_gap(s4_recs, test_weights=test_w)
+            wbs = within_bucket_spearman(s4_recs)
+            arm_c["S4"] = {
+                "n": len(s4_recs),
+                "actual_rate": float(np.mean([r["actual"] for r in s4_recs])),
+                "funnel_rate": float(np.mean([r["purchased"] for r in s4_recs])),
+                "gap_reweighted": gap_rw,
+                "bootstrap": boot,
+                "within_bucket_rho": wbs,
+                "per_bucket": per_bucket(s4_recs),
+            }
+            print(f"  S4: n={len(s4_recs)} gap={gap_rw:+.3f} CI=[{boot['lo']:+.3f},{boot['hi']:+.3f}] wb_rho={wbs['weighted_rho']:+.3f}")
     result["arms"]["claude_per_dp"] = arm_c
+
+    # Arm D: Claude proper per-DP under SANDBOX V2 (real world dynamics)
+    print("\n=== Arm D: Claude proper per-DP under SANDBOX V2 (world model) ===")
+    arm_d = {}
+    v2_fn = ROOT / "results" / "phase46_sandbox_v2_M1.jsonl"
+    if v2_fn.exists():
+        v2_recs = []
+        for line in v2_fn.read_text().splitlines():
+            try:
+                v2_recs.append(json.loads(line))
+            except Exception:
+                pass
+        if v2_recs:
+            v2_recs = _dedupe(v2_recs)
+            gap_rw = signed_gap(v2_recs, weights=reweight_to_test(v2_recs, test_w))
+            boot = stratified_bootstrap_gap(v2_recs, test_weights=test_w)
+            wbs = within_bucket_spearman(v2_recs)
+            arm_d["M1"] = {
+                "n": len(v2_recs),
+                "actual_rate": float(np.mean([r["actual"] for r in v2_recs])),
+                "funnel_rate": float(np.mean([r["purchased"] for r in v2_recs])),
+                "gap_reweighted": gap_rw,
+                "bootstrap": boot,
+                "within_bucket_rho": wbs,
+                "per_bucket": per_bucket(v2_recs),
+            }
+            print(f"  M1 (world v2): n={len(v2_recs)} gap={gap_rw:+.3f} CI=[{boot['lo']:+.3f},{boot['hi']:+.3f}] wb_rho={wbs['weighted_rho']:+.3f}")
+    result["arms"]["claude_per_dp_world_v2"] = arm_d
 
     # Paired comparisons on M1
     print("\n=== Paired M1 comparisons (common customers only) ===")
