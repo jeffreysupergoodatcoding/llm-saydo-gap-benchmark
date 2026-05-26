@@ -235,6 +235,48 @@ ls results/figures/                                # 5 png figures
 
 ---
 
+## Cleanup checklist for the new Claude instance
+
+Before doing any new work, the new Claude instance should propose to the user — and then execute if approved — the following pruning, since the repo accumulated some debugging/scratch artifacts during the chaotic session:
+
+### Safe to delete (debugging artifacts, regenerable)
+
+- `results/phase34_sandbox/bad/` — first batch of contaminated records from the original DNS-failure incident. Forensic value only; keep one sample for reproducibility, delete the rest. (~2 MB)
+- `results/phase34_sandbox/bad_v2/` — second batch of pre-throttle contaminated records (M1, M3). Same deal — keep one sample, delete the rest.
+- `cache/llm/` — 12,000+ cached LLM responses (~50 MB). Regenerable by re-running scripts. Safe to delete if disk-pressured; **keep otherwise** because regenerating costs API quota.
+- `cache/llm_costs.jsonl` — cost log. Keep as audit trail; ≤ 1 MB.
+- `results/phase42_claude_proper_batch_{0..7}.json` — intermediate per-batch input files for proper-DP M1. Consolidated into `phase42_claude_proper_input.json`. Safe to delete.
+- `results/phase40_claude_batch_{0..3}.json` — intermediate per-batch input files for meta-policy split. Consolidated into `phase40_claude_batch_input_full.json`. Safe to delete.
+- `results/phase42_claude_S4_batch_{0..7}.json` — intermediate per-batch input files for proper-DP S4. Safe to delete.
+- `results/phase46_sandbox_v2_batch_{0..3}.json` — same pattern for sandbox v2. Safe to delete.
+- `results/phase42_claude_proper_M1_gapfill_0.jsonl` — gap-fill batch that was concatenated into the main consolidated file. Already merged, safe to delete the standalone.
+- Any `*_pre_throttle.jsonl` files — pre-throttle contaminated batches.
+
+### Keep (these are durable contributions)
+
+- `HANDOFF.md`, `paper.md`, `paper_v2_archive.md`, `preregistration_v3.md`, `decisions_log.md`, `references.bib`
+- All `src/` modules (`sandbox/`, `sandbox_v2/`, `theory/` when created, etc.)
+- All scripts in `scripts/phase{1..47}*.py` (the analysis pipeline)
+- All consolidated `.jsonl` results: `phase34_sandbox/M{1..9}.jsonl`, `phase34_sandbox/S{1..4}.jsonl`, `phase40_claude_M{3,8,9}.jsonl`, `phase40_claude_S{1..4}.jsonl`, `phase40_claude_predictions.jsonl` (M1), `phase42_claude_proper_M1.jsonl`, `phase42_claude_proper_S4.jsonl`, `phase46_sandbox_v2_M1.jsonl`
+- All analysis JSON files: `phase41_claude_analysis.json`, `phase43_cross_provider_analysis.json`
+- All 5 figures in `results/figures/`
+- `results/phase31_core1000_v3.parquet` (sample selection) and `results/phase31_core1000_v3.json` (sample metadata)
+- `data/splits/{train,val,test}.parquet` (the H&M splits — though these are gitignored, they're the deterministic input)
+
+### Questionable — propose to user
+
+- `paper_v2_archive.md` — the v2-era archive. Useful for "what got dropped between v2 and v3" but adds noise. Propose keeping until v5 is committed, then archive to a tag.
+- `preregistration_v2.md` — old preregistration. Keep for audit trail but could move to a `archive/` subdirectory.
+- The big `phase40_claude_batch_input_full.json` (~4 MB) — used as input for the cross-provider Claude run; not strictly needed once that arm is finalized.
+
+### Decision point that needs the user
+
+Before pruning, ask: **"Are we shipping v3 paper to ICLR (short path) or executing the v5 plan (long path)?"** The cleanup decisions cascade from that:
+- **v3 short path**: prune aggressively, focus the repo around `paper.md` + the supporting `src/` + key `results/`
+- **v5 long path**: keep more of the scratch for reproducibility during the 6-week build; defer pruning until paper is camera-ready
+
+---
+
 ## Memory pointers for the new Claude instance
 
 The user's auto-memory at `/Users/jeffreysu/.claude/projects/-Users-jeffreysu-Desktop-personal-projects-research-proj/memory/MEMORY.md` already has:
