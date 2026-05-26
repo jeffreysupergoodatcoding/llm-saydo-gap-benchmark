@@ -25,8 +25,8 @@ from src.sandbox.env import SandboxState
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT_INPUT = ROOT / "results" / "phase40_claude_batch_input.json"
-N_PER_BUCKET = 20
+OUT_INPUT = ROOT / "results" / "phase40_claude_batch_input_full.json"
+N_PER_BUCKET = 200  # full core-1000 to match Gemini M1
 
 
 def main():

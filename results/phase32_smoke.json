@@ -1,0 +1,378 @@
+{
+  "M1": [
+    {
+      "cid": "6edd71b19f9324acf37d7b5d5e61ff7febe377c3c33828376811ff65cca6bc4e",
+      "bucket": "1",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 4,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "66f004b33ca3095f77d26373205be3f1dffd0ddf933941f90dedb61a809e4c3e",
+      "bucket": "2-5",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "74a1322d6021beb8023ed0f496e98034670c0faafa227d43535c6287a0fb0516",
+      "bucket": "6-20",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "eb80cf3416a2811cb44730cd5c0c926854551122d4ca950db319000d046b38c1",
+      "bucket": "21-100",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 5,
+      "weeks_engaged": 2
+    },
+    {
+      "cid": "3eaf20ebff9eb6819552b7e10d3e420e62939e6e4cac03d5f1afaf0137954b3a",
+      "bucket": "101+",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    }
+  ],
+  "M3": [
+    {
+      "cid": "6edd71b19f9324acf37d7b5d5e61ff7febe377c3c33828376811ff65cca6bc4e",
+      "bucket": "1",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 4,
+      "weeks_engaged": 0
+    },
+    {
+      "cid": "66f004b33ca3095f77d26373205be3f1dffd0ddf933941f90dedb61a809e4c3e",
+      "bucket": "2-5",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "74a1322d6021beb8023ed0f496e98034670c0faafa227d43535c6287a0fb0516",
+      "bucket": "6-20",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "eb80cf3416a2811cb44730cd5c0c926854551122d4ca950db319000d046b38c1",
+      "bucket": "21-100",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 5,
+      "weeks_engaged": 2
+    },
+    {
+      "cid": "3eaf20ebff9eb6819552b7e10d3e420e62939e6e4cac03d5f1afaf0137954b3a",
+      "bucket": "101+",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    }
+  ],
+  "M8": [
+    {
+      "cid": "6edd71b19f9324acf37d7b5d5e61ff7febe377c3c33828376811ff65cca6bc4e",
+      "bucket": "1",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 7,
+      "weeks_engaged": 3
+    },
+    {
+      "cid": "66f004b33ca3095f77d26373205be3f1dffd0ddf933941f90dedb61a809e4c3e",
+      "bucket": "2-5",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "74a1322d6021beb8023ed0f496e98034670c0faafa227d43535c6287a0fb0516",
+      "bucket": "6-20",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "eb80cf3416a2811cb44730cd5c0c926854551122d4ca950db319000d046b38c1",
+      "bucket": "21-100",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 5,
+      "weeks_engaged": 2
+    },
+    {
+      "cid": "3eaf20ebff9eb6819552b7e10d3e420e62939e6e4cac03d5f1afaf0137954b3a",
+      "bucket": "101+",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    }
+  ],
+  "M9": [
+    {
+      "cid": "6edd71b19f9324acf37d7b5d5e61ff7febe377c3c33828376811ff65cca6bc4e",
+      "bucket": "1",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 5,
+      "weeks_engaged": 2
+    },
+    {
+      "cid": "66f004b33ca3095f77d26373205be3f1dffd0ddf933941f90dedb61a809e4c3e",
+      "bucket": "2-5",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "74a1322d6021beb8023ed0f496e98034670c0faafa227d43535c6287a0fb0516",
+      "bucket": "6-20",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "eb80cf3416a2811cb44730cd5c0c926854551122d4ca950db319000d046b38c1",
+      "bucket": "21-100",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 5,
+      "weeks_engaged": 2
+    },
+    {
+      "cid": "3eaf20ebff9eb6819552b7e10d3e420e62939e6e4cac03d5f1afaf0137954b3a",
+      "bucket": "101+",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 5,
+      "weeks_engaged": 2
+    }
+  ],
+  "S1": [
+    {
+      "cid": "6edd71b19f9324acf37d7b5d5e61ff7febe377c3c33828376811ff65cca6bc4e",
+      "bucket": "1",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 4,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "66f004b33ca3095f77d26373205be3f1dffd0ddf933941f90dedb61a809e4c3e",
+      "bucket": "2-5",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "74a1322d6021beb8023ed0f496e98034670c0faafa227d43535c6287a0fb0516",
+      "bucket": "6-20",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "eb80cf3416a2811cb44730cd5c0c926854551122d4ca950db319000d046b38c1",
+      "bucket": "21-100",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "3eaf20ebff9eb6819552b7e10d3e420e62939e6e4cac03d5f1afaf0137954b3a",
+      "bucket": "101+",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    }
+  ],
+  "S2": [
+    {
+      "cid": "6edd71b19f9324acf37d7b5d5e61ff7febe377c3c33828376811ff65cca6bc4e",
+      "bucket": "1",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 6,
+      "weeks_engaged": 2
+    },
+    {
+      "cid": "66f004b33ca3095f77d26373205be3f1dffd0ddf933941f90dedb61a809e4c3e",
+      "bucket": "2-5",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 4,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "74a1322d6021beb8023ed0f496e98034670c0faafa227d43535c6287a0fb0516",
+      "bucket": "6-20",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 6,
+      "weeks_engaged": 2
+    },
+    {
+      "cid": "eb80cf3416a2811cb44730cd5c0c926854551122d4ca950db319000d046b38c1",
+      "bucket": "21-100",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 6,
+      "weeks_engaged": 2
+    },
+    {
+      "cid": "3eaf20ebff9eb6819552b7e10d3e420e62939e6e4cac03d5f1afaf0137954b3a",
+      "bucket": "101+",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 6,
+      "weeks_engaged": 2
+    }
+  ],
+  "S3": [
+    {
+      "cid": "6edd71b19f9324acf37d7b5d5e61ff7febe377c3c33828376811ff65cca6bc4e",
+      "bucket": "1",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 4,
+      "weeks_engaged": 0
+    },
+    {
+      "cid": "66f004b33ca3095f77d26373205be3f1dffd0ddf933941f90dedb61a809e4c3e",
+      "bucket": "2-5",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 6,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "74a1322d6021beb8023ed0f496e98034670c0faafa227d43535c6287a0fb0516",
+      "bucket": "6-20",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 5,
+      "weeks_engaged": 2
+    },
+    {
+      "cid": "eb80cf3416a2811cb44730cd5c0c926854551122d4ca950db319000d046b38c1",
+      "bucket": "21-100",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "3eaf20ebff9eb6819552b7e10d3e420e62939e6e4cac03d5f1afaf0137954b3a",
+      "bucket": "101+",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 3,
+      "weeks_engaged": 1
+    }
+  ],
+  "S4": [
+    {
+      "cid": "6edd71b19f9324acf37d7b5d5e61ff7febe377c3c33828376811ff65cca6bc4e",
+      "bucket": "1",
+      "actual": 0,
+      "purchased": false,
+      "n_purchases": 0,
+      "n_dp_calls": 7,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "66f004b33ca3095f77d26373205be3f1dffd0ddf933941f90dedb61a809e4c3e",
+      "bucket": "2-5",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 4,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "74a1322d6021beb8023ed0f496e98034670c0faafa227d43535c6287a0fb0516",
+      "bucket": "6-20",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 4,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "eb80cf3416a2811cb44730cd5c0c926854551122d4ca950db319000d046b38c1",
+      "bucket": "21-100",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 4,
+      "weeks_engaged": 1
+    },
+    {
+      "cid": "3eaf20ebff9eb6819552b7e10d3e420e62939e6e4cac03d5f1afaf0137954b3a",
+      "bucket": "101+",
+      "actual": 0,
+      "purchased": true,
+      "n_purchases": 1,
+      "n_dp_calls": 4,
+      "weeks_engaged": 1
+    }
+  ]
+}

@@ -376,10 +376,41 @@ def main():
     pair_a_b = paired_gap_diff(load_gemini("M1"), load_claude_meta("M1"))
     pair_a_c = paired_gap_diff(load_gemini("M1"), load_claude_proper())
     pair_b_c = paired_gap_diff(load_claude_meta("M1"), load_claude_proper())
+    # NEW: paired bootstrap CI on Δwb-ρ
+    def paired_wbrho_diff(rec_a, rec_b, B=1000, seed=2026):
+        ca = {r["customer_id"]: r for r in rec_a}
+        cb = {r["customer_id"]: r for r in rec_b}
+        common = sorted(set(ca.keys()) & set(cb.keys()))
+        if len(common) < 30:
+            return None
+        pa = [ca[c] for c in common]; pb = [cb[c] for c in common]
+        point = within_bucket_spearman(pa)["weighted_rho"] - within_bucket_spearman(pb)["weighted_rho"]
+        rng = np.random.default_rng(seed)
+        by_b = {}
+        for i, r in enumerate(pa):
+            by_b.setdefault(r["bucket"], []).append(i)
+        samples = []
+        for _ in range(B):
+            idxs = []
+            for b, items in by_b.items():
+                idxs.extend(rng.choice(items, size=len(items), replace=True).tolist())
+            ba = [pa[i] for i in idxs]; bb = [pb[i] for i in idxs]
+            samples.append(within_bucket_spearman(ba)["weighted_rho"] - within_bucket_spearman(bb)["weighted_rho"])
+        samples = np.array(samples)
+        return {
+            "n_common": len(common), "point": point,
+            "lo": float(np.quantile(samples, 0.025)),
+            "hi": float(np.quantile(samples, 0.975)),
+            "se": float(samples.std()), "B": B,
+        }
+    wbrho_b_c = paired_wbrho_diff(load_claude_meta("M1"), load_claude_proper())
+    wbrho_a_c = paired_wbrho_diff(load_gemini("M1"), load_claude_proper())
     result["paired_m1"] = {
         "gemini_per_dp__vs__claude_meta": pair_a_b,
         "gemini_per_dp__vs__claude_per_dp": pair_a_c,
         "claude_meta__vs__claude_per_dp": pair_b_c,
+        "wb_rho_diff__claude_meta_vs_claude_per_dp": wbrho_b_c,
+        "wb_rho_diff__gemini_vs_claude_per_dp": wbrho_a_c,
     }
     for name, p in result["paired_m1"].items():
         if p:
